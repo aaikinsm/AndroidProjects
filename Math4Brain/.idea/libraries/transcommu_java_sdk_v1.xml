@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="transcommu-java-sdk-v1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/transcommu-java-sdk-v1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
