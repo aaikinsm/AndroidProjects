@@ -38,8 +38,9 @@ public class MultiplayerActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multiplayer);
-       
+		try {
+			setContentView(R.layout.multiplayer);
+		}catch(RuntimeException e){finish();}
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         showP1Eq = (TextView) findViewById(R.id.textViewP1Equation);
         showP2Eq = (TextView) findViewById(R.id.textViewP2Equation);

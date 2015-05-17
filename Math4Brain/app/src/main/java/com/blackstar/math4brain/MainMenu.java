@@ -54,7 +54,7 @@ public class MainMenu extends Activity implements TapjoyNotifier{
 	MediaPlayer mp3Bg;
 	GameSettings gSettings;
 	String FILENAME = "m4bfile1", FILEPRO = "m4bfilePro1",  FILEMULT = "m4bfileMul", FILETRACK = "m4bfileTrack";
-	boolean resumable = false, pro = false, blackberry=false, amazon=false, 
+	boolean resumable = false, pro = false, blackberry=false, amazon=false,
 			connection = true, billUsed=false, openPurchase = false;
 	TextView tv;
 	String[] gFile = new String[FILESIZE];
@@ -190,7 +190,9 @@ public class MainMenu extends Activity implements TapjoyNotifier{
         try {
         	//if file not found/not created yet, jump to next catch block
 			FileInputStream fi = openFileInput(FILEPRO);
-			logo.setImageResource(R.drawable.math4thebrain_pro_logo);
+			try {
+				logo.setImageResource(R.drawable.math4thebrain_pro_logo);
+			}catch(OutOfMemoryError e){}
 			pro = true;
 		} catch (FileNotFoundException e) {
 			if (pro){
@@ -777,7 +779,7 @@ public class MainMenu extends Activity implements TapjoyNotifier{
     
     public void updateProgressTracker(){
     	//update progress data if enough time has passed
-    	long mins2 = 120000, days1 = 150000;//86400000;
+    	long mins2 = 120000, days1 = 86400000;
     	if(dataT[0][0]<System.currentTimeMillis()-mins2){
     		String data="";
 			int pts, n, average =0, level;
@@ -795,7 +797,7 @@ public class MainMenu extends Activity implements TapjoyNotifier{
     			dataT[0][1] = myGameScore; 
     		try {							
 	    		for(int i=0; i<365-1; i++) data+= dataT[i][0]+" "+dataT[i][1]+" \n";
-				Log.d("testMain","k="+dataT[0][0]+" level:"+dataT[0][1]);
+				//Log.d("testMain","k="+dataT[0][0]+" level:"+dataT[0][1]);
 	    		OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILETRACK,0)); 
 				out.write(data);
 				out.close();

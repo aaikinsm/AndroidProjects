@@ -432,7 +432,7 @@ public class UserActivity extends Activity{
 	            JSONObject json3 = jsonParser.makeHttpRequest(url_get_users, "GET", params3);
 	 
 	            // Check your log cat for JSON reponse
-	            Log.d("All users: ", json3.toString());
+	            try{ Log.d("All users: ", json3.toString()); } catch(OutOfMemoryError e){}
 	 
 	            try {
 	                // Checking for SUCCESS TAG

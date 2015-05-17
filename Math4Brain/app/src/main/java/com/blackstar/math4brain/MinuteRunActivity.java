@@ -29,8 +29,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.tapjoy.TapjoyConnect;
 import com.tapjoy.TapjoyDisplayAdNotifier;
 import com.tapjoy.TapjoyFullScreenAdNotifier;
@@ -60,12 +62,14 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	boolean speechActive = false, admobActive = false;
 	ImageButton micButton;
 	AdView adView1;
+	InterstitialAd mInterstitialAd;
     
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mathquestion);
+
+		setContentView(R.layout.mathquestion);
 
         TapjoyConnect.requestTapjoyConnect(getApplicationContext(),"d199877d-7cb0-4e00-934f-d04eb573aa47","1SgBmHKgJUk8cw9IOY3s");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -126,9 +130,9 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if(cm.getActiveNetworkInfo() == null) connection = false;
         if(android.os.Build.BRAND.toLowerCase().contains("blackberry"))blackberry=true;
-        else if(android.os.Build.MODEL.toLowerCase().contains("kindle"))amazon=true; 
+        else if(android.os.Build.MODEL.toLowerCase().contains("kindle"))amazon=true;
 
-        
+
         //Locate the Banner Ad in activity_main.xml
   		adView1 = (AdView) this.findViewById(R.id.adView);
 
@@ -151,13 +155,13 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this, "d199877d-7cb0-4e00-934f-d04eb573aa47", this);
 	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
         }
-        if (fb==3 && !blackberry && connection){
-	        //Display ad non-rewarded
-	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
-	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this,"684e6285-de7c-47bb-9341-3afbbfeb6eea", this);
-	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
-        }
-        if (fb>3 && !blackberry && connection) admobActive = true;
+//        if (fb==3 && !blackberry && connection){
+//	        //Display ad non-rewarded
+//	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
+//	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this,"684e6285-de7c-47bb-9341-3afbbfeb6eea", this);
+//	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
+//        }
+//        if (fb>3 && !blackberry && connection) admobActive = true;
         
      		
         //get user settings then create equation 
@@ -488,8 +492,16 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         };
         mHandler.removeCallbacks(gotInput);            
 		mHandler.postDelayed(gotInput, 100);
-		
-		
+
+		mInterstitialAd = new InterstitialAd(this);
+		mInterstitialAd.setAdUnitId("ca-app-pub-8528343456081396/2957766464");
+		requestNewInterstitial();
+		mInterstitialAd.setAdListener(new AdListener() {
+			@Override
+			public void onAdClosed() {
+				requestNewInterstitial();
+			}
+		});
         
 		b0.setOnClickListener (new View.OnClickListener(){
         	@Override
@@ -773,6 +785,10 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 				if(System.currentTimeMillis() %4==0 && connection && !pro){
 					TapjoyConnect.getTapjoyConnectInstance().getFullScreenAd(fullAdNotif);
 					FlurryAgent.logEvent("Video_Ad");
+				}else if(System.currentTimeMillis() %5==0 && connection && !pro){
+					if (mInterstitialAd.isLoaded()) {
+						mInterstitialAd.show();
+					}
 				}
 			}
         }catch (FileNotFoundException e) {
@@ -849,6 +865,14 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	@Override
 	public void getFullScreenAdResponseFailed(int arg0) {
 		Log.i("TAPJOY", "Failed to display Full Screen Ad..");
+	}
+
+	private void requestNewInterstitial() {
+		AdRequest adRequest = new AdRequest.Builder()
+				.addTestDevice("YOUR_DEVICE_HASH")
+				.build();
+
+		mInterstitialAd.loadAd(adRequest);
 	}
 
     @Override
