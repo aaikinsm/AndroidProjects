@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\imdc\Documents\GitHub\AndroidProjects\SlideFlow\app\libs\FlurryAnalytics-5.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9143ea9b390b4f6eeee3673533402669de23ab7e">
+        <dex dex="C:\Users\imdc\Documents\GitHub\AndroidProjects\SlideFlow\app\build\intermediates\pre-dexed\debug\FlurryAnalytics-5.0.0-a9f85c5d510985985b1a911c7ae8b27d8d131724.jar" />
+    </item>
+    <item
+        jar="C:\Users\imdc\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\imdc\Documents\GitHub\AndroidProjects\SlideFlow\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-bc6c45f3e86cfc32b43b68836307f54b2634c1f8.jar" />
+    </item>
+
+</items>

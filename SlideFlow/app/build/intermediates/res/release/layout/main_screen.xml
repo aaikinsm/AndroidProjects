@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/colored_tile"
+    android:padding="10dp" >
+
+    <view
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="com.blackstar.slideflow.BackgroundSlide"
+        android:id="@+id/interactive"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/slideflow_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonTimed"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:background="@drawable/clear"
+        android:text="Time Trial"
+        android:layout_below="@+id/buttonChallenge"
+        android:layout_alignLeft="@+id/buttonChallenge"
+        android:layout_alignStart="@+id/buttonChallenge"
+        android:padding="5dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonMultiplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonTimed"
+        android:layout_margin="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_menu"
+        android:text="Multiplayer"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/buttonChallenge"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:background="@drawable/clear"
+        android:text="Challenge"
+        android:padding="5dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
+</RelativeLayout><!-- From: file:/C:/Users/imdc/Documents/GitHub/AndroidProjects/SlideFlow/app/src/main/res/layout/main_screen.xml -->

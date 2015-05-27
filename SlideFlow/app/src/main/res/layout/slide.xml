@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonGo"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button"
+        android:text="Next"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonGo"
+        android:layout_below="@+id/slideView1"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewMoves"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Moves"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/shadow_banner"
+        android:gravity="center"
+        android:text="Level"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonMenu"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewLevel"
+        android:layout_alignBottom="@+id/textViewLevel"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/clear"
+        android:padding="0dp"
+        android:text="Menu" />
+
+    <Button
+        android:id="@+id/buttonRetry"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewLevel"
+        android:layout_alignBottom="@+id/textViewLevel"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/clear"
+        android:padding="0dp"
+        android:text="Retry" />
+
+    <com.blackstar.slideflow.SlideView
+        android:id="@+id/slideView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewLevel"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button" />
+
+    <ImageView
+        android:id="@+id/imageSwipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/slideView1"
+        android:layout_marginLeft="59dp"
+        android:layout_marginTop="29dp"
+        android:src="@drawable/swipe_right"
+        android:visibility="gone" />
+
+</RelativeLayout>
