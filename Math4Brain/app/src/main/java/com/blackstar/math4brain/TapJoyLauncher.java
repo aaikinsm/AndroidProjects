@@ -41,7 +41,7 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 
 	int point_total;
 	int GAMEPOINTS=0;
-	int minPointsPro = 5000;
+	int minPointsPro = 6000;
 	int FILESIZE = 25;
 	String currency_name;
 	

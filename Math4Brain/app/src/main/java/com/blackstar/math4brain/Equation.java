@@ -78,8 +78,9 @@ public class Equation {
 		}
 		
 		public String getAnswer(){
-			if(getEquation().equals("3� = "))ans = 27; //quick fix
-			if(getEquation().equals("3� = "))ans = 3; //quick fix
+			if(getEquation().equals("3³ = "))ans = 27; //quick fix
+			if(getEquation().equals("3² = "))ans = 9; //quick fix
+			if(getEquation().equals("3¹ = "))ans = 3; //quick fix
 			return ans+"";
 		}
 		
@@ -100,7 +101,7 @@ public class Equation {
 						else if(n2==1) hnt = "# x 1 = #";
 						else if(n2==2) hnt = n1+" + "+n1+" = ?";
 						else if(n2==3) hnt = n1+" + "+n1+" + "+n1+" = ?";
-						else if(n2==4) hnt = n1+" + "+n1+" + "+n1+" + "+n1+" = ?\n"+n1+n1+n1+" + "+n1+" = ?";
+						else if(n2==4) hnt = n1+" + "+n1+" + "+n1+" + "+n1+" = ?\n"+(n1+n1+n1)+" + "+n1+" = ?";
 						else if(n2>10 ) hnt = "("+(n2-n2%10)+"x"+n1+") + ("+n2%10+"x"+n1+") = ?";
 						else if (n2%10 == 0) hnt = "("+n1+"x"+(n2/10)+") x 10 = ? \n"+n2*n1/10+" x 10 = ?";
 					}else{
@@ -112,14 +113,14 @@ public class Equation {
 					if(n2==1)hnt = "#"+superscript(n2)+" = #";
 					if(n2==2)hnt = n1+"x"+n1+" = ?";
 					if(n2==3)hnt = n1+"x"+n1+"x"+n1+" = ?\n"+n1*n1+"x"+n1+" = ?";
-					if(n2==4)hnt = n1+"x"+n1+"x"+n1+"x"+n1+" = ?\n"+n1*n1*n1+"x"+n1+" = ?";
+					if(n2==4)hnt = n1+"x"+n1+"x"+n1+"x"+n1+" = ?\n"+(n1*n1*n1)+"x"+n1+" = ?";
 				}if(eqType==4){
 					if(n1==100) hnt = "#"+cntx.getString(R.string.percent_sign)+ n1+" = #";
 					else if(n1==0) hnt = "#"+cntx.getString(R.string.percent_sign)+ n1+" = 0";
-					else if(n2==75) hnt = "("+n1+" � 4) x 3 = ?";
-					else if(n2==50) hnt = n1+" � 2 = ?";
-					else if(n2==25) hnt = n1+" � 4 = ?";
-					else if(n2==10) hnt = n1+" � 10 = ?";
+					else if(n2==75) hnt = "("+n1+" ÷ 4) x 3 = ?";
+					else if(n2==50) hnt = n1+" ÷ 2 = ?";
+					else if(n2==25) hnt = n1+" ÷ 4 = ?";
+					else if(n2==10) hnt = n1+" ÷ 10 = ?";
 					else if(n2%10==0) hnt = n2/10+" x (10"+cntx.getString(R.string.percent_sign)+n1+") = ?";
 				}
 			}
@@ -231,7 +232,7 @@ public class Equation {
 					num3 = lBound + (int) ( Math.random()*(uBound - lBound) );
 					if(num2%4==0){
 						if(ans%num3 == 0){
-							sign="�";
+							sign="÷";
 							mAns = ans;
 							ans=(int)(ans/num3);
 							multi=true;

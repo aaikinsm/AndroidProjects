@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, MathMentorActivity!</string>
-    <string name="app_name">Math For The Brain</string>
+    <string name="app_name">Kokotoa (Math For The Brain)</string>
     <string name="filename">m4bfile</string>
     <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
     <string name="feedback">Do you like this app so far? Please feel free to leave a comment or suggestion. Your feedback is appreciated thanks</string>
@@ -13,7 +13,7 @@
     <string name="close">Close</string>
     <string name="total_points">Total Points</string>
     <string name="you_are">You are</string>
-    <string name="pts_away_from_unlock">points away from unlocking Math for The Brain PRO</string>
+    <string name="pts_away_from_unlock">points away from unlocking Kokotoa PRO (Math for The Brain)</string>
     <string name="unable_to_get_pts">Unable to retrieve tap points from server.</string>
     <string name="you_just_earned">"You've just earned"</string>
     <!--  settings -->
@@ -86,7 +86,7 @@
     <string name="user_info">User Info.</string>
     <string name="exit">Exit</string>
     <string name="welcome_back">Welcome Back</string>
-    <string name="welcome_to_m4b">Welcome to math for the brain!</string>
+    <string name="welcome_to_m4b">Welcome to Kokotoa (math for the brain)</string>
     <string name="file_is_corrupt">File is Corrupt: Reset User Data!</string>
     <string name="leave_feedback">Give Feedback</string>
     <string name="perhaps_later">Perhaps Later</string>
@@ -106,7 +106,7 @@ More Brain Facts"</string>
     <string name="one_device">Single Device</string>
     <string name="two_devices">Two Devices</string>
     <string name="pro_version_unlocked">The Pro version has been unlocked!</string>
-    <string name="email_subject">Math for the brain feedback</string>
+    <string name="email_subject">Kokotoa (Math for the brain) feedback</string>
     <string name="send_email_using">Send email using..</string>
     <string name="no_email_client">There are no email clients installed.</string>
     <!--  user info -->
@@ -125,7 +125,7 @@ Average Score:
 Total Points:"</string>
     <string name="reminder_change_name">Reminder: Change default user name</string>
     <string name="i_rank">I rank #</string>
-    <string name="share_msg">" (worldwide) in 'Math For The Brain'. Get this android app and check your world rank! "</string>
+    <string name="share_msg">" (worldwide) in Kokotoa (Math For The Brain). Get this android app and check your world rank! "</string>
     <string name="bb_link">"http://appworld.blackberry.com/webstore/content/20484402/"</string>
     <string name="google_link">"https://play.google.com/store/apps/details?id=com.blackstar.math4brain"</string>
     <string name="amazon_link">"http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I"</string>
@@ -155,7 +155,7 @@ Are you sure you want to Reset?"</string>
     <string name="p1_not_ready">opponent is not ready</string>
     <string name="p1_not_found">opponent not found.</string>
     <string name="p1_not_joined">session not joined.</string>
-    <string name="rate_msg">If you enjoy using Math for the Brain, would you please take a moment to rate me 5 stars? Thanks for your support</string>
+    <string name="rate_msg">If you enjoy using Kokotoa (Math for the Brain), would you please take a moment to rate me 5 stars? Thanks for your support</string>
     <string name="rate">Rate Me</string>
     <string name="no_thanks">No thanks</string>
     <string name="breakMsg">Give your brain a break, come back later</string>

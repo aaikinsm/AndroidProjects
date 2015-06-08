@@ -13,7 +13,11 @@ import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -49,8 +53,8 @@ import java.util.Scanner;
 import java.util.UUID;
 
 
-public class MainMenu extends Activity implements TapjoyNotifier{
-	int minPointsPro = 5000, points, FILESIZE=25, tries=3;
+public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
+	int minPointsPro = 6000, points, FILESIZE=25, tries=3;
 	MediaPlayer mp3Bg;
 	GameSettings gSettings;
 	String FILENAME = "m4bfile1", FILEPRO = "m4bfilePro1",  FILEMULT = "m4bfileMul", FILETRACK = "m4bfileTrack";
@@ -71,23 +75,19 @@ public class MainMenu extends Activity implements TapjoyNotifier{
     public void onCreate(Bundle savedInstanceState) {		
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
-        final Button practice = (Button) findViewById(R.id.buttonPractice);
-        final Button minRun = (Button) findViewById(R.id.button60SRun);
-        final Button challenge = (Button) findViewById(R.id.buttonChallenge);
-        final Button faceOff = (Button) findViewById(R.id.buttonFaceOff);
-        final Button settings = (Button) findViewById(R.id.ButtonSettings);
-        final Button user = (Button) findViewById(R.id.ButtonUser);
+        final ImageButton practice = (ImageButton) findViewById(R.id.buttonPractice);
+        final ImageButton minRun = (ImageButton) findViewById(R.id.button60SRun);
+        final ImageButton challenge = (ImageButton) findViewById(R.id.buttonChallenge);
+        final ImageButton faceOff = (ImageButton) findViewById(R.id.buttonFaceOff);
         final ImageView logo = (ImageView) findViewById(R.id.imageViewLogo);
         final TextView version = (TextView) findViewById(R.id.version);
         menuSpace = (LinearLayout) findViewById(R.id.linearLayoutMenu);
-        mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music);
         mp3Click = MediaPlayer.create(this, R.raw.click);
         gSettings = new GameSettings();
         tv = (TextView) findViewById(R.id.textViewTip);
-        //set fonts
         myTypeface = Typeface.createFromAsset(getAssets(), "fawn.ttf");
-        practice.setTypeface(myTypeface); minRun.setTypeface(myTypeface); challenge.setTypeface(myTypeface);
-        faceOff.setTypeface(myTypeface); settings.setTypeface(myTypeface); user.setTypeface(myTypeface);
+		if((int)(Math.random()*2) ==0) mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music);
+		else mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music2);
         
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if(cm.getActiveNetworkInfo() == null) connection = false;
@@ -124,12 +124,6 @@ public class MainMenu extends Activity implements TapjoyNotifier{
 
 			}
 			in.close();
-			//very old file format
-			if(i==12 || !uid.substring(8,9).equals("-")){
-				String myUID = UUID.randomUUID().toString().substring(0,10);
-				data = (dat+" "+myUID+" User:_no_name ");
-				i=13;
-			}
 			//write new file
 			if(i<15){
 				try {
@@ -300,21 +294,6 @@ public class MainMenu extends Activity implements TapjoyNotifier{
         	}
         });
         
-        settings.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-        		animateTransition("android.intent.action.SETTINGS");
-        		FlurryAgent.logEvent("Settings");
-        	}
-        });
-        
-        user.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-        		animateTransition("android.intent.action.USER");
-        	}
-        });
-        
         challenge.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
@@ -333,7 +312,45 @@ public class MainMenu extends Activity implements TapjoyNotifier{
         });
         
     }
-    
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu_actions, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle presses on the action bar items
+		switch (item.getItemId()) {
+			case R.id.settings:
+				animateTransition("android.intent.action.SETTINGS");
+				FlurryAgent.logEvent("Settings");
+				return true;
+			case R.id.user:
+				animateTransition("android.intent.action.USER");
+				return true;
+			case R.id.practice:
+				animateTransition("android.intent.action.PRACTICE");
+				FlurryAgent.logEvent("Settings");
+				return true;
+			case R.id.minrun:
+				animateTransition("android.intent.action.MINUTERUN");
+				FlurryAgent.logEvent("Minute_Run");
+				return true;
+			case R.id.challenge:
+				if (resumable)resumeDialog();
+				else animateTransition("android.intent.action.CHALLENGE");
+				FlurryAgent.logEvent("Challenge");
+			case R.id.multi:
+				multiplayerDialog();
+				FlurryAgent.logEvent("Multiplayer");
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
     @Override
     public void onStart() {
         super.onStart();
@@ -560,7 +577,11 @@ public class MainMenu extends Activity implements TapjoyNotifier{
 			title.setVisibility(View.VISIBLE);
 			title.setText(this.getString(R.string.get_pro_version));
     		TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-    		body.setText(R.string.pro_features);
+			body.setText("");
+			if(getResources().getConfiguration().locale.toString().contains("en"))
+				body.setBackgroundResource(R.drawable.pro_ad);
+			else
+    			body.setText(R.string.pro_features);
     		Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
     		dialogButton.setVisibility(View.VISIBLE);   		    		
     		dialogButton.setText(R.string.yes);
@@ -574,16 +595,16 @@ public class MainMenu extends Activity implements TapjoyNotifier{
     		Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);    		
     		dialogButton2.setVisibility(View.VISIBLE);   		    		
     		dialogButton2.setText(R.string.no);
-    		dialogButton2.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-	        		dialog.dismiss();
-    			}
-    		});
+    		dialogButton2.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
     		dialog.show();
 		}
         
-        if ((fb==11 || fb==12 || fb==13) && getResources().getConfiguration().locale.toString().contains("en") && points>0 && connection){
+        if ((fb==11 || fb==12) && getResources().getConfiguration().locale.toString().contains("en") && points>0 && connection){
 			//open translate dialog
         	final Dialog dialog = new Dialog(this);
     		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

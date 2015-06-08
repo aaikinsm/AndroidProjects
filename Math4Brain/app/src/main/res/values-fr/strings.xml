@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World!</string>
-    <string name="app_name">Math For The Brain (Fr)</string>
+    <string name="app_name">Kokotoa (Fr)</string>
     <string name="filename">m4bfile</string>
     <string name="crash_toast_text">Ooooops ! Je suis échoué, mais un rapport a été envoyé à mon développeur pour aider à résoudre le problème!</string>
     <string name="feedback">"Aimez-vous cette application à ce jour? N'hésitez pas à laisser un commentaire ou suggestion s'il vous plaît. Vos commentaires sont appréciés grâce 
@@ -13,7 +13,7 @@ Aussi, si vous comprenez l'anglais et le français et que vous voulez aider à l
     <string name="close">Mettre Fin</string>
     <string name="total_points">Total de Points</string>
     <string name="you_are">Vous êtes</string>
-    <string name="pts_away_from_unlock">"points loin de déverrouillage 'Math For The Brain Pro'"</string>
+    <string name="pts_away_from_unlock">"points loin de déverrouillage 'Kokotoa Pro'"</string>
     <string name="unable_to_get_pts">Impossible de récupérer les points Tap de serveur.</string>
     <string name="you_just_earned">Vous venez de gagner</string>
     <string name="get_pro_version">Obtenez la version Pro</string>
@@ -81,7 +81,7 @@ Aussi, si vous comprenez l'anglais et le français et que vous voulez aider à l
     <string name="user_info">Info Utilisateur</string>
     <string name="exit">Quitter</string>
     <string name="welcome_back">Bienvenue à nouveau</string>
-    <string name="welcome_to_m4b">Bienvenue aux maths pour le cerveau! (Math For The Brain)</string>
+    <string name="welcome_to_m4b">Bienvenue aux Kokotoa (maths pour le cerveau)</string>
     <string name="file_is_corrupt">"Le fichier est corrompu: Réinitialiser les données de l'utilisateur!"</string>
     <string name="leave_feedback">Laissez vos commentaires</string>
     <string name="perhaps_later">Peut-être plus tard</string>
@@ -147,7 +147,7 @@ Total des points:"</string>
     <string name="p1_not_ready">"adversaire n'est pas prêt"</string>
     <string name="p1_not_found">adversaire introuvable</string>
     <string name="p1_not_joined">séance pas rejoint.</string>
-    <string name="rate_msg">"Si vous aimez l'aide de Maths pour le Cerveau, auriez-vous s'il vous plaît prendre un moment pour me donner 5 étoiles? Merci pour votre soutien"</string>
+    <string name="rate_msg">"Si vous aimez l'aide de Kokotoa (Maths pour le Cerveau), auriez-vous s'il vous plaît prendre un moment pour me donner 5 étoiles? Merci pour votre soutien"</string>
     <string name="rate">Avis moi</string>
     <string name="no_thanks">Non merci</string>
     <string name="breakMsg">Faites une pause, votre cerveau a besoin</string>

@@ -439,7 +439,7 @@ public class Multiplayer2Activity extends Activity{
             	}else if(connected && anim==2){
         			//start match
         			mHandler.post(startMatch);
-            	}else if(waitTimer>120){
+            	}else if(waitTimer>250){
             		text.setText(R.string.p1_not_found);
         		}else mHandler.postDelayed(gameClock, 200);
         	}
@@ -505,12 +505,14 @@ public class Multiplayer2Activity extends Activity{
 			            }
 		            	try{
 		            	//continue to retrieve scores for p1 till game is over
+
+							List<NameValuePair> pScores = new ArrayList<NameValuePair>();
 			            	while(connected && !gameOver){
 			            		//if ( isCancelled()) break;
-			            		int p1scr = p1Scr;
-			            		List<NameValuePair> pScores = new ArrayList<NameValuePair>();
-			            		pScores.add(new BasicNameValuePair(TAG_UID, id));
-			            		pScores.add(new BasicNameValuePair(TAG_P1, p1scr+""));
+								pScores.clear();
+								int p1scr = p1Scr;
+								pScores.add(new BasicNameValuePair(TAG_UID, id));
+								pScores.add(new BasicNameValuePair(TAG_P1, p1scr+""));
 					            JSONObject json4 = jsonParser.makeHttpRequest(update_scores,"POST", pScores);
 					            if (json4.getInt(TAG_SUCCESS)== 1){
 					            	p2Scr =(json4.getInt(TAG_P2));
@@ -574,11 +576,11 @@ public class Multiplayer2Activity extends Activity{
 	            	}
 		            try{
 		            //continue to retrieve scores till game is over
+						List<NameValuePair> pScores = new ArrayList<NameValuePair>();
 		            	while(connected && !gameOver){
 		            		//if ( isCancelled()) break;
 		            		int p2scr = p2Scr;
-		            		List<NameValuePair> pScores = new ArrayList<NameValuePair>();
-		            		pScores.add(new BasicNameValuePair(TAG_UID, id));
+							pScores.add(new BasicNameValuePair(TAG_UID, id));
 		            		pScores.add(new BasicNameValuePair(TAG_P2, p2Scr+""));
 				            JSONObject json5 = jsonParser.makeHttpRequest(update_scores,"POST", pScores);
 				            if (json5.getInt(TAG_SUCCESS)== 1){
@@ -610,7 +612,9 @@ public class Multiplayer2Activity extends Activity{
         		Log.d("Session Close",(json.getString(TAG_MESSAGE))+"");
         	} 
         	catch (NullPointerException e) {
+				output = getString(R.string.disconnected);
                 e.printStackTrace();
+				finish();
             }
         	catch (JSONException e) {
                 e.printStackTrace();
@@ -650,7 +654,7 @@ public class Multiplayer2Activity extends Activity{
 	@Override
 	public void onDestroy() {
         super.onDestroy();
-        if (connection != null) connection.cancel(true);
+		if (connection != null) connection.cancel(true);
 	}
 }
 

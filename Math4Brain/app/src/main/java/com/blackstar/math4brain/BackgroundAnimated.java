@@ -35,35 +35,40 @@ public class BackgroundAnimated extends View{
         setMeasuredDimension(x, y);
     }
 
-    Paint paint = new Paint(), paint2 = new Paint(), paint3 = new Paint();
+    Paint paint = new Paint();
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
         width = getMeasuredWidth();
         height = getMeasuredHeight();
 
-        //Display random flashing squares
+        //Display random flashing symbols
         square.setStyle(Paint.Style.FILL);
         int xpos = (int)(Math.random()*width);
         int ypos = (int)(Math.random()*height);
-        square.setTextSize((int)(Math.random()*50));
-        if(xpos%5==0) canvas.drawText("" + xpos, xpos + 100, ypos + 100, square); //show at rand times
+        square.setTextSize((int) (Math.random() * 300));
+        if(xpos%4==0) canvas.drawText("+", xpos, ypos, square); //show at rand times
+        else if(xpos%5==0) canvas.drawText("%", xpos, ypos, square); //show at rand times
+        else if(xpos%6==0) canvas.drawText("X", xpos, ypos, square); //show at rand times
+        else if(xpos%7==0) canvas.drawText("=", xpos, ypos, square); //show at rand times
+        else if(xpos%9==0) canvas.drawText("/", xpos, ypos, square); //show at rand times
 
         //display touch trail
         square.setColor(Color.rgb((int) (Math.random() * 255), 200, (int) (Math.random() * 255)));//random color
         square.setStrokeWidth(6);
         square.setStyle(Paint.Style.STROKE);
-        for(int i=0; i<10;i++){
-            int size = 10*(10 - i);
+        for(int i=0; i < 10; i++){
+            int size = 20 * (10 - i);
+            square.setTextSize(size);
             square.setAlpha(100 - (i * 5)); //Diminishing alpha
-            canvas.drawRect(data[i][0]-size, data[i][1]-size, data[i][0] + size, data[i][1] + size, square); //Diminishing size
+            canvas.drawText(""+(int)(10*Math.random()), data[i][0], data[i][1], square); //Diminishing size
             double rand = 7*Math.random();
             data[i][1]+=(rand-2); //random vertical movement
             data[i][0]+=(rand-3); //random horizontal movement
             if(data[i][0]==0) data[i][0]=10000; //start off screen
         }
         try {
-            Thread.sleep(10);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

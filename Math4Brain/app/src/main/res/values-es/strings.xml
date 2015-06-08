@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hola mundo</string>
-    <string name="app_name">Math For The Brain (Es)</string>
+    <string name="app_name">Kokotoa (Es)</string>
     <string name="filename">m4bfile</string>
     <string name="crash_toast_text">Ooooops ! fallé, pero un informe ha sido enviado a mi desarrollador para ayudar a solucionar el problema!</string>
     <string name="feedback">¿Le gusta esta aplicación hasta el momento? No dude en dejar un comentario o sugerencia por favor. Gracias</string>
@@ -12,7 +12,7 @@
     <string name="close">Cerrar</string>
     <string name="total_points">Puntos totales</string>
     <string name="you_are">Eres</string>
-    <string name="pts_away_from_unlock">puntos de distancia de desbloqueo de Math for The Brain PRO</string>
+    <string name="pts_away_from_unlock">puntos de distancia de desbloqueo de Kokotoa PRO</string>
     <string name="unable_to_get_pts">No se puede recuperar puntos Tapjoy del servidor.</string>
     <string name="you_just_earned">Sólo has ganado</string>
     <string name="get_pro_version">Obtener la versión Pro</string>
@@ -80,7 +80,7 @@
     <string name="user_info">Información del usuario</string>
     <string name="exit">Dejar</string>
     <string name="welcome_back">Bienvenido de nuevo</string>
-    <string name="welcome_to_m4b">Bienvenido a las matemáticas para el cerebro (Math for the brain)!</string>
+    <string name="welcome_to_m4b">Bienvenido a las Kokotoa(matemáticas para el cerebro)</string>
     <string name="file_is_corrupt">Archivo está dañado: Restablecer datos de los usuarios!</string>
     <string name="leave_feedback">Hacer comentarios</string>
     <string name="perhaps_later">Tal vez más tarde</string>
@@ -118,7 +118,7 @@ Puntuación media:
 Puntos totales:"</string>
     <string name="reminder_change_name">Recordatorio: Cambia el nombre de usuario por defecto</string>
     <string name="i_rank">Mi rango #</string>
-    <string name="share_msg">" (todo el mundo) en Matemáticas para el cerebro. Obtener esta aplicación Android y comprobar su ranking mundial! "</string>
+    <string name="share_msg">" (todo el mundo) en Kokotoa(Matemáticas para el cerebro). Obtener esta aplicación Android y comprobar su ranking mundial! "</string>
     <string name="bb_link">"http://appworld.blackberry.com/webstore/content/20484402/"</string>
     <string name="google_link">"https://play.google.com/store/apps/details?id=com.blackstar.math4brain"</string>
     <string name="amazon_link">"http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I"</string>
@@ -147,7 +147,7 @@ Puntos totales:"</string>
     <string name="p1_not_ready">oponente no está listo</string>
     <string name="p1_not_found">oponente no encontrado</string>
     <string name="p1_not_joined">sesión no se unió.</string>
-	<string name="rate_msg">Si te gusta usar matemáticas para el cerebro, ¿podría por favor tome un momento para mí tasa de 5 estrellas? Gracias por su apoyo</string>
+	<string name="rate_msg">Si te gusta usar Kokotoa(matemáticas para el cerebro), ¿podría por favor tome un momento para mí tasa de 5 estrellas? Gracias por su apoyo</string>
     <string name="rate">clasificar me</string>
     <string name="no_thanks">No gracias</string>
     <string name="breakMsg">Tómese un descanso, su cerebro lo necesita</string>

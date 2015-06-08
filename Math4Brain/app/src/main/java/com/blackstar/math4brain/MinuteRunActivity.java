@@ -50,7 +50,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	Runnable mUpdateTimer;
 	MediaPlayer mp3Tick;
 	double startTime = 0, nextTime=0, time=0;
-	int count = 0, combo = 0, minPointsPro = 5000, displaySecs, hintSleep, FILESIZE=25;
+	int count = 0, combo = 0, minPointsPro = 6000, displaySecs, hintSleep, FILESIZE=25;
 	boolean update_display_ad=false, blackberry = false, amazon = false, pro = false, colorful=false, connection =true;
 	TapjoyFullScreenAdNotifier fullAdNotif = this;
 	String review = "", FILEEXTRA = "m4bfileExt";

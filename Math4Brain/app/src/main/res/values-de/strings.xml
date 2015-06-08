@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="hello">Hello World, MathMentorActivity!</string>
-    <string name="app_name">Math For The Brain (De)</string>
+    <string name="app_name">Kokotoa (De)</string>
     <string name="filename">m4bfile</string>
     <string name="crash_toast_text">Ooooops ! Es tut uns leid! Es gab ein Problem, aber ein Bericht zu meinem Entwickler geschickt worden, um das Problem zu beheben!</string>
     <string name="feedback">Kennen Sie diese App so weit zu genießen? Bitte fühlen Sie sich frei, einen Kommentar oder einen Vorschlag zu verlassen. Ihr reaktion wird geschätzt dank</string>
@@ -12,7 +12,7 @@
     <string name="close">Schließen</string>
     <string name="total_points">Gesamtpoints</string>
     <string name="you_are">Sie sind</string>
-    <string name="pts_away_from_unlock">Points weg von Entriegeln Math für das Gehirn PRO </string>
+    <string name="pts_away_from_unlock">Points weg von Entriegeln Kokotoa PRO </string>
     <string name="unable_to_get_pts">Unfähig, points vom Server abrufen.</string>
     <string name="you_just_earned">Sie haben gerade verdient</string>
     <string name="get_pro_version">Holen Sie sich die Pro-Version</string>
@@ -80,7 +80,7 @@
     <string name="user_info">Benutzer-Info.</string>
     <string name="exit">beenden</string>
     <string name="welcome_back">Willkommen zurück</string>
-    <string name="welcome_to_m4b">Willkommen in Mathematik für das Gehirn!</string>
+    <string name="welcome_to_m4b">Willkommen in Kokotoa (Mathematik für das Gehirn)</string>
     <string name="file_is_corrupt">Die Datei ist beschädigt: Rücksetzen von Benutzerdaten!</string>
     <string name="leave_feedback">geben Kommentar</string>
     <string name="perhaps_later">Vielleicht später</string>
@@ -99,7 +99,7 @@ Mehr Gehirn-Fakten"</string>
     <string name="one_device">Einzelgerät</string>
     <string name="two_devices">Zwei Geräte</string>
     <string name="pro_version_unlocked">Die Pro-Version ist freigeschaltet!</string>
-    <string name="email_subject">Mathe für das Gehirn Reaktion</string>
+    <string name="email_subject">Kokotoa (Mathe für das Gehirn) Reaktion</string>
     <string name="send_email_using">Senden Sie E-Mails mit ..</string>
     <string name="no_email_client">Es gibt keine E-Mail-Clients installiert.</string>
     <string name="edit_user_name">Benutzernamen ändern</string>
@@ -117,7 +117,7 @@ Durchschnittliche Punktzahl:
 Gesamtpunkte:"</string>
     <string name="reminder_change_name">Zur Erinnerung: Ändern der Standard-Benutzernamen</string>
     <string name="i_rank">Ich Rang #</string>
-    <string name="share_msg">" (weltweit) in "Mathe für das Gehirn." Holen Sie sich diese Android App und überprüfen Sie Ihre Weltrang! "</string>
+    <string name="share_msg">" (weltweit) in "Kokotoa (Mathe für das Gehirn)." Holen Sie sich diese Android App und überprüfen Sie Ihre Weltrang! "</string>
     <string name="bb_link">"http://appworld.blackberry.com/webstore/content/20484402/"</string>
     <string name="google_link">"https://play.google.com/store/apps/details?id=com.blackstar.math4brain"</string>
     <string name="amazon_link">"http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I"</string>
@@ -146,7 +146,7 @@ Sind Sie sicher, dass Sie zurücksetzen wollen?"</string>
     <string name="p1_not_ready">Gegner ist nicht bereit</string>
     <string name="p1_not_found">Gegner nicht gefunden.</string>
     <string name="p1_not_joined">Sitzung nicht beitreten.</string>
-    <string name="rate_msg">Wenn Sie viel Spaß mit Mathe für das Gehirn, würden Sie bitte einen minute Zeit nehmen mir 5 Sterne, um zu bewerten? Vielen Dank für Ihre Unterstützung</string>
+    <string name="rate_msg">Wenn Sie viel Spaß mit Kokotoa (Mathe für das Gehirn), würden Sie bitte einen minute Zeit nehmen mir 5 Sterne, um zu bewerten? Vielen Dank für Ihre Unterstützung</string>
     <string name="rate">Bewerte mich</string>
     <string name="no_thanks">Nein danke</string>
     <string name="breakMsg">Geben Sie Ihrem Gehirn eine Pause, kommen Sie später wieder</string>

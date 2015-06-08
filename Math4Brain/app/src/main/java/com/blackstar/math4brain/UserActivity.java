@@ -38,7 +38,7 @@ import java.util.Scanner;
 
 public class UserActivity extends Activity{
 	
-	int level=0, average =0, DISPLAYMAX=20, rank, minPointsPro= 5000, FILESIZE = 25;
+	int level=0, average =0, DISPLAYMAX=20, rank, minPointsPro= 6000, FILESIZE = 25;
 	int[] aScores;
     String UName = "", VERSION, IPADRS="blackstar.herobo.com", msgs=null, FILEMSG = "m4bfileMsg", 
     		FILETRACK = "m4bfileTrack", locale=Locale.getDefault().getLanguage();
@@ -230,9 +230,10 @@ public class UserActivity extends Activity{
         		days30.setText("30 "+getResources().getString(R.string.days));
         	}
         });
-        
+
+		//TODO: This does not seem to be working
         if (aScores[0]>minPointsPro) DISPLAYMAX = 50;
-        
+
         rankTable = new Runnable(){
         	@Override
 			public void run(){       		
@@ -351,7 +352,7 @@ public class UserActivity extends Activity{
 	}
 	
 	class UpdateDatabase extends AsyncTask<String, String, String> {
-    	String id = arry[12]; 
+    	String id = arry[12];
     	
     	// url to update product
         private  String url_update_user = "http://"+IPADRS+"/sqlphp/update_users.php";
