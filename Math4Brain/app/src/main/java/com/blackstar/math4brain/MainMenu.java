@@ -86,8 +86,9 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         gSettings = new GameSettings();
         tv = (TextView) findViewById(R.id.textViewTip);
         myTypeface = Typeface.createFromAsset(getAssets(), "fawn.ttf");
-		if((int)(Math.random()*2) ==0) mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music);
-		else mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music2);
+		//final BackgroundAnimated bgAnim = (BackgroundAnimated) findViewById(R.id.animatedBG);
+		if((int)(Math.random()*3) ==0) mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music2);
+		else mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music);
         
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if(cm.getActiveNetworkInfo() == null) connection = false;
@@ -129,7 +130,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 				try {
 					Toast.makeText(getApplicationContext(), R.string.welcome_back,Toast.LENGTH_LONG).show();
 	    			OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
-	    			out.write(data+=" music: 1  vibrate: 1");
+	    			out.write(data+=" music: 1  vibrate: 1 rate_popup: 0 mic: 0");
 	    			out.close();       
 	        	} catch (IOException z) {
 	        		z.printStackTrace(); 
@@ -177,7 +178,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			e.printStackTrace();
 		} catch (NumberFormatException n) {
 			Toast.makeText(getApplicationContext(), R.string.file_is_corrupt,Toast.LENGTH_LONG).show();
-			animateTransition("android.intent.action.USER");
+			//TODO: remove this line animateTransition("android.intent.action.USER");
 		}
          
         //read pro file
@@ -310,7 +311,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         		FlurryAgent.logEvent("Multiplayer");
         	}
         });
-        
+
     }
 
 	@Override

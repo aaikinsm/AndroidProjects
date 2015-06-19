@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         class="com.blackstar.math4brain.BackgroundAnimated"
         android:id="@+id/animatedBG"
-        android:layout_gravity="center_horizontal|top" />
+        android:layout_gravity="center_horizontal|top"
+        android:visibility="visible" />
 
     <LinearLayout
         android:layout_width="match_parent"

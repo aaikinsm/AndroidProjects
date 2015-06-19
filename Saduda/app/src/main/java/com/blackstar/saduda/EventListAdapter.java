@@ -69,10 +69,12 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
                 time.setText(i[0]);
             }
             if (title != null){
-                title.setText(i[1]);
+                if(i[1].length()>15) title.setText(i[1].substring(0,15)+"...");
+                else title.setText(i[1]);
             }
             if (description != null){
-                description.setText(i[2]);
+                if(i[2].length()>100) description.setText(i[2].substring(0,100)+"...");
+                else description.setText(i[2]);
             }
             if (join != null){
                 if(i[3].equals("1"))

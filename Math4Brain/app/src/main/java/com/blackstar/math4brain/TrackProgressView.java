@@ -89,7 +89,8 @@ public class TrackProgressView extends View{
 			for(int i=1; i<elapsed; i++) {
 				j++;
 				if (j >= length) break;
-				dataPoints[length - j][0] = dataT[k][1]-((elapsed-i)*50);
+				if(elapsed<length) dataPoints[length - j][0] = dataT[k][1]-((elapsed-i)*50);
+				else dataPoints[length - j][0] = dataT[k][1];
 				dataPoints[length - j][1] = 0;
 				if (dataPoints[length-j][0]<min) min = dataPoints[length-j][0];
 			}

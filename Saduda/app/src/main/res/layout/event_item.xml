@@ -3,13 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"
-    android:background="@drawable/shadow_bg">
+    android:background="@drawable/shadow_bkgd">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="This is just a description of an event that will be taking place at an undesclosed location. Please bring your own stuff. "
+        android:text="This is just a description of an event that will be taking place at an undisclosed location. Please bring your own stuff. "
         android:id="@+id/eventDesc"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout3"
@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout3"
+        android:descendantFocusability="blocksDescendants">
 
         <ImageView
             android:layout_width="100dp"

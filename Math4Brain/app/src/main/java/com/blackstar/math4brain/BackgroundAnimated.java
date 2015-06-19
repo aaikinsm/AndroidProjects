@@ -14,11 +14,12 @@ import android.view.View;
 public class BackgroundAnimated extends View{
 
     int width=100, height=100;
-    public int [][] data = new int [10][2];
+    public int [][] data = new int [10][3];
     Paint square = new Paint();
+    int count = 0;
 
     public BackgroundAnimated(Context context){
-        super (context);
+        super(context);
     }
 
     public BackgroundAnimated(Context context, AttributeSet attrs) {
@@ -35,7 +36,7 @@ public class BackgroundAnimated extends View{
         setMeasuredDimension(x, y);
     }
 
-    Paint paint = new Paint();
+
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
@@ -57,22 +58,18 @@ public class BackgroundAnimated extends View{
         square.setColor(Color.rgb((int) (Math.random() * 255), 200, (int) (Math.random() * 255)));//random color
         square.setStrokeWidth(6);
         square.setStyle(Paint.Style.STROKE);
-        for(int i=0; i < 10; i++){
+        for(int i=0; i < 10; i++) {
             int size = 20 * (10 - i);
             square.setTextSize(size);
             square.setAlpha(100 - (i * 5)); //Diminishing alpha
-            canvas.drawText(""+(int)(10*Math.random()), data[i][0], data[i][1], square); //Diminishing size
-            double rand = 7*Math.random();
-            data[i][1]+=(rand-2); //random vertical movement
-            data[i][0]+=(rand-3); //random horizontal movement
-            if(data[i][0]==0) data[i][0]=10000; //start off screen
+//            double rand = 7 * Math.random();
+//            data[i][1] += (rand - 2); //random vertical movement
+//            data[i][0] += (rand - 3); //random horizontal movement
+            if (data[i][0] == 0) data[i][0] = 10000; //start off screen
+            canvas.drawText("" + data[i][2], data[i][0], data[i][1], square); //Diminishing size
         }
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        invalidate();
+        //invalidate();
+
     }
 
 
@@ -82,16 +79,22 @@ public class BackgroundAnimated extends View{
             case MotionEvent.ACTION_DOWN:
 
             case MotionEvent.ACTION_MOVE:
-                for(int i=9; i>0; i--){
-                    data[i][0]=data[i-1][0];
-                    data[i][1]=data[i-1][1];
+                count++;
+                if(count%5==0) {
+                    for (int i = 9; i > 0; i--) {
+                        data[i][0] = data[i - 1][0];
+                        data[i][1] = data[i - 1][1];
+                        data[i][2] = (int) (10 * Math.random());
+                    }
+                    data[0][0] = (int) event.getX();
+                    data[0][1] = (int) event.getY();
+                    invalidate();
                 }
-                data[0][0]=(int)event.getX();
-                data[0][1]=(int)event.getY();
-                invalidate();
             case MotionEvent.ACTION_UP:
 
         } return true;
     }
+
+
 
 }
