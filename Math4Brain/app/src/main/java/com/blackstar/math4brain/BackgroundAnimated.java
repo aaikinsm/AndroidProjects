@@ -1,8 +1,5 @@
 package com.blackstar.math4brain;
 
-/**
- * Created by imdc on 27/05/2015.
- */
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

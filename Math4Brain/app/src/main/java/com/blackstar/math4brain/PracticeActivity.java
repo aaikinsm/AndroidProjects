@@ -85,7 +85,7 @@ public class PracticeActivity extends Activity{
 			gSettings.sound = Integer.parseInt(gFile[3]);
 			gSettings.difficulty = Integer.parseInt(gFile[5]);
 			gSettings.vibrate= Integer.parseInt(gFile[17]);
-			if(gFile[21]!=null){
+			if(gFile[21]!=null && !gFile[21].equals("null")){
 				gSettings.microphone= Integer.parseInt(gFile[21]);
 			}
         } catch (FileNotFoundException e) {
@@ -132,7 +132,7 @@ public class PracticeActivity extends Activity{
         		if(showIn.getText().equals(eq.getAnswer())){
         			try{
         			if(gSettings.sound==1) mp3Correct.start();
-        			}catch(Exception E){};
+        			}catch(Exception E){ E.printStackTrace();}
         			gSettings.score +=1;
         			result.setText("");
         			eq.createNew();
@@ -172,7 +172,7 @@ public class PracticeActivity extends Activity{
         			if(correct){
         				try{
                 		if(gSettings.sound==1) mp3Correct.start();
-                		}catch(Exception E){};
+                		}catch(Exception E){ E.printStackTrace();}
                 		gSettings.score +=1;
                 		result.setText("");
                 		eq.createNew();

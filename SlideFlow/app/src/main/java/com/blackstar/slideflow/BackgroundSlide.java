@@ -32,8 +32,7 @@ public class BackgroundSlide extends View{
     	super.onMeasure(x, y);
     	setMeasuredDimension(x, y);
     }
-	
-	Paint paint = new Paint(), paint2 = new Paint(), paint3 = new Paint();
+
 	@Override
 	protected void onDraw(Canvas canvas){
 		super.onDraw(canvas);

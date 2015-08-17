@@ -1,0 +1,156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2"
+        android:background="#9fdfdf">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/evt_tab"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Event Hub"
+            android:layout_weight="1"
+            android:background="#AFFF"
+            android:outlineProvider="bounds" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Calendar"
+            android:id="@+id/cal_tab"
+            android:layout_weight="1"
+            android:background="#0000"
+            android:outlineProvider="bounds" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More"
+            android:id="@+id/more_tab"
+            android:background="#0000"
+            android:layout_weight="1"
+            android:outlineProvider="bounds" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout"
+        android:padding="5dp"
+        android:background="#ff9fdfdf">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:background="@drawable/icon_user_default" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView android:id="@+id/nameView" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Albert A. Mensah"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="18dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Toronto, Canada"
+                android:id="@+id/locationView"
+                android:textSize="10dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Interest: Social, Health"
+                android:id="@+id/interestsView"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="000"
+            android:id="@+id/textView"
+            android:gravity="center_vertical|center_horizontal"
+            android:outlineProvider="background"
+            android:textColor="#88F"
+            android:textStyle="italic"
+            android:background="#CEE"
+            android:padding="5dp"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/linearLayout2">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventList"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/moreLayout"
+        android:visibility="gone">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:id="@+id/logout"
+            android:background="#FFF"
+            android:singleLine="false"
+            android:outlineProvider="bounds" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Event"
+            android:id="@+id/createEvent"
+            android:background="#fff"
+            android:singleLine="false"
+            android:outlineProvider="bounds" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -31,7 +31,6 @@ public class CreateSettingsActivity extends Activity{
 	boolean firstPage = true, imageChosen = false, sound = false, vibrate = false, music = false, microphone = false;
 	String selectedBg;
 	int REQUEST_MEDIA = 1, difficulty=0, FILESIZE=25;
-	ImageButton bg5;
 	ImageView d1, d2, d3, d4 ,d5;
 	Bitmap myImage;
 	Runnable mCheckImageChosen;
@@ -521,8 +520,6 @@ public class CreateSettingsActivity extends Activity{
 				}
 	        });
 	        builder.show();
-		}catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}catch (IOException e) {
 			e.printStackTrace();
 		}

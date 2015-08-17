@@ -12,16 +12,14 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import com.blackstar.slideflow.R;
 
 public class SlideView extends View{
 	Bitmap [] pic = new Bitmap[16], explosion = new Bitmap[13], electric = new Bitmap[13];
 	boolean moved = false, initial=true, gameOver, animate=false;
-	int x=0,y=0, wDir=0, hDir=0, speed=15, count=0, block=0, MAX=100, numBlocks=0, base=7, maxMoves=5,
-			 width, height, gridSize=5, tileSize, padding=5;
+	int wDir=0, hDir=0, speed=15, count=0, block=0, MAX=100, numBlocks=0, base=7, maxMoves,
+			 width, gridSize=5, tileSize, padding=5;
 	int[][] blockData = new int[MAX][3], animData;
 	public int [][] data = new int [10][2];
 	Paint square = new Paint();
@@ -114,7 +112,7 @@ public class SlideView extends View{
 			for(int i=1; i<16; i++){
 				try{
 					pic[i] = Bitmap.createScaledBitmap(pic[i], tileSize, tileSize, false);
-				}catch(NullPointerException e){}
+				}catch(NullPointerException e){e.printStackTrace();}
 			}
 			explosion[1] = BitmapFactory.decodeResource(getResources(), R.drawable.e12);
 			explosion[2] = BitmapFactory.decodeResource(getResources(), R.drawable.e11);
@@ -131,7 +129,7 @@ public class SlideView extends View{
 			for(int i=1; i<13; i++){
 				try{
 					explosion[i] = Bitmap.createScaledBitmap(explosion[i], tileSize+(tileSize/2), tileSize+(tileSize/2), false);
-				}catch(NullPointerException e){}
+				}catch(NullPointerException e){e.printStackTrace();}
 			}
 			electric[1] = BitmapFactory.decodeResource(getResources(), R.drawable.l12);
 			electric[2] = BitmapFactory.decodeResource(getResources(), R.drawable.l11);
@@ -148,7 +146,7 @@ public class SlideView extends View{
 			for(int i=1; i<13; i++){
 				try{
 					electric[i] = Bitmap.createScaledBitmap(electric[i], tileSize+(tileSize/2), tileSize*4, false);
-				}catch(NullPointerException e){} catch(OutOfMemoryError e){}
+				}catch(NullPointerException e){e.printStackTrace();} catch(OutOfMemoryError e){e.printStackTrace();}
 			}
 			for(int i=0; i<numBlocks; i++){
 				for(int j=0; j<2; j++){
@@ -174,7 +172,7 @@ public class SlideView extends View{
 			for (int i = 0; i < numBlocks; i++) {
 				canvas.drawBitmap(pic[blockData[i][2]], blockData[i][0], blockData[i][1], paint2);
 			}
-		}catch (RuntimeException e){}
+		}catch (RuntimeException e){e.printStackTrace();}
 
 		//draw animation
 		if(animate && !gameOver){
@@ -257,7 +255,7 @@ public class SlideView extends View{
 		String str = data.nextLine();
 		for(int k=0; k<(level-1)*4; k++) str = data.nextLine();
 		int moves = Integer.parseInt(str.substring(0,str.indexOf(" ")));
-		maxMoves+=moves;
+		maxMoves=moves;
 		gridSize = data.nextInt();
 		numBlocks = data.nextInt();
 		for (int i =0; i <numBlocks; i++){
@@ -329,7 +327,7 @@ public class SlideView extends View{
 			} else if (name.equals("drain") && !drain.isPlaying()) {
 				drain.start();
 			}
-		}catch(Exception e){}
+		}catch(Exception e){e.printStackTrace();}
 		//*/
 	}
 	

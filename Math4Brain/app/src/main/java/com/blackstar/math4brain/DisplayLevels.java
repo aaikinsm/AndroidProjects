@@ -13,11 +13,9 @@ import android.view.View;
 public class DisplayLevels extends View{
 	Paint circles = new Paint();
 	  Bitmap img = BitmapFactory.decodeResource(getResources(), R.drawable.ml);
-	  Bitmap localBitmap1;
 	  boolean initial = true;
 	  int level = 0, lvl, margin=5, max=24, imgWidth;
 	  Typeface myTypeface;
-	  Paint pBg = new Paint();
 	  Paint rec1 = new Paint();
 	  Paint rec2 = new Paint();
 	  Paint rec3 = new Paint();

@@ -178,8 +178,7 @@ public class MultiplayerActivity extends Activity{
     		startActivity(new Intent("android.intent.action.MULTIPLAYER"));
     		finish();
     	}
-    	else if (answer.equals("")){}
-    	else{
+    	else if (!answer.equals("")){
     	int ans = Integer.parseInt(answer);
     	if (p==1){
     		if (block1.getVisibility()!=View.VISIBLE){
@@ -188,7 +187,7 @@ public class MultiplayerActivity extends Activity{
 	    			//Quick fix
 	    			try{
 	    			if(gSettings.sound==1) mp3Correct.start();
-	    			}catch(Exception E){}
+	    			}catch(Exception E){E.printStackTrace();}
 	    			checkWin();
 	    			next();	
 	    		}
@@ -206,7 +205,7 @@ public class MultiplayerActivity extends Activity{
 	    			//Quick fix
 	    			try{
 	    			if(gSettings.sound==1) mp3Correct.start();
-	    			}catch(Exception E){}
+	    			}catch(Exception E){E.printStackTrace();}
 	    			checkWin();
 	    			next();	
 	    		}
@@ -248,7 +247,7 @@ public class MultiplayerActivity extends Activity{
     		p1b4.setText(R.string.menu);
     		try{
     			if(gSettings.sound==1) mp3Over.start();
-  			}catch(Exception E){}
+  			}catch(Exception E){E.printStackTrace();}
     	}
     }
     
@@ -275,7 +274,7 @@ public class MultiplayerActivity extends Activity{
 	          				//Quick fix try-catch
 	          				try{
 	          				mp3Ding.start();
-	          				}catch(Exception E){}
+	          				}catch(Exception E){E.printStackTrace();}
 	          			}
 				        showP1Eq.setText(eq.getEquation());
 				        showP2Eq.setText(eq.getEquation());

@@ -5,25 +5,26 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
         android:gravity="center_vertical"
         android:id="@+id/linearLayout3"
         android:padding="10dp">
 
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="fill_parent"
             android:id="@+id/eventImg"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/calendar"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="0dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp" />
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="5th Anual Soca Fete"
             android:id="@+id/eventTitle"
@@ -33,7 +34,9 @@
             android:layout_alignBottom="@+id/ratingBar"
             android:layout_toEndOf="@+id/imageView2"
             android:layout_weight="1"
-            android:gravity="left|center_vertical" />
+            android:gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
     </LinearLayout>
 
@@ -90,40 +93,20 @@
         android:background="#ff9fdfdf"
         android:gravity="center" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="This is just a description of an event that will be taking place at an undisclosed location. Please bring your own stuff. "
-        android:id="@+id/eventDesc"
-        android:background="@drawable/shadow_banner"
-        android:paddingRight="10dp"
-        android:padding="10dp"
-        android:layout_below="@+id/linearLayout4"
-        android:layout_alignParentStart="true" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/chat"
-        android:layout_above="@+id/linearLayout2"
-        android:background="#669fdfdf">
+        android:layout_height="wrap_content"
+        android:background="#669fdfdf"
+        android:layout_toEndOf="@+id/fullImage"
+        android:id="@+id/chatLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/descriptionView">
 
         <ListView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/chat"
-            android:layout_above="@+id/linearLayout2"
-            android:visibility="visible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User1: Hey More info please \nUser2: call me at 4165554563 for details \n\t\tYou: Last year&apos;s event was fun \nUser2: Yeah!  "
-            android:id="@+id/textView4"
+            android:id="@+id/chatListView"
             android:layout_weight="1" />
 
         <LinearLayout
@@ -137,9 +120,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/commentText"
                 android:layout_weight="1"
-                android:hint="Reply" />
+                android:hint="Comment" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -150,42 +133,37 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:id="@+id/descriptionView"
+        android:layout_below="@+id/linearLayout4"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout2">
+        android:visibility="visible">
 
-    <Button
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="This is just a description of an event that will be taking place at an undisclosed location. Please bring your own stuff. "
+            android:id="@+id/eventDesc"
+            android:background="@drawable/shadow_banner"
+            android:paddingRight="10dp"
+            android:padding="10dp"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_alignParentStart="true" />
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/evt_tab"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Event Hub"
-        android:layout_weight="1"
-        android:backgroundTint="#ff9fdfdf" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:text="Calendar"
-        android:id="@+id/cal_tab"
-        android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chat Icon"
-        android:id="@+id/chat"
-        android:layout_below="@+id/eventDesc"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/fullImage"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:hint="Reply" />
+        android:focusable="false"
+        android:clickable="false"
+        android:visibility="gone"
+        android:focusableInTouchMode="false"
+        android:background="#000" />
 
 </RelativeLayout>

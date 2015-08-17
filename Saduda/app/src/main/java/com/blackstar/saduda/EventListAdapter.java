@@ -1,6 +1,10 @@
 package com.blackstar.saduda;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +13,17 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class EventListAdapter extends ArrayAdapter<String[]> {
 
     // declaring our ArrayList of items
     private List<String[]> objects;
+    Bitmap bmp;
+    int dataReadyPos=-1;
 
     /* here we must override the constructor for ArrayAdapter
     * the only variable we care about now is ArrayList<Item> objects,
@@ -66,33 +75,72 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
             // check to see if each individual textview is null.
             // if not, assign some text!
             if (time != null){
-                time.setText(i[0]);
+                time.setText(new ComputeDateTime(i[9]).getString(false).replace(" | ","\n"));
             }
             if (title != null){
-                if(i[1].length()>15) title.setText(i[1].substring(0,15)+"...");
+                if(i[1].length()>15) title.setText(i[1].substring(0,25)+"...");
                 else title.setText(i[1]);
             }
             if (description != null){
-                if(i[2].length()>100) description.setText(i[2].substring(0,100)+"...");
-                else description.setText(i[2]);
+                if(i[3].length()>100) description.setText(i[3].substring(0, 100) + "...");
+                else description.setText(i[3]);
             }
             if (join != null){
-                if(i[3].equals("1"))
+                if(i[13].equals("true"))
                     join.setChecked(true);
                 else
                     join.setChecked(false);
             }
             if (fav != null){
-                if(i[4].equals("1"))
+                if(i[15].equals("true"))
                     fav.setImageResource(R.drawable.favourite1);
                 else
                     fav.setImageResource(R.drawable.favourite0);
+            }
+
+            if(!i[17].equals("none")) {
+                UpdatePhoto up = new UpdatePhoto(i[17], position);
+                up.execute();
+
+                for (int j = 0; j < 50; j++) {
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (dataReadyPos == position) {
+                        if (bmp != null) img.setImageBitmap(bmp);
+                        break;
+                    }
+                }
             }
 
         }
 
         // the view must be returned to our activity
         return v;
+    }
+
+    class UpdatePhoto extends AsyncTask<String, String, String> {
+        String path; int position;
+        public UpdatePhoto(String name, int pos){
+            path = name;
+            position = pos;
+        }
+        @Override
+        protected String doInBackground(String... args) {
+            URL url = null;
+            try {
+                url = new URL("http://saduda.com/uploads/events/small/" + path);
+                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            dataReadyPos=position;
+            return null;
+        }
     }
 
 }

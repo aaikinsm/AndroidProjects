@@ -16,6 +16,7 @@ import java.util.Scanner;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -40,7 +41,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 public class SlideActivity extends Activity{
 	int level =1, highestLevel=1, count;
-	String VERSION="1.1", complete;
+	String VERSION, complete;
 	boolean gameOver, isTimed;
 	Handler mHandler;
 	Runnable gameClock;
@@ -60,7 +61,12 @@ public class SlideActivity extends Activity{
 		mHandler = new Handler();
 		gameOver = false;
 		isTimed=false;
-		
+		try {
+			VERSION = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+		} catch (PackageManager.NameNotFoundException e) {
+			e.printStackTrace();
+		}
+
 		//read file
 		Bundle extras = getIntent().getExtras();
 		if (extras != null){  
@@ -98,7 +104,7 @@ public class SlideActivity extends Activity{
 	    flurryParam.put("Level", level + "");
 		FlurryAgent.logEvent("Level_Time", flurryParam, true);
 		
-		if (level>96) level=1;
+		if (level>100) level=1;
 		
 				
 		levelText.setText("Level " + level);
@@ -168,7 +174,7 @@ public class SlideActivity extends Activity{
 		gameClock = new Runnable() {   
         	@Override
     		public void run() {
-        		int maxM = (canvas.maxMoves+((level-1)/24*5)-((level-1)/4));
+        		int maxM = (canvas.maxMoves+(50/level));
         		moves.setText("Moves: "+canvas.count+"/"+maxM);
         		if (isTimed && count<0){
         			gameOver = true;

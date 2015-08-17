@@ -17,8 +17,7 @@ public class GameSettings{
 		 if (clock<0){
 			 clock=0;
 		 }
-		 String clk = df.format(clock).replace(",",".");
-		 return clk;
+		 return df.format(clock).replace(",",".");
 	}
 	
 	public int getPoints(){

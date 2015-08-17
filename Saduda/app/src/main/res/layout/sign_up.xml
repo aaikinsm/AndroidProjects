@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/colorful_background">
+
+    <ViewAnimator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewAnimator" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:id="@+id/screen1"
+            android:background="@drawable/shadow_bkgd"
+            android:layout_marginBottom="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create a new Account"
+                android:id="@+id/infoText"
+                android:layout_marginTop="65dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/username" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:hint="User Name"
+                android:layout_below="@+id/infoText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="48dp"
+                android:inputType="textPersonName|text" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/pass1"
+                android:layout_marginTop="52dp"
+                android:layout_below="@+id/username"
+                android:layout_centerHorizontal="true"
+                android:hint="Password" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pass2"
+                android:layout_below="@+id/pass1"
+                android:layout_alignLeft="@+id/pass1"
+                android:layout_Right="@+id/pass1"
+                android:hint="Re-Enter Password"
+                android:inputType="textPassword" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/screen2"
+            android:visibility="visible"
+            android:layout_alignParentRight="false"
+            android:background="@drawable/shadow_bkgd"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="60dp">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="SELECT YOUR DATE OF BIRTH \n(You may receive event recommendations based on your age group)"
+                android:id="@+id/infoText2"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoText2"
+                android:layout_margin="10dp"
+                android:id="@+id/interests"
+                android:visibility="gone"
+                android:nestedScrollingEnabled="false">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Social  (parties/shows)"
+                    android:id="@+id/social"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_row="0"
+                    android:layout_column="0" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seminars  (education/employment)"
+                    android:id="@+id/seminar"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/sports"
+                    android:layout_row="1"
+                    android:layout_column="0" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sports  (games/activities)"
+                    android:id="@+id/sports"
+                    android:layout_alignTop="@+id/seminar"
+                    android:layout_toRightOf="@+id/social"
+                    android:layout_row="0"
+                    android:layout_column="2" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seasonal  (holidays/reoccuring)"
+                    android:id="@+id/seasonal"
+                    android:layout_row="2"
+                    android:layout_column="0" />
+            </LinearLayout>
+
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker"
+                android:visibility="visible"
+                android:nestedScrollingEnabled="false"
+                android:minDate="2000:01:01"
+                android:layout_below="@+id/infoText2"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/screen3"
+            android:visibility="visible"
+            android:background="@drawable/shadow_bkgd"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="60dp">
+
+            <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:text="Select your profile image"
+                android:id="@+id/imgButton"
+                android:background="@drawable/icon_user_select"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:focusable="false"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                android:padding="20dp"
+                android:scaleType="centerCrop" />
+
+        </RelativeLayout>
+    </ViewAnimator>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:id="@+id/next"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>

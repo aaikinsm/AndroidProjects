@@ -41,6 +41,7 @@ import com.tapjoy.TapjoyConnect;
 import com.tapjoy.TapjoyNotifier;
 import com.yasesprox.android.transcommusdk.TransCommuActivity;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -113,28 +114,14 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         	FileInputStream fi = openFileInput(FILENAME);
 			Scanner in = new Scanner(fi);
 			int i = -2;
-			String data = "", dat="", scan="", uid="";
+			String scan="";
 			while(in.hasNext() && !scan.equals("null")){
 				i++;
-				data += scan+" ";
 				scan = in.next();
-				if (i==11){
-					dat=data;
-					uid=scan;
-				}
-
 			}
 			in.close();
-			//write new file
 			if(i<15){
-				try {
-					Toast.makeText(getApplicationContext(), R.string.welcome_back,Toast.LENGTH_LONG).show();
-	    			OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
-	    			out.write(data+=" music: 1  vibrate: 1 rate_popup: 0 mic: 0");
-	    			out.close();       
-	        	} catch (IOException z) {
-	        		z.printStackTrace(); 
-	        	}
+				throw new FileNotFoundException();
 			}
         }catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -151,7 +138,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		        mp3Bg.setLooping(true);
         	} catch (IOException z) {
         		z.printStackTrace(); 
-        	} catch (Exception E) {};
+        	}
 		}
         
         //read main file
@@ -171,7 +158,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 				try{
 		        mp3Bg.start();
 		        mp3Bg.setLooping(true);
-				}catch(Exception E){}
+				}catch(Exception E){E.printStackTrace();}
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
@@ -182,18 +169,19 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		}
          
         //read pro file
-        try {
-        	//if file not found/not created yet, jump to next catch block
-			FileInputStream fi = openFileInput(FILEPRO);
+		File file = getApplicationContext().getFileStreamPath(FILEPRO);
+		if(file.exists()) {
 			try {
 				logo.setImageResource(R.drawable.math4thebrain_pro_logo);
-			}catch(OutOfMemoryError e){}
+			} catch (OutOfMemoryError e) {e.printStackTrace();}
 			pro = true;
-		} catch (FileNotFoundException e) {
+		}
+		else{
 			if (pro){
 				createPro();
 			}
-        }
+		}
+
         
         //read progress tracking data      
 		FileInputStream ft;
@@ -221,7 +209,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         tv.setText(tp.getTip(pro, getResources()));
         
         //user data to report to flurry analytics
-        final Map<String, String> userParams = new HashMap<String, String>();
+        final Map<String, String> userParams = new HashMap<>();
         userParams.put("Name", gFile[13]); 
         userParams.put("Type", gFile[1]); 
         userParams.put("Difficulty", gFile[5]);
@@ -362,10 +350,8 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			for(int i =0; i<7; i++){
 				in.next();
 			}
-			if(Integer.parseInt(in.next())>1){
-				resumable=true;
-			}
-			else resumable = false;
+			//resume if level 2 or more
+			resumable=Integer.parseInt(in.next())>1;
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
@@ -376,7 +362,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         super.onDestroy();
         try{
             mp3Bg.stop();
-        }catch(Exception E){};
+        }catch(Exception E){E.printStackTrace();}
         //stop tapjoy
         TapjoyConnect.getTapjoyConnectInstance().sendShutDownEvent();
         //set game reminder for a week
@@ -406,7 +392,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         super.onPause();
         try{
         if(mp3Bg.isPlaying()) mp3Bg.pause();
-        }catch(Exception E){};
+        }catch(Exception E){E.printStackTrace();}
     }
     
     @Override
@@ -414,7 +400,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         super.onResume();
         //set sound and check if qualified for pro
         reload();
-		int tPoints=0, ratePopup=0; 
+		int tPoints, ratePopup=0;
 		tPoints = Integer.parseInt(gFile[9]);
 		gSettings.music = Integer.parseInt(gFile[15]);	
 		gSettings.sound = Integer.parseInt(gFile[3]);
@@ -425,7 +411,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			}else{
 				if(mp3Bg.isPlaying()) mp3Bg.pause();
 			}
-		}catch(NullPointerException e){}
+		}catch(NullPointerException e){e.printStackTrace();}
 		//Check and restart if pro version has been unlocked
 		if(!pro && tPoints >= minPointsPro){
 			startActivity(new Intent("android.intent.action.MENU"));
@@ -734,7 +720,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			        OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILEMULT,0)); 			
 					out.write(currentDate+" "+tries);
 					out.close();
-		        }catch(IOException e1){}
+		        }catch(IOException e1){e1.printStackTrace();}
 	        }
 			if(tries>1) msg =  getResources().getString(R.string.you_have)+" "+tries+" "+ getResources().getString(R.string.games_avail);
 			else if (tries == 1) msg = getResources().getString(R.string.last_game);
@@ -804,7 +790,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
     	long mins2 = 120000, days1 = 86400000;
     	if(dataT[0][0]<System.currentTimeMillis()-mins2){
     		String data="";
-			int pts, n, average =0, level;
+			int pts, n, average, level;
 			long myGameScore = 0;
 			pts = Integer.parseInt(gFile[9]);
 			n = Integer.parseInt(gFile[10]);
@@ -819,7 +805,6 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
     			dataT[0][1] = myGameScore; 
     		try {							
 	    		for(int i=0; i<365-1; i++) data+= dataT[i][0]+" "+dataT[i][1]+" \n";
-				//Log.d("testMain","k="+dataT[0][0]+" level:"+dataT[0][1]);
 	    		OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILETRACK,0)); 
 				out.write(data);
 				out.close();
@@ -862,16 +847,15 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			out.close(); 
 		} catch (IOException z) {
     		z.printStackTrace(); 
-    	} catch (Exception E) {};
+    	}
 	}
 	
 	public void clickSound(){
 	    if (this.gSettings.sound == 1) {
 		    try{
 		      this.mp3Click.start();
-		      return;
 		    }
-		    catch (Exception localException) {}
+		    catch (Exception localException) {localException.printStackTrace();}
 	    }
 	}
 	
@@ -909,7 +893,6 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	public void onIabPurchaseFinished(IabResult result, Purchase purchase){
 	      if (result.isFailure()) {
 	         Log.d("INAPP BILLING", "Error purchasing: " + result);
-	         return;
 	      }      
 	      else if (purchase.getSku().equals(sku)) {
 	         //update the UI

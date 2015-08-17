@@ -148,21 +148,21 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
   		
         
         //set ad frequency
-        int fb = (int) (Math.random()*(6)) ;
-        if (fb==2 && !blackberry && connection){
-	        //Display ad rewarded.
-	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
-	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this, "d199877d-7cb0-4e00-934f-d04eb573aa47", this);
-	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
-        }
-//        if (fb==3 && !blackberry && connection){
-//	        //Display ad non-rewarded
+//        int fb = (int) (Math.random()*(6)) ;
+//        if (fb==2 && !blackberry && connection){
+//	        //Display ad rewarded.
 //	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
-//	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this,"684e6285-de7c-47bb-9341-3afbbfeb6eea", this);
+//	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this, "d199877d-7cb0-4e00-934f-d04eb573aa47", this);
 //	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
 //        }
-//        if (fb>3 && !blackberry && connection) admobActive = true;
-        
+////        if (fb==3 && !blackberry && connection){
+////	        //Display ad non-rewarded
+////	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
+////	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this,"684e6285-de7c-47bb-9341-3afbbfeb6eea", this);
+////	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
+////        }
+//        if (fb==3 && !blackberry && connection) admobActive = true;
+
      		
         //get user settings then create equation 
         try {
@@ -182,7 +182,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 			} catch (NumberFormatException e){
 				//submitError(e.toString(),Arrays.toString(gFile));
 			}
-			if(gFile[21]!=null){
+			if(gFile[21]!=null && !gFile[21].equals("null")){
 				gSettings.microphone= Integer.parseInt(gFile[21]);
 			}
 			if(gSettings.microphone==1){        	
@@ -200,11 +200,23 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 			Scanner inp = new Scanner(fip);
 			inp.next(); inp.next(); inp.next();
 			String bgPath = inp.next();
-			if (bgPath.equals("bg1")) backgroundImg.setImageResource(R.drawable.bg1);
-			else if (bgPath.equals("bg2")) backgroundImg.setImageResource(R.drawable.bg2);
-			else if (bgPath.equals("bg3")) backgroundImg.setImageResource(R.drawable.bg3);
-			else if (bgPath.equals("default")) backgroundImg.setImageResource(R.drawable.lines_background);
-			else backgroundImg.setImageURI(Uri.parse(bgPath));
+			switch (bgPath) {
+				case "bg1":
+					backgroundImg.setImageResource(R.drawable.bg1);
+					break;
+				case "bg2":
+					backgroundImg.setImageResource(R.drawable.bg2);
+					break;
+				case "bg3":
+					backgroundImg.setImageResource(R.drawable.bg3);
+					break;
+				case "default":
+					backgroundImg.setImageResource(R.drawable.lines_background);
+					break;
+				default:
+					backgroundImg.setImageURI(Uri.parse(bgPath));
+					break;
+			}
 			pro = true;
 		} catch (FileNotFoundException e) {
 			backgroundImg.setImageResource(R.drawable.lines_background);
@@ -261,11 +273,11 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	        			//final seconds
 	        			if(Double.parseDouble(gSettings.getClock())<10){
 	        				try{
-	        					if(gSettings.sound==1 && mp3Tick.isPlaying()== false){
+	        					if(gSettings.sound==1 && !mp3Tick.isPlaying()){
 	        						mp3Tick.start();
 	        						mp3Tick.setLooping(true);
 	        					}
-	        				}catch(Exception E){}
+	        				}catch(Exception E){ E.printStackTrace();}
 	        				clock.setTextColor(Color.rgb(200,0,0));
 	        			} 
         			}catch(NumberFormatException e){
@@ -287,7 +299,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 		            			adLinearLayout.addView(adView);           			
 		            			update_display_ad = false;
 		            		}  else { 
-		            			ad.setVisibility(1); 
+		            			ad.setVisibility(View.VISIBLE);
 		            			ad.setText(getString(R.string.you_are)+" "+(minPointsPro-aScores[0]-gSettings.getPoints())+" "
 		            					+getString(R.string.pts_away_from_unlock));
 		            		}
@@ -296,7 +308,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         			//Quick fix
         			try{
         			if(gSettings.sound==1) mp3Timeup.start();
-        			}catch(Exception E){}
+        			}catch(Exception E){ E.printStackTrace();}
         			if(gSettings.vibrate==1)vb.vibrate(1000);
             		showEq.setText(R.string.time_is_up);
             		gSettings.timeUp = true;
@@ -314,24 +326,24 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
             		if(!review.equals(""))corrections.setText("*"+getString(R.string.review)+"*\n"+review+"\n");
             		scroll.setBackgroundResource(R.drawable.shadow_bg);
             		next.setText(getString(R.string.try_again));
-            		next.setVisibility(1);
-            		back.setVisibility(1);
+            		next.setVisibility(View.VISIBLE);
+            		back.setVisibility(View.VISIBLE);
             		
             		//set emoticons
             		if (gSettings.getPoints()>average+10){
-            			emoticon6.setVisibility(1);
+            			emoticon6.setVisibility(View.VISIBLE);
             		}else if (gSettings.getPoints()>average+5){
-            			emoticon5.setVisibility(1);
+            			emoticon5.setVisibility(View.VISIBLE);
             		}else if (gSettings.getPoints()>=average+2){
-            			emoticon4.setVisibility(1);
+            			emoticon4.setVisibility(View.VISIBLE);
             		}else if (gSettings.getPoints()>=average-2){
-            			emoticon3.setVisibility(1);
+            			emoticon3.setVisibility(View.VISIBLE);
             		}else if (gSettings.getPoints()>average-5){
-            			emoticon2.setVisibility(1);
+            			emoticon2.setVisibility(View.VISIBLE);
             		}else if (gSettings.getPoints()>average-10){
-            			emoticon1.setVisibility(1);
+            			emoticon1.setVisibility(View.VISIBLE);
             		}else{
-            			emoticon0.setVisibility(1);
+            			emoticon0.setVisibility(View.VISIBLE);
             		}
             		
             		try {
@@ -378,7 +390,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         			//Quick fix
         			try{
         			mp3Tick.stop();
-        			}catch(Exception E){}
+        			}catch(Exception E){ E.printStackTrace();}
         			result.setTextColor(Color.rgb(0,0,0));
         			//count down
         			if(count<gSettings.getPoints()&& gSettings.getPoints()>10){
@@ -390,7 +402,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	        						mp3Payout.start(); 
 	        						mp3Payout.setLooping(true);
         						}
-        					}catch(Exception E){}
+        					}catch(Exception E){ E.printStackTrace();}
         				}
         			} else{ 
         				result.setText(getResources().getString(R.string.you_earned)+" "
@@ -398,7 +410,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	        			if(gSettings.sound==1){
 	    					try{ 
 	    						if(mp3Payout.isPlaying()) mp3Payout.stop(); 
-	    					}catch(Exception E){}
+	    					}catch(Exception E){ E.printStackTrace();}
 	    				}
         			}
         		}else{
@@ -408,7 +420,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	        			//Correct
 	        			try{
 	        			if(gSettings.sound==1) mp3Correct.start();
-	        			}catch(Exception E){}
+	        			}catch(Exception E){ E.printStackTrace();}
 	        			gSettings.score +=1;	        			
 	        			result.setText("");
 	        			eq.createNew();
@@ -450,7 +462,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	        				//Correct
 		        			try{
 		        			if(gSettings.sound==1) mp3Correct.start();
-		        			}catch(Exception E){}
+		        			}catch(Exception E){ E.printStackTrace();}
 		        			gSettings.score +=1;	        			
 		        			result.setText("");
 		        			eq.createNew();
@@ -836,15 +848,14 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 		if (adWidth > targetWidth)
 		{
 			int scale;
-			int width = targetWidth;
-			Double val = Double.valueOf(width) / Double.valueOf(adWidth);
+			Double val = (double)targetWidth / (double)adWidth;
 			val = val * 100d;
 			scale = val.intValue();
 
 			((android.webkit.WebView) (adView)).getSettings().setSupportZoom(true);
-			((android.webkit.WebView) (adView)).setPadding(0, 0, 0, 0);
-			((android.webkit.WebView) (adView)).setVerticalScrollBarEnabled(false);
-			((android.webkit.WebView) (adView)).setHorizontalScrollBarEnabled(false);
+			adView.setPadding(0, 0, 0, 0);
+			adView.setVerticalScrollBarEnabled(false);
+			adView.setHorizontalScrollBarEnabled(false);
 			((android.webkit.WebView) (adView)).setInitialScale(scale);
 
 			// Resize banner to desired width and keep aspect ratio.
@@ -882,7 +893,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         //Quick fix
         try{
         mp3Tick.stop();
-        }catch(Exception E){}
+        }catch(Exception E){E.printStackTrace();}
     }
     
     @Override

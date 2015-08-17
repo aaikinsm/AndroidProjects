@@ -43,7 +43,7 @@ public class UserActivity extends Activity{
     String UName = "", VERSION, IPADRS="blackstar.herobo.com", msgs=null, FILEMSG = "m4bfileMsg", 
     		FILETRACK = "m4bfileTrack", locale=Locale.getDefault().getLanguage();
     String[] arry;
-    List<String[]> uList = new ArrayList<String[]>();
+    List<String[]> uList = new ArrayList<>();
     UserListAdapter listAdapter;
     boolean connected = false, newMsg = false, ready = false, amazon = false, blackberry = false, isVisible=false;
     Runnable rankTable;
@@ -243,8 +243,6 @@ public class UserActivity extends Activity{
 	        		loadBar.setVisibility(View.GONE);
 	        		stats.setVisibility(View.GONE);
 	        		share.setVisibility(View.VISIBLE);
-	        		//score calculation	
-	        		long myGameScore = (level*10000)+(average*100)+(aScores[0]);
 	        		
 	        		//check if server is online 
 	        		if(rank!=0 && connected){
@@ -275,7 +273,7 @@ public class UserActivity extends Activity{
 	    	        			out.close();    
 	    	            	} catch (IOException z) {
 	    	            		z.printStackTrace(); 
-	    	            	} catch (Exception E) {};
+	    	            	}
 	    	            	displayMessage(msgs);
 	    	            }            
 	        			       			
@@ -394,7 +392,7 @@ public class UserActivity extends Activity{
 	            params.add(new BasicNameValuePair(TAG_GSCORE, myGameScore+""));
 	            params.add(new BasicNameValuePair(TAG_VERSION, VERSION));
 	            params.add(new BasicNameValuePair(TAG_LOCALE, locale));
-	 
+
 	            JSONObject json = jsonParser.makeHttpRequest(url_update_user,
 	                    "POST", params);
 	            
@@ -402,7 +400,7 @@ public class UserActivity extends Activity{
 	            /**
 	             * Getting user rank
 	             * */
-	            List<NameValuePair> params2 = new ArrayList<NameValuePair>();
+	            List<NameValuePair> params2 = new ArrayList<>();
 	            params2.add(new BasicNameValuePair(TAG_UID, id));
 	            JSONObject json2 = jsonParser.makeHttpRequest(url_get_rank,
 	                    "POST", params2);
@@ -426,14 +424,14 @@ public class UserActivity extends Activity{
 	            /**
 	             * Getting user list
 	             * */
-	            JSONArray users = null;
+	            JSONArray users;
 	           // Building Parameters
-	            List<NameValuePair> params3 = new ArrayList<NameValuePair>();
+	            List<NameValuePair> params3 = new ArrayList<>();
 	            // getting JSON string from URL
 	            JSONObject json3 = jsonParser.makeHttpRequest(url_get_users, "GET", params3);
 	 
 	            // Check your log cat for JSON reponse
-	            try{ Log.d("All users: ", json3.toString()); } catch(OutOfMemoryError e){}
+	            try{ Log.d("All users: ", json3.toString()); } catch(OutOfMemoryError e){e.printStackTrace();}
 	 
 	            try {
 	                // Checking for SUCCESS TAG
@@ -475,8 +473,6 @@ public class UserActivity extends Activity{
 	                    }
 	                }else connected = false; 
 	            } catch (JSONException e) {
-	                e.printStackTrace();
-	            } catch (Exception e) {
 	                e.printStackTrace();
 	            }
 	            

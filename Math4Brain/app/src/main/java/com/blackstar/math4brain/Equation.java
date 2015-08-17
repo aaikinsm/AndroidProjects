@@ -18,7 +18,7 @@ public class Equation {
 		}
 		
 		public String getEquation (){
-			String equation="";
+			String equation;
 			if (eqType == 1){
 				if(num2<0){
 					equation = ((int)num1+" - "+(int)Math.abs(num2));
@@ -60,7 +60,7 @@ public class Equation {
 		}
 		
 		public String superscript(int i){
-			String ss = "";
+			String ss;
 			switch (i) {
 	            case 1:  ss = "¹"; break;
 	            case 2:  ss = "²"; break;
@@ -132,10 +132,10 @@ public class Equation {
 			int difficulty= diff, eq2=0;
 			String eq = eqType2+"";
 			//All or other combinations
-			int pos = 0 + (int) ( Math.random()*(eq.length()));			
+			int pos = (int) ( Math.random()*(eq.length()));
 			eqType = Integer.parseInt(eq.substring(pos,pos+1));			
 			if(eq.length()>1 && (difficulty>3)){
-				int pos2 = 0 + (int) ( Math.random()*(eq.length()));			
+				int pos2 = (int) ( Math.random()*(eq.length()));
 				eq2 = Integer.parseInt(eq.substring(pos2,pos2+1));
 				if(eq2 == 1 || eq2 == 2) difficulty--;
 			}

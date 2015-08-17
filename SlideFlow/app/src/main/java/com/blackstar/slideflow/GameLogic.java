@@ -2,7 +2,7 @@ package com.blackstar.slideflow;
 
 public class GameLogic {
 	int numBlocks=0, gridSize=0, tileSize, end, base=7, fiveInRow=0;
-	int[][] blockData, gridData;
+	int[][] gridData;
 	public GameLogic(int numBlocks, int gridSize, int tileSize){
 		this.numBlocks = numBlocks;
 		this.gridSize = gridSize;
@@ -34,7 +34,7 @@ public class GameLogic {
 			}
 			
 			out="cleared"; return out;
-		};
+		}
 		
 		updateBlockData(data);
 		if(fiveInRow()){	

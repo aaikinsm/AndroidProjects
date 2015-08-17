@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tapjoy.TapjoyAwardPointsNotifier;
@@ -53,7 +52,6 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 	// Display Ads.
 	boolean update_display_ad = false;
 	View adView;
-	RelativeLayout relativeLayout;
 	LinearLayout adLinearLayout;
 	String [] fileData = new String[FILESIZE];
 	
@@ -91,7 +89,7 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 		//TapjoyLog.enableLogging(true);
 		
 		// OPTIONAL: For custom startup flags.
-		Hashtable<String, String> flags = new Hashtable<String, String>();
+		Hashtable<String, String> flags = new Hashtable<>();
 		flags.put(TapjoyConnectFlag.ENABLE_LOGGING, "true");
 		
 		// Connect with the Tapjoy server.  Call this when the application first starts.
@@ -188,7 +186,7 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 	{
 		if (v instanceof Button) 
 		{
-			int id = ((Button) v).getId();
+			int id = v.getId();
 			
 			switch (id)
 			{
@@ -250,8 +248,8 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 			fileData[10]=numplayed+"";
 			String data="";
 			fileData[9]=(GAMEPOINTS+point_total)+"";
-			for(int i=0; i<fileData.length; i++){
-				if(fileData[i]!=null) data += fileData[i]+" ";
+			for(String dat:fileData){
+				if(dat!=null) data += dat+" ";
 			}
 			OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
 			out.write(data);
@@ -526,15 +524,14 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 		if (adWidth > targetWidth)
 		{
 			int scale;
-			int width = targetWidth;
-			Double val = Double.valueOf(width) / Double.valueOf(adWidth);
+			Double val = (double)(targetWidth) / (double)(adWidth);
 			val = val * 100d;
 			scale = val.intValue();
 
 			((android.webkit.WebView) (adView)).getSettings().setSupportZoom(true);
-			((android.webkit.WebView) (adView)).setPadding(0, 0, 0, 0);
-			((android.webkit.WebView) (adView)).setVerticalScrollBarEnabled(false);
-			((android.webkit.WebView) (adView)).setHorizontalScrollBarEnabled(false);
+			adView.setPadding(0, 0, 0, 0);
+			adView.setVerticalScrollBarEnabled(false);
+			adView.setHorizontalScrollBarEnabled(false);
 			((android.webkit.WebView) (adView)).setInitialScale(scale);
 
 			// Resize banner to desired width and keep aspect ratio.
@@ -552,7 +549,7 @@ public class TapJoyLauncher extends Activity implements View.OnClickListener, Ta
 	 */
 	public String getViewName(int type)
 	{
-		String name = "";
+		String name;
 		switch (type)
 		{
 			case TapjoyViewType.FULLSCREEN_AD:

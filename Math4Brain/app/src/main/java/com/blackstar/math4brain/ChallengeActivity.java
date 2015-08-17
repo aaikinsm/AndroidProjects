@@ -95,7 +95,7 @@ public class ChallengeActivity extends Activity{
 
         //get user level and create settings 
         try {
-        	int num1=1;
+        	int num1;
         	//if file not found/not created yet, jump to next catch block
 			FileInputStream fi = openFileInput(FILENAME);
 			Scanner in = new Scanner(fi);
@@ -182,7 +182,7 @@ public class ChallengeActivity extends Activity{
         	final Dialog dialog = new Dialog(this);
         	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); 
 			dialog.setContentView(R.layout.dialogbox);
-			String e = "";
+			String e;
 	        if (Math.abs(gSettings.wrong+1)== 0){
 	        	e = this.getString(R.string.eqn_with_no_inc_alwd);
 	        }else{
@@ -240,19 +240,19 @@ public class ChallengeActivity extends Activity{
         			}
 
         			try{
-	        			if(gSettings.sound==1 && mp3Tick.isPlaying()==false && Double.parseDouble(gSettings.getClock())<10){
+	        			if(gSettings.sound==1 && !mp3Tick.isPlaying() && Double.parseDouble(gSettings.getClock())<10){
 	        	        	mp3Tick.start();
 	        	        	mp3Tick.setLooping(true);
 	        			}
         			}
-        			catch(Exception e){}
+        			catch(Exception e){e.printStackTrace();}
         		}
         		clock.setText(gSettings.getClock());
         		//if time is up
         		if(gSettings.clock==0){
         			try{
         				if(gSettings.sound==1) mp3Wrong.start();
-        			}catch(Exception E){}
+        			}catch(Exception E){E.printStackTrace();}
         			if(gSettings.vibrate==1)vb.vibrate(1000);
             		showEq.setText(R.string.time_is_up);
             		result.setText(getResources().getString(R.string.score)+": "+gSettings.score);
@@ -280,7 +280,7 @@ public class ChallengeActivity extends Activity{
         		else if(gSettings.numOfEquations==gSettings.score){ 
             		try{
           				if(gSettings.sound==1) mp3Over.start();
-          			}catch(Exception E){}
+          			}catch(Exception E){E.printStackTrace();}
             		showEq.setText(getResources().getString(R.string.level)+" "+gSettings.level+" "+getResources().getString(R.string.complete));
             		result.setText(getResources().getString(R.string.score)+": "+gSettings.score);
             		gSettings.timeUp = true;
@@ -345,7 +345,7 @@ public class ChallengeActivity extends Activity{
         			result.setTextColor(Color.rgb(0,0,0));
         			try{
         			mp3Tick.stop();
-        			}catch(Exception E){}
+        			}catch(Exception E){E.printStackTrace();}
         		}else{
 	        		gSettings.inputTimer -= 1;
 	        		if(eq.getAnswer().length()<2) gSettings.inputTimer -= 1;
@@ -353,7 +353,7 @@ public class ChallengeActivity extends Activity{
 	        			//correct
 	        			try{
 	        			if(gSettings.sound==1) mp3Correct.start();
-	        			}catch(Exception E){}
+	        			}catch(Exception E){E.printStackTrace();}
 	        			gSettings.score +=1;
 	        			result.setText("");
 	        			eq.createNew();
@@ -385,7 +385,7 @@ public class ChallengeActivity extends Activity{
 	        				//correct
 		        			try{
 		        			if(gSettings.sound==1) mp3Correct.start();
-		        			}catch(Exception E){}
+		        			}catch(Exception E){E.printStackTrace();}
 		        			gSettings.score +=1;
 		        			result.setText("");
 		        			eq.createNew();
@@ -505,7 +505,7 @@ public class ChallengeActivity extends Activity{
         pass.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-        		if (gSettings.timeUp==false){
+        		if (!gSettings.timeUp){
 	        		result.setText("");
 	        		eq.createNew();
 	                showEq.setText(eq.getEquation());
@@ -519,7 +519,7 @@ public class ChallengeActivity extends Activity{
         pass2.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-        		if (gSettings.timeUp==false){
+        		if (!gSettings.timeUp){
 	        		result.setText("");
 	        		eq.createNew();
 	                showEq.setText(eq.getEquation());
@@ -610,7 +610,7 @@ public class ChallengeActivity extends Activity{
         //Quick fix try-catch
         try{
         mp3Tick.stop();
-        }catch(Exception E){}
+        }catch(Exception E){E.printStackTrace();}
     }
 	
 	@Override
@@ -618,7 +618,7 @@ public class ChallengeActivity extends Activity{
         super.onPause();
         try{
         if(mp3Tick.isPlaying()) mp3Tick.stop();
-        }catch(Exception E){}
+        }catch(Exception E){E.printStackTrace();}
         mHandler.removeCallbacks(mUpdateTimer);
         finish();
     }

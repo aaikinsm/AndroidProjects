@@ -7,7 +7,7 @@ public class Tips {
 	
 	public String getTip(boolean pro, Resources res){
         String[] tips = res.getStringArray(R.array.tips);
-		String tip = "";
+		String tip;
 		int i;
 		int max=tips.length;
 		if (pro) i = (int) (Math.random()*max);

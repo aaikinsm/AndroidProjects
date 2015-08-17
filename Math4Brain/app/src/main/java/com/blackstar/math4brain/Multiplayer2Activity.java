@@ -35,6 +35,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class Multiplayer2Activity extends Activity{
 	boolean player1= true, connected=false, gameOver = false, win = false, pro = false;
 	TextView text, info;
 	Handler mHandler = new Handler();
-	Runnable gameClock, startMatch;
+	Runnable gameClock;
 	String[] arry;
 	String[][] eqnArry;
 	AsyncTask<String, String, String> connection;
@@ -196,16 +197,15 @@ public class Multiplayer2Activity extends Activity{
 		        
 		        if (player1) backgroundImg.setImageResource(R.drawable.bg_player1);
 		        else backgroundImg.setImageResource(R.drawable.bg_player2);
-		        
-		        //check for pro
-		        try {
-					FileInputStream fi = openFileInput(FILEPRO);
-					pro = true;
-				} catch (FileNotFoundException e) { pro=false;}
+
+				//read pro file
+				File file = getApplicationContext().getFileStreamPath(FILEPRO);
+				pro = file.exists();
+
 		        
 		        //update filemult
-		        String date="1234";
-		        int tries = 0;
+		        String date;
+		        int tries;
 		    	try{
 		        	//read
 		        	FileInputStream fi = openFileInput(FILEMULT);
@@ -224,7 +224,7 @@ public class Multiplayer2Activity extends Activity{
 				        OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILEMULT,0)); 			
 						out.write(currentDate+" "+tries);
 						out.close();
-			        }catch(IOException e1){}
+			        }catch(IOException e1){e1.printStackTrace();}
 			        System.out.print(currentDate);
 		        }catch (FileNotFoundException e) {
 		        	e.printStackTrace(); 
@@ -250,7 +250,7 @@ public class Multiplayer2Activity extends Activity{
 		        		if(showIn.getText().equals(eqnArry[index][1])){
 		        			try{
 		        			if(gSettings.sound==1) mp3Correct.start();
-		        			}catch(Exception E){};
+		        			}catch(Exception E){E.printStackTrace();}
 		        			gSettings.score +=1;
 		        			myScr ++;
 		        			result.setText("");
@@ -544,7 +544,7 @@ public class Multiplayer2Activity extends Activity{
 	             * Player2 connect
 	             * */
 	            else{	            
-		            List<NameValuePair> p2 = new ArrayList<NameValuePair>();
+		            List<NameValuePair> p2 = new ArrayList<>();
 		            p2.add(new BasicNameValuePair(TAG_UID, id));
 		            p2.add(new BasicNameValuePair(TAG_NAME, name));
 		            p2.add(new BasicNameValuePair(TAG_MSG, message));
@@ -576,7 +576,7 @@ public class Multiplayer2Activity extends Activity{
 	            	}
 		            try{
 		            //continue to retrieve scores till game is over
-						List<NameValuePair> pScores = new ArrayList<NameValuePair>();
+						List<NameValuePair> pScores = new ArrayList<>();
 		            	while(connected && !gameOver){
 		            		//if ( isCancelled()) break;
 		            		int p2scr = p2Scr;
@@ -606,7 +606,7 @@ public class Multiplayer2Activity extends Activity{
 	            	}
 	            }
 	            //Remove connection
-            	List<NameValuePair> p = new ArrayList<NameValuePair>();
+            	List<NameValuePair> p = new ArrayList<>();
         		p.add(new BasicNameValuePair(TAG_UID, id));
         		JSONObject json = jsonParser.makeHttpRequest(close_session,"POST", p);
         		Log.d("Session Close",(json.getString(TAG_MESSAGE))+"");
