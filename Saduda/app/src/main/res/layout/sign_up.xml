@@ -58,7 +58,7 @@
                 android:id="@+id/pass2"
                 android:layout_below="@+id/pass1"
                 android:layout_alignLeft="@+id/pass1"
-                android:layout_Right="@+id/pass1"
+                android:layout_alignRight="@+id/pass1"
                 android:hint="Re-Enter Password"
                 android:inputType="textPassword" />
 

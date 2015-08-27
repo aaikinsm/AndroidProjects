@@ -122,6 +122,13 @@ public class EventHub extends Activity {
             }
         });
 
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), CreateEvent.class));
+            }
+        });
+
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
