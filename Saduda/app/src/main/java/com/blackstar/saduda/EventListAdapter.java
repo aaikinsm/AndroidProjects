@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 
 public class EventListAdapter extends ArrayAdapter<String[]> {
@@ -23,7 +24,7 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
     // declaring our ArrayList of items
     private List<String[]> objects;
     Bitmap bmp;
-    int dataReadyPos=-1;
+    HashMap map = new HashMap<String, Object>();
 
     /* here we must override the constructor for ArrayAdapter
     * the only variable we care about now is ArrayList<Item> objects,
@@ -70,15 +71,16 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
             TextView time = (TextView) v.findViewById(R.id.eventTime);
             ImageView img = (ImageView) v.findViewById(R.id.eventImg);
             ImageView fav = (ImageView) v.findViewById(R.id.eventFav);
-            Switch join = (Switch) v.findViewById(R.id.eventJoin);
+            ImageView join = (ImageView) v.findViewById(R.id.eventJoin);
+            img.setImageResource(R.drawable.calendar);
 
             // check to see if each individual textview is null.
             // if not, assign some text!
             if (time != null){
-                time.setText(new ComputeDateTime(i[9]).getString(false).replace(" | ","\n"));
+                time.setText(new ComputeDateTime(i[9]).getDateTimeString().replace(" | ","\n"));
             }
             if (title != null){
-                if(i[1].length()>15) title.setText(i[1].substring(0,25)+"...");
+                if(i[1].length()>25) title.setText(i[1].substring(0,25)+"...");
                 else title.setText(i[1]);
             }
             if (description != null){
@@ -87,9 +89,9 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
             }
             if (join != null){
                 if(i[13].equals("true"))
-                    join.setChecked(true);
+                    join.setImageResource(R.drawable.switch_on);
                 else
-                    join.setChecked(false);
+                    join.setImageResource(R.drawable.switch_off);
             }
             if (fav != null){
                 if(i[15].equals("true"))
@@ -99,8 +101,8 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
             }
 
             if(!i[17].equals("none")) {
-                UpdatePhoto up = new UpdatePhoto(i[17], position);
-                up.execute();
+                UpdatePhoto up = new UpdatePhoto(i[17]);
+                if(!map.containsKey(i[17])) up.execute();
 
                 for (int j = 0; j < 50; j++) {
                     try {
@@ -108,8 +110,8 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (dataReadyPos == position) {
-                        if (bmp != null) img.setImageBitmap(bmp);
+                    if(map.containsKey(i[17])){
+                        if(map.get(i[17])!=null) img.setImageBitmap((Bitmap) map.get(i[17]));
                         break;
                     }
                 }
@@ -122,10 +124,9 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
     }
 
     class UpdatePhoto extends AsyncTask<String, String, String> {
-        String path; int position;
-        public UpdatePhoto(String name, int pos){
+        String path;
+        public UpdatePhoto(String name){
             path = name;
-            position = pos;
         }
         @Override
         protected String doInBackground(String... args) {
@@ -133,12 +134,13 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
             try {
                 url = new URL("http://saduda.com/uploads/events/small/" + path);
                 bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                map.put(path,bmp);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+                map.put(path, null);
             }
-            dataReadyPos=position;
             return null;
         }
     }

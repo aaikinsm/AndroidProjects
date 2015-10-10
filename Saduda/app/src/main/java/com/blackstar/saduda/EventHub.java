@@ -106,9 +106,9 @@ public class EventHub extends Activity {
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Create calendar activity
-                //startActivity(new Intent(getApplicationContext(), EventHub.class));
-                //finish();
+                Intent intent = new Intent(getBaseContext(), CalendarActivity.class);
+                intent.putExtra("uname", data[1]);
+                startActivity(intent);
             }
         });
 
@@ -126,6 +126,7 @@ public class EventHub extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), CreateEvent.class));
+                onBackPressed();
             }
         });
 
@@ -239,7 +240,7 @@ public class EventHub extends Activity {
                 uList.clear();
                 String[] events = result.split("~~");
                 for(String ev : events){
-                    uList.add(ev.split("~!"));
+                    if(!ev.isEmpty()) uList.add(ev.split("~!"));
                 }
             }
             catch (ClientProtocolException e) { e.printStackTrace();}

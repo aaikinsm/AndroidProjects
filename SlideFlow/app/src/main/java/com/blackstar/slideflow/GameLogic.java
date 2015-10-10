@@ -1,5 +1,9 @@
 package com.blackstar.slideflow;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class GameLogic {
 	int numBlocks=0, gridSize=0, tileSize, end, base=7, fiveInRow=0;
 	int[][] gridData;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/user"
+        android:icon="@drawable/user"
+        android:title="@string/user_info"
+        app:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/practice"
+        android:icon="@drawable/practice"
+        android:title="@string/practice" />
+    <item android:id="@+id/minrun"
+        android:icon="@drawable/minute"
+        android:title="@string/minute_run" />
+    <item android:id="@+id/challenge"
+        android:icon="@drawable/challenge"
+        android:title="@string/challenge" />
+    <item android:id="@+id/multi"
+        android:icon="@drawable/multiplayer"
+        android:title="@string/multiplayer" />
+    <item android:id="@+id/rank"
+        android:title="@string/view_rank" />
+</menu><!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/src/main/res/menu/menu_actions.xml -->

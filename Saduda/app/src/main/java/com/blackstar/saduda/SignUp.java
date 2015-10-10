@@ -255,7 +255,7 @@ public class SignUp extends Activity{
                         String filenameArray[] = selectedBg.split("\\.");
                         String extension = filenameArray[filenameArray.length - 1];
                         fname = name + "." + extension;
-                        FileUploader fUpload = new FileUploader(selectedBg, fname);
+                        FileUploader fUpload = new FileUploader(selectedBg, fname, "profile");
                         fUpload.execute();
                     }
 
@@ -301,17 +301,6 @@ public class SignUp extends Activity{
             Bitmap myImage = BitmapFactory.decodeFile(imagePath);
             img.setImageBitmap(myImage);
         }
-    }
-
-    public String getPath(Uri uri) {
-        String[] projection = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-
-        int column_index = cursor
-                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
     }
 
 

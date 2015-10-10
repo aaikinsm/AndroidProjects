@@ -16,10 +16,11 @@ import java.net.URL;
  */
 public class FileUploader extends AsyncTask<String, String, String> {
 
-    String sourceFileUri, name;
-    public FileUploader(String sourceFile, String filename){
+    String sourceFileUri, name, uploadLocation;
+    public FileUploader(String sourceFile, String filename, String mode){
         sourceFileUri = sourceFile;
         name=filename;
+        uploadLocation = mode;
     }
 
     @Override
@@ -50,7 +51,13 @@ public class FileUploader extends AsyncTask<String, String, String> {
 
                 // open a URL connection to the Servlet
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
-                URL url = new URL("http://saduda.com/sqlphp/file_upload.php");
+                URL url=null;
+                if(uploadLocation.equals("profile")){
+                    url = new URL("http://saduda.com/sqlphp/file_upload_profile.php");
+                }
+                else if (uploadLocation.equals("events")){
+                    url = new URL("http://saduda.com/sqlphp/file_upload_events.php");
+                }
 
                 // Open a HTTP  connection to  the URL
                 conn = (HttpURLConnection) url.openConnection();

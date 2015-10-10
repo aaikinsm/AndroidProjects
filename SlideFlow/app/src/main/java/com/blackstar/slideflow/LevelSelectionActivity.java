@@ -41,29 +41,31 @@ public class LevelSelectionActivity extends Activity{
 		
 		canvas.setLevel(highestLevel);
 		
-		canvas.setOnTouchListener(new View.OnTouchListener(){
+		canvas.setOnTouchListener(new View.OnTouchListener() {
 			@Override
 			public boolean onTouch(View arg0, MotionEvent event) {
 				// TODO Auto-generated method stub
-				if(event.getAction() == MotionEvent.ACTION_DOWN){
-					int out = (canvas.getSelectedLevel(event.getX(),event.getY()));
-					if(out!=-1 && out<=highestLevel){
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					int out = (canvas.getSelectedLevel(event.getX(), event.getY()));
+					if (out != -1 && out <= highestLevel) {
 						Intent i = new Intent(getApplicationContext(), SlideActivity.class);
-		        		i.putExtra("level",out); i.putExtra("highestLevel",highestLevel);
-		        		startActivity(i);
+						i.putExtra("level", out);
+						i.putExtra("highestLevel", highestLevel);
+						startActivity(i);
 					}
 				}
 				return false;
 			}
 		});
-		start.setOnClickListener (new View.OnClickListener(){
-	    	@Override
-			public void onClick (View v){
-	    		finish();
-	    		Intent i = new Intent(getApplicationContext(), SlideActivity.class);
-	    		i.putExtra("level",level); i.putExtra("highestLevel",highestLevel);
-	    		startActivity(i);
-	    	}
+		start.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+				Intent i = new Intent(getApplicationContext(), SlideActivity.class);
+				i.putExtra("level", level);
+				i.putExtra("highestLevel", highestLevel);
+				startActivity(i);
+			}
 		});
 	}	
 }

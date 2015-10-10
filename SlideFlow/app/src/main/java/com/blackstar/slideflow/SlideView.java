@@ -185,7 +185,7 @@ public class SlideView extends View{
 		}
 
 		// draw motion trail
-		square.setColor(Color.rgb((Math.abs(255-maxMoves)*2)%255,(maxMoves*2)%255,count*20%255));
+		square.setColor(Color.rgb((Math.abs(255-maxMoves)*10)%255,(maxMoves*15)%255,count*30%255));
 		square.setStrokeWidth(2);
 		square.setStyle(Paint.Style.FILL);
 		if(!gameOver)
@@ -321,7 +321,8 @@ public class SlideView extends View{
 			} else if (name.equals("electric") && !electric1.isPlaying() && !electric2.isPlaying()) {
 				if (rnd == 1) electric1.start();
 				else electric2.start();
-			} else if (name.equals("swipe") && !swipe1.isPlaying() && !swipe2.isPlaying()) {
+			} else if (name.equals("swipe")) {
+				//if(swipe1.isPlaying() && !swipe2.isPlaying())
 				if (rnd == 1) swipe1.start();
 				else swipe2.start();
 			} else if (name.equals("drain") && !drain.isPlaying()) {
@@ -330,8 +331,7 @@ public class SlideView extends View{
 		}catch(Exception e){e.printStackTrace();}
 		//*/
 	}
-	
-	
+
 	@Override 
 	public boolean onTouchEvent(MotionEvent event) {   
 		switch (event.getAction()) {         

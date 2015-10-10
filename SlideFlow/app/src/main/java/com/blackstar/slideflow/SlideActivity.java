@@ -27,7 +27,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.blackstar.slideflow.R;
 import com.flurry.android.FlurryAgent;
 
 import org.apache.http.HttpResponse;
@@ -146,6 +145,7 @@ public class SlideActivity extends Activity{
         		Intent i = new Intent(getApplicationContext(), SlideActivity.class);
         		i.putExtra("level",level+1); i.putExtra("highestLevel",highestLevel);
         		if(isTimed) i.putExtra("time",count);
+                safeStop();
         		startActivity(i);
         		finish();
         	}
@@ -157,6 +157,7 @@ public class SlideActivity extends Activity{
         		Intent i = new Intent(getApplicationContext(), SlideActivity.class);
         		i.putExtra("level",level); i.putExtra("highestLevel",highestLevel);
         		if(isTimed) i.putExtra("time",count);
+                safeStop();
         		startActivity(i);
         		finish();
         	}
@@ -165,8 +166,7 @@ public class SlideActivity extends Activity{
 		menu.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-        		//Intent i = new Intent(getApplicationContext(), Menu.class);
-        		//startActivity(i);
+                safeStop();
         		finish();
         	}
 		});
@@ -239,6 +239,11 @@ public class SlideActivity extends Activity{
 		super.onStop();	
 		FlurryAgent.endTimedEvent("Level_Time");
 	}
+
+    public void safeStop(){
+        mHandler.removeCallbacks(gameClock);
+        canvas = null;
+    }
 
 	class UpdateDatabase extends AsyncTask<String, String, String> {
 		String IPADRS="blackstar.herobo.com";

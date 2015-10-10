@@ -13,7 +13,7 @@ public class BackgroundAnimated extends View{
     int width=100, height=100;
     public int [][] data = new int [10][3];
     Paint square = new Paint();
-    int count = 0;
+    int count = 0, count2 = 0;
 
     public BackgroundAnimated(Context context){
         super(context);
@@ -59,13 +59,14 @@ public class BackgroundAnimated extends View{
             int size = 20 * (10 - i);
             square.setTextSize(size);
             square.setAlpha(100 - (i * 5)); //Diminishing alpha
-//            double rand = 7 * Math.random();
-//            data[i][1] += (rand - 2); //random vertical movement
-//            data[i][0] += (rand - 3); //random horizontal movement
+            double rand = 7 * Math.random();
+            data[i][1] += (rand - 2); //random vertical movement
+            data[i][0] += (rand - 3); //random horizontal movement
             if (data[i][0] == 0) data[i][0] = 10000; //start off screen
             canvas.drawText("" + data[i][2], data[i][0], data[i][1], square); //Diminishing size
         }
-        //invalidate();
+        count2++;
+        if(count2%100 != 0) invalidate();
 
     }
 

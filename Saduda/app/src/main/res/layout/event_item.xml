@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="This is just a description of an event that will be taking place at an undisclosed location. Please bring your own stuff. "
+        android:text="Description of event"
         android:id="@+id/eventDesc"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout3"
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="06/21 5:00PM"
+                android:text="00:00"
                 android:id="@+id/eventTime"
                 android:gravity="right"
                 android:layout_gravity="right"
@@ -62,15 +62,17 @@
                 android:layout_below="@+id/switch1"
                 android:layout_alignStart="@+id/switch1"
                 android:layout_gravity="right"
-                android:layout_margin="5dp" />
+                android:layout_margin="10dp" />
 
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:src="@drawable/switch_off"
                 android:id="@+id/eventJoin"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:layout_margin="5dp"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -79,7 +81,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="5th Anual Soca Fete"
+        android:text="Title"
         android:id="@+id/eventTitle"
         android:textSize="20dp"
         android:textStyle="bold"

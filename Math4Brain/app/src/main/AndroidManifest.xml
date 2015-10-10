@@ -2,8 +2,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blackstar.math4brain"
-    android:versionCode="52"
-    android:versionName="4.5" >
+    android:versionCode="54"
+    android:versionName="4.7" >
 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>

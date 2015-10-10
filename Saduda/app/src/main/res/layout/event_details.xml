@@ -72,10 +72,11 @@
             android:layout_weight="1"
             android:layout_gravity="center" />
 
-        <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="25dp"
             android:id="@+id/eventJoin"
+            android:src="@drawable/switch_off"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_weight="1"

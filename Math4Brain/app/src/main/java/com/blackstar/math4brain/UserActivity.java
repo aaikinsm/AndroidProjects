@@ -78,8 +78,6 @@ public class UserActivity extends Activity{
         name.setTypeface(myTypeface);
         if(android.os.Build.BRAND.toLowerCase().contains("blackberry"))blackberry=true;
         else if(android.os.Build.MODEL.toLowerCase().contains("kindle"))amazon=true;
-        
-        
         topUsers.setVisibility(View.GONE);
         info2.setText("");
         //get version
@@ -289,6 +287,17 @@ public class UserActivity extends Activity{
         		}
         	}
         };
+
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			if (extras.getString("view_rank").equals("true")){
+				viewRank.setText(R.string.loading);
+				loadBar.setVisibility(View.VISIBLE);
+				mHandler.postDelayed(rankTable, 10);
+				stats.setVisibility(View.GONE);
+				editName.setVisibility(View.GONE);
+			}
+		}
         
         viewRank.setOnClickListener (new View.OnClickListener(){
         	@Override

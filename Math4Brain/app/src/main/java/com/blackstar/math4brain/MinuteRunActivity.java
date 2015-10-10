@@ -162,7 +162,6 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 ////	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
 ////        }
 //        if (fb==3 && !blackberry && connection) admobActive = true;
-
      		
         //get user settings then create equation 
         try {
@@ -233,24 +232,24 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 		TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
 		title.setVisibility(View.VISIBLE);
 		title.setText(R.string.brain_fact);
-		body.setText(tp.getTip(pro,getResources()));
+		body.setText(tp.getTip(pro, getResources()));
 		dialog.setCancelable(false);
 		Button dialogButton = (Button) dialog.findViewById(R.id.button1);
 		dialogButton.setVisibility(View.VISIBLE);
 		dialogButton.setText(R.string.start);
-		dialogButton.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v) {
-        		gSettings.start =true;
-        		eq.createNew();
-        		hintSleep=0;
-        		showEq.setText(eq.getEquation());
-        		startTime = System.currentTimeMillis();
+		dialogButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				gSettings.start = true;
+				eq.createNew();
+				hintSleep = 0;
+				showEq.setText(eq.getEquation());
+				startTime = System.currentTimeMillis();
 				dialog.dismiss();
 			}
 		});
 		dialog.show();
-		
+
 		//check if user should take a break
       	breakTime();
       	
@@ -490,7 +489,6 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 		        		}
 	            		speechActive = false; 	            		
 	        		}
-	        		
         		}
         		//hint display timer
         		hintSleep++;
@@ -505,16 +503,6 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         mHandler.removeCallbacks(gotInput);            
 		mHandler.postDelayed(gotInput, 100);
 
-		mInterstitialAd = new InterstitialAd(this);
-		mInterstitialAd.setAdUnitId("ca-app-pub-8528343456081396/2957766464");
-		requestNewInterstitial();
-		mInterstitialAd.setAdListener(new AdListener() {
-			@Override
-			public void onAdClosed() {
-				requestNewInterstitial();
-			}
-		});
-        
 		b0.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
@@ -794,14 +782,25 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 				}
 				dialog.show();
 				//show Fullscreen add
-				if(System.currentTimeMillis() %4==0 && connection && !pro){
+				if(System.currentTimeMillis() %3==0 && connection && !pro){
 					TapjoyConnect.getTapjoyConnectInstance().getFullScreenAd(fullAdNotif);
 					FlurryAgent.logEvent("Video_Ad");
-				}else if(System.currentTimeMillis() %5==0 && connection && !pro){
+				}
+				/*admob interstitial full screen ad
+				else if(System.currentTimeMillis() %4==0 && connection && !pro){
+					mInterstitialAd = new InterstitialAd(this);
+					mInterstitialAd.setAdUnitId("ca-app-pub-8528343456081396/2957766464");
+					requestNewInterstitial();
+					mInterstitialAd.setAdListener(new AdListener() {
+						@Override
+						public void onAdClosed() {
+							requestNewInterstitial();
+						}
+					});
 					if (mInterstitialAd.isLoaded()) {
 						mInterstitialAd.show();
 					}
-				}
+				}*/
 			}
         }catch (FileNotFoundException e) {
         	e.printStackTrace(); 

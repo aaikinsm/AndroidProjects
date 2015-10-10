@@ -14,11 +14,9 @@ import com.blackstar.slideflow.R;
 public class DisplayLevels extends View{
 	  Paint circles = new Paint();
 	  Bitmap img = BitmapFactory.decodeResource(getResources(), R.drawable.clear);
-	  Bitmap localBitmap1;
 	  boolean initial = true;
 	  int level = 0, lvl, margin=5, max=24, imgWidth;	  
 	  Typeface myTypeface;
-	  Paint pBg = new Paint();
 	  Paint rec1 = new Paint();
 	  Paint rec2 = new Paint();
 	  Paint rec3 = new Paint();
@@ -128,10 +126,10 @@ public class DisplayLevels extends View{
 		    					imgWidth * (1 + j) + this.margin * (1 + j), this.circles);
 		    			if (this.level <= max) {
 		  		  	  	      paramCanvas.drawText((m + 5 * j +1)+"", m * ((this.x - this.margin) / 5) + this.margin / 2 + imgWidth / 2,
-		  	  	  	    		  (float) (25+ (imgWidth * (1 + j) + this.margin * (1 + j) + txtpY)), this.txtp);
+		  	  	  	    		  (float) (50+ (imgWidth * (1 + j) + this.margin * (1 + j) + txtpY)), this.txtp);
 		  		   	    }else{
 		  		  	  	      paramCanvas.drawText( (max+2 + (m + 5 * j))+"", m * ((this.x - this.margin) / 5) + this.margin / 2 + imgWidth / 2,
-		  		  	     		  (float) (25+(imgWidth * (1 +j) + this.margin * (1 +j) + txtpY)), this.txtp);
+		  		  	     		  (float) (50+(imgWidth * (1 +j) + this.margin * (1 +j) + txtpY)), this.txtp);
 		  		  	    }
 		    		}	    			
 		    	}
@@ -145,7 +143,7 @@ public class DisplayLevels extends View{
 	  
 	  public int getSelectedLevel(float x, float y){
 		  int row = 0, col=0;
-		  if(y>(imgWidth * 1 + 1 * this.margin) && y<(imgWidth * 2 + 1 * this.margin)) row =1;
+		  if     (y>(imgWidth * 1 + 1 * this.margin) && y<(imgWidth * 2 + 1 * this.margin)) row =1;
 		  else if(y>(imgWidth * 2 + 2 * this.margin) && y<(imgWidth * 3 + 2 * this.margin)) row =2;
 		  else if(y>(imgWidth * 3 + 3 * this.margin) && y<(imgWidth * 4 + 3 * this.margin)) row =3;
 		  else if(y>(imgWidth * 4 + 4 * this.margin) && y<(imgWidth * 5 + 4 * this.margin)) row =4;

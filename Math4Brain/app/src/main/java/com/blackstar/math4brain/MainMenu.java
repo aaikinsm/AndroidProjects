@@ -82,12 +82,13 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         final ImageButton faceOff = (ImageButton) findViewById(R.id.buttonFaceOff);
         final ImageView logo = (ImageView) findViewById(R.id.imageViewLogo);
         final TextView version = (TextView) findViewById(R.id.version);
+
         menuSpace = (LinearLayout) findViewById(R.id.linearLayoutMenu);
         mp3Click = MediaPlayer.create(this, R.raw.click);
         gSettings = new GameSettings();
         tv = (TextView) findViewById(R.id.textViewTip);
         myTypeface = Typeface.createFromAsset(getAssets(), "fawn.ttf");
-		//final BackgroundAnimated bgAnim = (BackgroundAnimated) findViewById(R.id.animatedBG);
+
 		if((int)(Math.random()*3) ==0) mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music2);
 		else mp3Bg = MediaPlayer.create(this, R.raw.main_bg_music);
         
@@ -95,9 +96,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         if(cm.getActiveNetworkInfo() == null) connection = false;
         
         if(android.os.Build.BRAND.toLowerCase().contains("blackberry"))blackberry=true;
-        else if(android.os.Build.MODEL.toLowerCase().contains("kindle"))amazon=true; 
-        
-        Tips tp = new Tips();        
+        else if(android.os.Build.MODEL.toLowerCase().contains("kindle"))amazon=true;
 
         Bundle extras = getIntent().getExtras();
 		if (extras != null) {
@@ -165,7 +164,6 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			e.printStackTrace();
 		} catch (NumberFormatException n) {
 			Toast.makeText(getApplicationContext(), R.string.file_is_corrupt,Toast.LENGTH_LONG).show();
-			//TODO: remove this line animateTransition("android.intent.action.USER");
 		}
          
         //read pro file
@@ -206,6 +204,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		}
         
         //show brain fact
+		Tips tp = new Tips();
         tv.setText(tp.getTip(pro, getResources()));
         
         //user data to report to flurry analytics
@@ -259,7 +258,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         practice.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-        		animateTransition("android.intent.action.PRACTICE");
+        		animateTransition(PracticeActivity.class);
         		//check
                 /*try {
         			FileInputStream i = openFileInput(FILENAME);
@@ -278,17 +277,17 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         minRun.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-        		animateTransition("android.intent.action.MINUTERUN");        		
-        		FlurryAgent.logEvent("Minute_Run", userParams);
+				FlurryAgent.logEvent("Minute_Run", userParams);
+        		animateTransition(MinuteRunActivity.class);
         	}
         });
         
         challenge.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
+				FlurryAgent.logEvent("Challenge");
                 if (resumable)resumeDialog();
-                else animateTransition("android.intent.action.CHALLENGE");
-                FlurryAgent.logEvent("Challenge");
+                else animateTransition(ChallengeActivity.class);
         	}
         });
         
@@ -315,27 +314,32 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		// Handle presses on the action bar items
 		switch (item.getItemId()) {
 			case R.id.settings:
-				animateTransition("android.intent.action.SETTINGS");
 				FlurryAgent.logEvent("Settings");
+				animateTransition(CreateSettingsActivity.class);
 				return true;
 			case R.id.user:
-				animateTransition("android.intent.action.USER");
+				FlurryAgent.logEvent("UserInfo");
+				animateTransition(UserActivity.class);
 				return true;
 			case R.id.practice:
-				animateTransition("android.intent.action.PRACTICE");
-				FlurryAgent.logEvent("Settings");
+				FlurryAgent.logEvent("Practice");
+				animateTransition(PracticeActivity.class);
 				return true;
 			case R.id.minrun:
-				animateTransition("android.intent.action.MINUTERUN");
 				FlurryAgent.logEvent("Minute_Run");
+				animateTransition(MinuteRunActivity.class);
 				return true;
 			case R.id.challenge:
-				if (resumable)resumeDialog();
-				else animateTransition("android.intent.action.CHALLENGE");
 				FlurryAgent.logEvent("Challenge");
+				if (resumable)resumeDialog();
+				else animateTransition(ChallengeActivity.class);
 			case R.id.multi:
-				multiplayerDialog();
 				FlurryAgent.logEvent("Multiplayer");
+				multiplayerDialog();
+			case R.id.rank:
+				Intent i = new Intent(getApplicationContext(), UserActivity.class);
+				i.putExtra("view_rank", "true");
+				startActivity(i);
 			default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -343,21 +347,254 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
     @Override
     public void onStart() {
         super.onStart();
-      //check level
-        try {
-			FileInputStream ck = openFileInput(FILENAME);
-			Scanner in = new Scanner(ck);
-			for(int i =0; i<7; i++){
-				in.next();
-			}
-			//resume if level 2 or more
-			resumable=Integer.parseInt(in.next())>1;
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
     }
-    
-    @Override
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		//set sound and check if qualified for pro
+		reload();
+		int tPoints, ratePopup=0;
+		tPoints = Integer.parseInt(gFile[9]);
+		gSettings.music = Integer.parseInt(gFile[15]);
+		gSettings.sound = Integer.parseInt(gFile[3]);
+		resumable = Integer.parseInt(gFile[7])>1;
+		try{
+			if (gSettings.music == 1){
+				mp3Bg.start();
+				mp3Bg.setLooping(true);
+			}else{
+				if(mp3Bg.isPlaying()) mp3Bg.pause();
+			}
+		}catch(NullPointerException e){e.printStackTrace();}
+		//Check and restart if pro version has been unlocked
+		if(!pro && tPoints >= minPointsPro){
+			startActivity(new Intent(getApplicationContext(), MainMenu.class));
+			finish();
+		}
+		//check if rating is active
+		try{
+			ratePopup=Integer.parseInt(gFile[19]);
+		}catch(Exception e){
+			gFile[18]= "rate_popup:";
+			gFile[19]= "0";
+			write();
+		}
+
+		//set feedback frequency
+		int fb = (int) (Math.random()*(50)) ;
+
+		if ((fb==4 || fb==5) && ratePopup==0  && Integer.parseInt(gFile[7])>2 && connection){
+			//Google Play rating dialog
+			final Dialog dialog = new Dialog(this);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			dialog.setContentView(R.layout.dialogbox);
+			TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
+			title.setVisibility(View.VISIBLE);
+			title.setText(this.getString(R.string.rate));
+			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
+			body.setText(R.string.rate_msg);
+			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
+			dialogButton.setVisibility(View.VISIBLE);
+			dialogButton.setText(R.string.rate);
+			dialogButton.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					try{
+						if(amazon)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I")));
+						else if(blackberry)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://appworld.blackberry.com/webstore/content/20484402/")));
+						else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.blackstar.math4brain")));
+					}catch(Exception E){
+						startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.blackstar.math4brain")));
+					}
+					gFile[19]="1";
+					write();
+					dialog.dismiss();
+				}
+			});
+			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
+			dialogButton2.setVisibility(View.VISIBLE);
+			dialogButton2.setText(R.string.perhaps_later);
+			dialogButton2.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					dialog.dismiss();
+				}
+			});
+			Button dialogButton3 = (Button) dialog.findViewById(R.id.button3);
+			dialogButton3.setVisibility(View.VISIBLE);
+			dialogButton3.setText(R.string.no_thanks);
+			dialogButton3.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					gFile[19]="1";
+					write();
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+
+		}
+
+		if (fb==6 && resumable && connection){
+			//Leave email feedback dialog
+			final Dialog dialog = new Dialog(this);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			dialog.setContentView(R.layout.dialogbox);
+			dialog.setCancelable(false);
+			TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
+			title.setVisibility(View.VISIBLE);
+			title.setText(this.getString(R.string.leave_feedback));
+			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
+			body.setText(R.string.feedback);
+			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
+			dialogButton.setVisibility(View.VISIBLE);
+			dialogButton.setText(R.string.leave_feedback);
+			dialogButton.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					Intent i = new Intent(Intent.ACTION_SEND);
+					i.setType("text/plain");
+					i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"blackstar.feedback@gmail.com"});
+					i.putExtra(Intent.EXTRA_SUBJECT, R.string.email_subject);
+					i.putExtra(Intent.EXTRA_TEXT   , "");
+					try {
+						startActivity(Intent.createChooser(i, getString(R.string.send_email_using)));
+					} catch (android.content.ActivityNotFoundException ex) {
+						Toast.makeText(MainMenu.this, R.string.no_email_client, Toast.LENGTH_SHORT).show();
+					}
+					dialog.dismiss();
+				}
+			});
+			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
+			dialogButton2.setVisibility(View.VISIBLE);
+			dialogButton2.setText(R.string.perhaps_later);
+			dialogButton2.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+		}
+
+		if (fb==7 && !blackberry && points>0 && connection && !pro){
+			//open tapjoy dialog
+			final Dialog dialog = new Dialog(this);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			dialog.setContentView(R.layout.dialogbox);
+			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
+			body.setText(this.getString(R.string.get_free_points));
+			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
+			dialogButton.setVisibility(View.VISIBLE);
+			dialogButton.setText(R.string.yes);
+			dialogButton.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					Intent i = new Intent(getApplicationContext(), TapJoyLauncher.class);
+					i.putExtra("view_offers","true");
+					startActivity(i);
+					dialog.dismiss();
+				}
+			});
+			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
+			dialogButton2.setVisibility(View.VISIBLE);
+			dialogButton2.setText(R.string.no);
+			dialogButton2.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+		}
+
+
+		if ((fb==8 || fb==9 || fb==10) && !blackberry && points>0 && connection && !pro && !billUsed){
+			//open dialog for purchase request
+			final Dialog dialog = new Dialog(this);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			dialog.setContentView(R.layout.dialogbox);
+			TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
+			title.setVisibility(View.VISIBLE);
+			title.setText(this.getString(R.string.get_pro_version));
+			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
+			body.setText("");
+			if(getResources().getConfiguration().locale.toString().contains("en"))
+				body.setBackgroundResource(R.drawable.pro_ad);
+			else
+				body.setText(R.string.pro_features);
+			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
+			dialogButton.setVisibility(View.VISIBLE);
+			dialogButton.setText(R.string.yes);
+			dialogButton.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					mHelper.launchPurchaseFlow(activity, sku, 10001, mPurchaseFinishedListener, gFile[13]);
+					dialog.dismiss();
+				}
+			});
+			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
+			dialogButton2.setVisibility(View.VISIBLE);
+			dialogButton2.setText(R.string.no);
+			dialogButton2.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+		}
+
+		if ((fb==11 || fb==12) && getResources().getConfiguration().locale.toString().contains("en") && points>0 && connection){
+			//open translate dialog
+			final Dialog dialog = new Dialog(this);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			dialog.setContentView(R.layout.dialogbox);
+			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
+			body.setText("Help translate this application into another language?");
+			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
+			dialogButton.setVisibility(View.VISIBLE);
+			dialogButton.setText(R.string.yes);
+			dialogButton.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					Intent intent = new Intent(getApplicationContext(), TransCommuActivity.class);
+					intent.putExtra(TransCommuActivity.APPLICATION_CODE_EXTRA, "DxYEruZOPP");
+					startActivity(intent);
+					dialog.dismiss();
+				}
+			});
+			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
+			dialogButton2.setVisibility(View.VISIBLE);
+			dialogButton2.setText(R.string.no);
+			dialogButton2.setOnClickListener (new View.OnClickListener(){
+				@Override
+				public void onClick (View v) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+		}
+		TapjoyConnect.getTapjoyConnectInstance().getTapPoints(this);
+
+		animateTransition(null);
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		try{
+			if(mp3Bg.isPlaying()) mp3Bg.pause();
+		}catch(Exception E){E.printStackTrace();}
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+	}
+
+	@Override
     public void onDestroy() {    	
         super.onDestroy();
         try{
@@ -381,251 +618,8 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	        mHelper = null;
         }
     }
-    
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-    
-    @Override
-    public void onPause() {
-        super.onPause();
-        try{
-        if(mp3Bg.isPlaying()) mp3Bg.pause();
-        }catch(Exception E){E.printStackTrace();}
-    }
-    
-    @Override
-    public void onResume() {
-        super.onResume();
-        //set sound and check if qualified for pro
-        reload();
-		int tPoints, ratePopup=0;
-		tPoints = Integer.parseInt(gFile[9]);
-		gSettings.music = Integer.parseInt(gFile[15]);	
-		gSettings.sound = Integer.parseInt(gFile[3]);
-		try{
-			if (gSettings.music == 1){
-		        mp3Bg.start();
-		        mp3Bg.setLooping(true);
-			}else{
-				if(mp3Bg.isPlaying()) mp3Bg.pause();
-			}
-		}catch(NullPointerException e){e.printStackTrace();}
-		//Check and restart if pro version has been unlocked
-		if(!pro && tPoints >= minPointsPro){
-			startActivity(new Intent("android.intent.action.MENU"));
-        	finish();
-		}
-		//check if rating is active
-		try{
-			ratePopup=Integer.parseInt(gFile[19]);
-		}catch(Exception e){
-			gFile[18]= "rate_popup:";
-			gFile[19]= "0";
-			write();
-		}
-		
-		//set feedback frequency
-        int fb = (int) (Math.random()*(50)) ;
-        
-        if ((fb==4 || fb==5) && ratePopup==0  && Integer.parseInt(gFile[7])>2 && connection){
-        	//Google Play rating dialog
-        	final Dialog dialog = new Dialog(this);
-    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialog.setContentView(R.layout.dialogbox);
-    		TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
-			title.setVisibility(View.VISIBLE);
-			title.setText(this.getString(R.string.rate));
-    		TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-    		body.setText(R.string.rate_msg);
-    		Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
-    		dialogButton.setVisibility(View.VISIBLE);   		    		
-    		dialogButton.setText(R.string.rate);
-    		dialogButton.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-            		try{
-            			if(amazon)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I"))); 
-            			else if(blackberry)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://appworld.blackberry.com/webstore/content/20484402/"))); 
-            			else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.blackstar.math4brain"))); 
-        			}catch(Exception E){
-            			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.blackstar.math4brain")));
-        			}
-            		gFile[19]="1";
-            		write();
-	        		dialog.dismiss();
-    			}
-    		});
-    		Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
-    		dialogButton2.setVisibility(View.VISIBLE);
-    		dialogButton2.setText(R.string.perhaps_later);
-    		dialogButton2.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-	        		dialog.dismiss();
-    			}
-    		});
-    		Button dialogButton3 = (Button) dialog.findViewById(R.id.button3);
-    		dialogButton3.setVisibility(View.VISIBLE);
-    		dialogButton3.setText(R.string.no_thanks);
-    		dialogButton3.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-            		gFile[19]="1";
-            		write();
-	        		dialog.dismiss();
-    			}
-    		});
-    		dialog.show();
-        	
-        }
-        
-        if (fb==6 && resumable && connection){
-	        //Leave email feedback dialog
-        	final Dialog dialog = new Dialog(this);
-    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialog.setContentView(R.layout.dialogbox);
-    		dialog.setCancelable(false);
-    		TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
-			title.setVisibility(View.VISIBLE);
-			title.setText(this.getString(R.string.leave_feedback));
-    		TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-    		body.setText(R.string.feedback);
-    		Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
-    		dialogButton.setVisibility(View.VISIBLE);   		    		
-    		dialogButton.setText(R.string.leave_feedback);
-    		dialogButton.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-            		Intent i = new Intent(Intent.ACTION_SEND);
-	        		i.setType("text/plain");
-	        		i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"blackstar.feedback@gmail.com"});
-	        		i.putExtra(Intent.EXTRA_SUBJECT, R.string.email_subject);
-	        		i.putExtra(Intent.EXTRA_TEXT   , "");
-	        		try {
-	        		    startActivity(Intent.createChooser(i, getString(R.string.send_email_using)));
-	        		} catch (android.content.ActivityNotFoundException ex) {
-	        		    Toast.makeText(MainMenu.this, R.string.no_email_client, Toast.LENGTH_SHORT).show();
-	        		}
-	        		dialog.dismiss();
-    			}
-    		});
-    		Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
-    		dialogButton2.setVisibility(View.VISIBLE);
-    		dialogButton2.setText(R.string.perhaps_later);
-    		dialogButton2.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-	        		dialog.dismiss();
-    			}
-    		});
-    		dialog.show();
-        }
-        
-        if (fb==7 && !blackberry && points>0 && connection && !pro){
-			//open tapjoy dialog
-        	final Dialog dialog = new Dialog(this);
-    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialog.setContentView(R.layout.dialogbox);
-    		TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-    		body.setText(this.getString(R.string.get_free_points));
-    		Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
-    		dialogButton.setVisibility(View.VISIBLE);   		    		
-    		dialogButton.setText(R.string.yes);
-    		dialogButton.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-            		Intent i = new Intent(getApplicationContext(), TapJoyLauncher.class);
-	        		i.putExtra("view_offers","true");
-	        		startActivity(i);
-	        		dialog.dismiss();
-    			}
-    		});
-    		Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);    		
-    		dialogButton2.setVisibility(View.VISIBLE);   		    		
-    		dialogButton2.setText(R.string.no);
-    		dialogButton2.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-	        		dialog.dismiss();
-    			}
-    		});
-    		dialog.show();
-		}
-        
-        
-        if ((fb==8 || fb==9 || fb==10) && !blackberry && points>0 && connection && !pro && !billUsed){
-			//open dialog for purchase request
-        	final Dialog dialog = new Dialog(this);
-    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialog.setContentView(R.layout.dialogbox);
-    		TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
-			title.setVisibility(View.VISIBLE);
-			title.setText(this.getString(R.string.get_pro_version));
-    		TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-			body.setText("");
-			if(getResources().getConfiguration().locale.toString().contains("en"))
-				body.setBackgroundResource(R.drawable.pro_ad);
-			else
-    			body.setText(R.string.pro_features);
-    		Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
-    		dialogButton.setVisibility(View.VISIBLE);   		    		
-    		dialogButton.setText(R.string.yes);
-    		dialogButton.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-            		mHelper.launchPurchaseFlow(activity, sku, 10001, mPurchaseFinishedListener, gFile[13]);
-            		dialog.dismiss();
-    			}
-    		});
-    		Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);    		
-    		dialogButton2.setVisibility(View.VISIBLE);   		    		
-    		dialogButton2.setText(R.string.no);
-    		dialogButton2.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-				}
-			});
-    		dialog.show();
-		}
-        
-        if ((fb==11 || fb==12) && getResources().getConfiguration().locale.toString().contains("en") && points>0 && connection){
-			//open translate dialog
-        	final Dialog dialog = new Dialog(this);
-    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialog.setContentView(R.layout.dialogbox);
-    		TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-    		body.setText("Help translate this application into another language?");
-    		Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
-    		dialogButton.setVisibility(View.VISIBLE);   		    		
-    		dialogButton.setText(R.string.yes);
-    		dialogButton.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-            		Intent intent = new Intent(getApplicationContext(), TransCommuActivity.class);
-            		intent.putExtra(TransCommuActivity.APPLICATION_CODE_EXTRA, "DxYEruZOPP");
-            		startActivity(intent);       
-	        		dialog.dismiss();
-    			}
-    		});
-    		Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);    		
-    		dialogButton2.setVisibility(View.VISIBLE);   		    		
-    		dialogButton2.setText(R.string.no);
-    		dialogButton2.setOnClickListener (new View.OnClickListener(){
-            	@Override
-				public void onClick (View v) {
-	        		dialog.dismiss();
-    			}
-    		});
-    		dialog.show();
-		}
-        TapjoyConnect.getTapjoyConnectInstance().getTapPoints(this);
-        
-        animateTransition(null);
-    }
-    
+
+
     public void resumeDialog(){
     	//Challenge mode: restart or resume;   	
     	reload();
@@ -644,8 +638,8 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		dialogButton.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v) {
-        		startActivity(new Intent("android.intent.action.CHALLENGE"));
-        		dialog.dismiss();
+				dialog.dismiss();
+				startActivity(new Intent(getApplicationContext(), ChallengeActivity.class));
 			}
 		});		
 		localDisplayLevels.setOnTouchListener(new View.OnTouchListener(){
@@ -656,9 +650,8 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 					if(out>0 && out<=Integer.parseInt(gFile[7])){
 						gFile[7]=out+"";
 		        		write();
-		        		startActivity(new Intent("android.intent.action.CHALLENGE"));
-		        		dialog.dismiss();
-						
+						dialog.dismiss();
+						startActivity(new Intent(getApplicationContext(), ChallengeActivity.class));
 					}
 				}
 				return false;
@@ -684,7 +677,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			public void onClick (View v) {
         		clickSound();
         		FlurryAgent.logEvent("multiplayer1");
-        		startActivity(new Intent("android.intent.action.MULTIPLAYER"));
+        		startActivity(new Intent(getApplicationContext(), MultiplayerActivity.class));
         		dialog.dismiss();
 			}
 		});
@@ -693,7 +686,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			public void onClick (View v) {
         		clickSound();
         		FlurryAgent.logEvent("multiplayer2");
-        		if (pro) startActivity(new Intent("android.intent.action.MULTIPLAYER2"));
+        		if (pro) startActivity(new Intent(getApplicationContext(),Multiplayer2Activity.class));
         		else m2Dialog(); 
         		dialog.dismiss();
 			}
@@ -859,7 +852,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	    }
 	}
 	
-	public void animateTransition(final String intent){
+	public void animateTransition(final Class intent){
 		if (intent != null){
 			clickSound();
 			Animation newAnimation = new TranslateAnimation(0,0,0,450);
@@ -869,7 +862,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	            @Override
 				public void onAnimationEnd(Animation animation) {
 	            	menuSpace.setVisibility(View.INVISIBLE);
-	            	startActivity(new Intent(intent));
+	            	startActivity(new Intent(getApplicationContext(),intent));
 	            }
 				@Override
 				public void onAnimationRepeat(Animation animation) {}

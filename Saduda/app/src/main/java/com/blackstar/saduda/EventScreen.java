@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,7 +68,7 @@ public class EventScreen extends Activity {
         final ImageView img = (ImageView) findViewById(R.id.eventImg);
         imgFull = (ImageView) findViewById(R.id.fullImage);
         final ImageView fav = (ImageView) findViewById(R.id.eventFav);
-        final Switch join = (Switch) findViewById(R.id.eventJoin);
+        final ImageView join = (ImageView) findViewById(R.id.eventJoin);
         final LinearLayout chatLayout = (LinearLayout) findViewById(R.id.chatLayout);
         final ScrollView descView = (ScrollView) findViewById(R.id.descriptionView);
         Button send = (Button) findViewById(R.id.send);
@@ -79,11 +80,11 @@ public class EventScreen extends Activity {
 
 
         title.setText(uList[1]);
-        time.setText(new ComputeDateTime(uList[9]).getString(true).replace(" | ","\n"));
+        time.setText(new ComputeDateTime(uList[9]).getString().replace(" | ","\n"));
         description.setText(uList[3]);
         location.setText(uList[5]);
-        if (uList[13].equals("true")) join.setChecked(true);
-        else join.setChecked(false);
+        if (uList[13].equals("true")) join.setImageResource(R.drawable.switch_on);
+        else join.setImageResource(R.drawable.switch_off);
         if (uList[15].equals("true")) fav.setImageResource(R.drawable.favourite1);
         else fav.setImageResource(R.drawable.favourite0);
 
@@ -105,20 +106,21 @@ public class EventScreen extends Activity {
             }
         });
 
-        join.setOnClickListener(new View.OnClickListener() {
+        join.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View v, MotionEvent event) {
                 UpdateEvent ue;
                 if (uList[13].equals("true")) {
                     ue = new UpdateEvent(username,uList[0],"attend","false");
                     uList[13] = "false";
-                    join.setChecked(false);
+                    join.setImageResource(R.drawable.switch_off);;
                 } else {
                     ue = new UpdateEvent(username,uList[0],"attend","true");
                     uList[13] = "true";
-                    join.setChecked(true);
+                    join.setImageResource(R.drawable.switch_on);
                 }
                 ue.execute();
+                return false;
             }
         });
 
@@ -127,6 +129,7 @@ public class EventScreen extends Activity {
             public void onClick(View v) {
                 imgOpen = true;
                 imgReady = false;
+                imgFull.setVisibility(View.VISIBLE);
                 UpdatePhoto up = new UpdatePhoto(uList[17], true);
                 up.execute();
                 for(int i = 0; i<40; i++) {
@@ -136,7 +139,7 @@ public class EventScreen extends Activity {
                         e.printStackTrace();
                     }
                     if (imgReady) imgFull.setImageBitmap(bmp);
-                    imgFull.setVisibility(View.VISIBLE);
+
                 }
             }
         });

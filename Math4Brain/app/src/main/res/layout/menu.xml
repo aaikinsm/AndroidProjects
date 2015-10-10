@@ -52,12 +52,13 @@
                 android:id="@+id/linearLayoutMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="horizontal" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <ImageButton
                         android:id="@+id/buttonPractice"
@@ -76,28 +77,15 @@
                         android:typeface="monospace"
                         android:src="@drawable/practice" />
 
-                    <ImageButton
-                        android:id="@+id/button60SRun"
+                    <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_margin="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bt_hr"
-                        android:gravity="bottom|center_horizontal"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:text="@string/minute_run"
-                        android:textColor="#0000FF"
-                        android:textSize="12sp"
-                        android:typeface="monospace"
-                        android:src="@drawable/minute"
-                        android:scaleType="fitCenter" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" >
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/practice"
+                        android:id="@+id/textPractice"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#00A" />
 
                     <ImageButton
                         android:id="@+id/buttonChallenge"
@@ -116,6 +104,50 @@
                         android:src="@drawable/challenge"
                         android:scaleType="fitCenter" />
 
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/challenge"
+                        android:id="@+id/textChallenge"
+                        android:gravity="center"
+                        android:textColor="#00A" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/button60SRun"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bt_hr"
+                        android:gravity="bottom|center_horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="@string/minute_run"
+                        android:textColor="#0000FF"
+                        android:textSize="12sp"
+                        android:typeface="monospace"
+                        android:src="@drawable/minute"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/minute_run"
+                        android:id="@+id/text60SRun"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#00A" />
+
                     <ImageButton
                         android:id="@+id/buttonFaceOff"
                         android:layout_width="fill_parent"
@@ -132,19 +164,31 @@
                         android:typeface="monospace"
                         android:src="@drawable/multiplayer"
                         android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/multiplayer"
+                        android:id="@+id/textFaceOff"
+                        android:gravity="center"
+                        android:textColor="#00A" />
                 </LinearLayout>
 
 
-                <TextView
-                    android:id="@+id/version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="V 2.8.5"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="10dp" />
             </LinearLayout>
+
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="V 2.8.5"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
     </LinearLayout>
 
 </FrameLayout>

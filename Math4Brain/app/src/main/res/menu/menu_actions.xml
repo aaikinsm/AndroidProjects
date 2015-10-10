@@ -21,4 +21,6 @@
     <item android:id="@+id/multi"
         android:icon="@drawable/multiplayer"
         android:title="@string/multiplayer" />
+    <item android:id="@+id/rank"
+        android:title="@string/view_rank" />
 </menu>

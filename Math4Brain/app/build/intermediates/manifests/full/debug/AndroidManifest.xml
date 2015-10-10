@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blackstar.math4brain"
-    android:versionCode="52"
-    android:versionName="4.5" >
+    android:versionCode="54"
+    android:versionName="4.7" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -16,16 +16,16 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
 
-    <android:uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+ <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+ <!-- Optional permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
@@ -204,17 +204,23 @@
             android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
             android:theme="@style/Theme.IAPTheme" />
 
-        <meta-data
-            android:name="com.google.android.gms.wallet.api.enabled"
-            android:value="true" />
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="com.blackstar.math4brain.google_measurement_service"
+            android:exported="false" />
 
         <receiver
-            android:name="com.google.android.gms.wallet.EnableWalletOptimizationReceiver"
-            android:exported="false" >
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
             <intent-filter>
-                <action android:name="com.google.android.gms.wallet.ENABLE_WALLET_OPTIMIZATION" />
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
