@@ -135,33 +135,41 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 
         //Locate the Banner Ad in activity_main.xml
   		adView1 = (AdView) this.findViewById(R.id.adView);
-
   		// Request for Ads
   		AdRequest adRequest = new AdRequest.Builder()
-   
   		// Add a test device to show Test Ads
   		 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
   				.build();
-   
   		// Load ads into Banner Ads
   		adView1.loadAd(adRequest);
+		// Load Interstitial ads
+		mInterstitialAd = new InterstitialAd(this);
+		mInterstitialAd.setAdUnitId("ca-app-pub-8528343456081396/2957766464");
+		requestNewInterstitial();
+		mInterstitialAd.setAdListener(new AdListener() {
+			@Override
+			public void onAdClosed() {
+				//:TODO
+				//requestNewInterstitial();
+			}
+		});
   		
         
         //set ad frequency
-//        int fb = (int) (Math.random()*(6)) ;
-//        if (fb==2 && !blackberry && connection){
-//	        //Display ad rewarded.
+        int fb = (int) (Math.random()*(4)) ;
+        if (fb==2 && !blackberry && connection && !pro){
+	        //Display ad rewarded.
+	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
+	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this, "d199877d-7cb0-4e00-934f-d04eb573aa47", this);
+	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
+        }
+//        if (fb==3 && !blackberry && connection){
+//	        //Display ad non-rewarded
 //	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
-//	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this, "d199877d-7cb0-4e00-934f-d04eb573aa47", this);
+//	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this,"684e6285-de7c-47bb-9341-3afbbfeb6eea", this);
 //	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
 //        }
-////        if (fb==3 && !blackberry && connection){
-////	        //Display ad non-rewarded
-////	      	TapjoyConnect.getTapjoyConnectInstance().enableDisplayAdAutoRefresh(true);
-////	      	TapjoyConnect.getTapjoyConnectInstance().getDisplayAdWithCurrencyID(this,"684e6285-de7c-47bb-9341-3afbbfeb6eea", this);
-////	      	adLinearLayout = (LinearLayout)findViewById(R.id.AdLinearLayout1);
-////        }
-//        if (fb==3 && !blackberry && connection) admobActive = true;
+        if (fb==3 && !blackberry && connection && !pro) admobActive = true;
      		
         //get user settings then create equation 
         try {
@@ -404,8 +412,8 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         					}catch(Exception E){ E.printStackTrace();}
         				}
         			} else{ 
-        				result.setText(getResources().getString(R.string.you_earned)+" "
-        				+gSettings.getPoints()+" "+getResources().getString(R.string.points));
+        				result.setText(getResources().getString(R.string.you_earned) + " "
+								+ gSettings.getPoints() + " " + getResources().getString(R.string.points));
 	        			if(gSettings.sound==1){
 	    					try{ 
 	    						if(mp3Payout.isPlaying()) mp3Payout.stop(); 
@@ -596,13 +604,13 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         pass.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-        		result.setTextColor(Color.rgb(200,0,0));
+        		result.setTextColor(Color.rgb(200, 0, 0));
         		displaySecs = 30;
         		result.setText(eq.getEquation() + eq.getAnswer());
         		String hint = eq.getHint();
         		if(hint.equals("")) review += "\n"+eq.getEquation() + eq.getAnswer()+"\n-\n";
-        		else review += eq.getEquation() +"\n"+hint+"\n"+eq.getEquation() + eq.getAnswer()+"\n-\n";
-        		eq.createNew();
+        		else review += eq.getEquation() +"\n"+hint+"\n"+eq.getEquation() + eq.getAnswer() + "\n-\n";
+				eq.createNew();
         		hintSleep = 0;
                 showEq.setText(eq.getEquation());
                 showIn.setText("");
@@ -770,7 +778,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 					dialogButton2.setText(R.string.get_free_points);
 					dialogButton2.setOnClickListener (new View.OnClickListener(){
 			        	@Override
-						public void onClick (View v) {	
+						public void onClick (View v) {
 			        		mHandler.removeCallbacks(breakTimer);
 			        		Intent i = new Intent(getApplicationContext(), TapJoyLauncher.class);
 			        		i.putExtra("view_offers","true");
@@ -786,8 +794,8 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 					TapjoyConnect.getTapjoyConnectInstance().getFullScreenAd(fullAdNotif);
 					FlurryAgent.logEvent("Video_Ad");
 				}
-				/*admob interstitial full screen ad
-				else if(System.currentTimeMillis() %4==0 && connection && !pro){
+				//admob interstitial full screen ad
+				/*else if(System.currentTimeMillis() %4==0 && connection && !pro){
 					mInterstitialAd = new InterstitialAd(this);
 					mInterstitialAd.setAdUnitId("ca-app-pub-8528343456081396/2957766464");
 					requestNewInterstitial();
@@ -899,6 +907,10 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
     public void onPause() {
         super.onPause();
         mHandler.removeCallbacks(mUpdateTimer);
+		int rn = (int) (Math.random()*(15)) ;
+		if(!pro && rn==1 && Integer.parseInt(gFile[9])>2000 && mInterstitialAd.isLoaded()){
+			mInterstitialAd.show();
+		}
         finish();
     }
 }

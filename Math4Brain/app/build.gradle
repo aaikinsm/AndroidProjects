@@ -24,7 +24,5 @@ dependencies {
     compile files('libs/acra-4.2.3.jar')
     compile files('libs/FlurryAgent.jar')
     compile files('libs/tapjoyconnectlibrary.jar')
-    compile files('libs/transcommu-android-sdk-v1.jar')
-    compile files('libs/transcommu-java-sdk-v1.jar')
     compile 'com.android.support:appcompat-v7:22.2.0'
 }

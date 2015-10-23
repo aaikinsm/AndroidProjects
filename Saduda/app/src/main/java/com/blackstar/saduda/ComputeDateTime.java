@@ -72,7 +72,7 @@ public class ComputeDateTime {
         int min =0;
         if(duration.length>1) min = Integer.parseInt(duration[1]);
         long newTime = (min*60000)+(hr*1200000);
-        endDate.setTime(endDate.se.getTime()+newTime);
+        endDate.setTime(endDate.getTime()+newTime);
         return endDate.getYear()+"-"+endDate.getMonth()+"-"+endDate.getDay()+" "+
                 endDate.getHours()+":"+endDate.getMinutes()+":00";
     }

@@ -139,6 +139,7 @@ public class Multiplayer2Activity extends Activity{
         			input.setText("");
         		}
         		else{
+					info.setText("");
         			id=in;
         			connection = new UpdateDatabase().execute();
         		}
@@ -580,6 +581,7 @@ public class Multiplayer2Activity extends Activity{
 		            	while(connected && !gameOver){
 		            		//if ( isCancelled()) break;
 		            		int p2scr = p2Scr;
+							pScores.clear();
 							pScores.add(new BasicNameValuePair(TAG_UID, id));
 		            		pScores.add(new BasicNameValuePair(TAG_P2, p2Scr+""));
 				            JSONObject json5 = jsonParser.makeHttpRequest(update_scores,"POST", pScores);
@@ -646,9 +648,8 @@ public class Multiplayer2Activity extends Activity{
 	
 	@Override
 	public void onStop() {
-        super.onStop();
+		super.onStop();
         if (connection != null) connection.cancel(true);
-        finish();
 	}
 	
 	@Override

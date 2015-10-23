@@ -2,8 +2,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blackstar.math4brain"
-    android:versionCode="54"
-    android:versionName="4.7" >
+    android:versionCode="56"
+    android:versionName="4.9" >
 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -32,11 +32,6 @@
 		    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
 		    android:hardwareAccelerated="true"
             android:largeHeap="true"/>
-
-		<activity android:name="com.yasesprox.android.transcommusdk.TransCommuActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
-		<activity android:name="com.yasesprox.android.transcommusdk.LoginActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
-		<activity android:name="com.yasesprox.android.transcommusdk.CreateAccountActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
-		<activity android:name="com.yasesprox.android.transcommusdk.TranslateActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
 		
 		<meta-data
 		    android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
@@ -129,7 +124,7 @@
             android:name=".MultiplayerActivity"
             android:screenOrientation="portrait"
             android:label="@string/multiplayer"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"> >           
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"> >
             <intent-filter>
                 <action android:name="android.intent.action.MULTIPLAYER" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -152,6 +147,15 @@
             android:label="@string/minute_run" >           
             <intent-filter>
                 <action android:name="android.intent.action.ALARMRUN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".InitialEvaluationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light">
+            <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

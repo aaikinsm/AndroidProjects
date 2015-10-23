@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blackstar.math4brain"
-    android:versionCode="54"
-    android:versionName="4.7" >
+    android:versionCode="56"
+    android:versionName="4.9" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -24,6 +24,8 @@
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
  <!-- Permissions required for GCM -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+ <!-- Optional permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
@@ -53,18 +55,6 @@
             android:hardwareAccelerated="true"
             android:largeHeap="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.yasesprox.android.transcommusdk.TransCommuActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.yasesprox.android.transcommusdk.LoginActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.yasesprox.android.transcommusdk.CreateAccountActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.yasesprox.android.transcommusdk.TranslateActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -160,7 +150,7 @@
             android:label="@string/multiplayer"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
- >           
+ >
             <intent-filter>
                 <action android:name="android.intent.action.MULTIPLAYER" />
 
@@ -188,6 +178,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.blackstar.math4brain.InitialEvaluationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
@@ -201,6 +199,24 @@
         <activity
             android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
             android:theme="@style/Theme.IAPTheme" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="com.blackstar.math4brain.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

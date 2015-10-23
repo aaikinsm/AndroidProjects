@@ -39,7 +39,6 @@ import com.blackstar.math4brain.util.Purchase;
 import com.flurry.android.FlurryAgent;
 import com.tapjoy.TapjoyConnect;
 import com.tapjoy.TapjoyNotifier;
-import com.yasesprox.android.transcommusdk.TransCommuActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -131,10 +130,12 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 				String c2 = "Level: 1  Scores: 0 0 0 ";
 				String c3 = " User:_no_name  music: 1  vibrate: 1 rate_popup: 0 mic: 0";
     			OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
-    			out.write(c1+c2+myUID+c3);
+    			out.write(c1 + c2 + myUID + c3);
     			out.close();       
     			mp3Bg.start();
 		        mp3Bg.setLooping(true);
+				if(getResources().getConfiguration().locale.toString().contains("en"))
+					startActivity(new Intent(getApplicationContext(),InitialEvaluationActivity.class));
         	} catch (IOException z) {
         		z.printStackTrace(); 
         	}
@@ -321,24 +322,9 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 				FlurryAgent.logEvent("UserInfo");
 				animateTransition(UserActivity.class);
 				return true;
-			case R.id.practice:
-				FlurryAgent.logEvent("Practice");
-				animateTransition(PracticeActivity.class);
-				return true;
-			case R.id.minrun:
-				FlurryAgent.logEvent("Minute_Run");
-				animateTransition(MinuteRunActivity.class);
-				return true;
-			case R.id.challenge:
-				FlurryAgent.logEvent("Challenge");
-				if (resumable)resumeDialog();
-				else animateTransition(ChallengeActivity.class);
-			case R.id.multi:
-				FlurryAgent.logEvent("Multiplayer");
-				multiplayerDialog();
 			case R.id.rank:
 				Intent i = new Intent(getApplicationContext(), UserActivity.class);
-				i.putExtra("view_rank", "true");
+				i.putExtra("view_rank",true);
 				startActivity(i);
 			default:
 				return super.onOptionsItemSelected(item);
@@ -546,36 +532,6 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			dialog.show();
 		}
 
-		if ((fb==11 || fb==12) && getResources().getConfiguration().locale.toString().contains("en") && points>0 && connection){
-			//open translate dialog
-			final Dialog dialog = new Dialog(this);
-			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-			dialog.setContentView(R.layout.dialogbox);
-			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-			body.setText("Help translate this application into another language?");
-			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
-			dialogButton.setVisibility(View.VISIBLE);
-			dialogButton.setText(R.string.yes);
-			dialogButton.setOnClickListener (new View.OnClickListener(){
-				@Override
-				public void onClick (View v) {
-					Intent intent = new Intent(getApplicationContext(), TransCommuActivity.class);
-					intent.putExtra(TransCommuActivity.APPLICATION_CODE_EXTRA, "DxYEruZOPP");
-					startActivity(intent);
-					dialog.dismiss();
-				}
-			});
-			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
-			dialogButton2.setVisibility(View.VISIBLE);
-			dialogButton2.setText(R.string.no);
-			dialogButton2.setOnClickListener (new View.OnClickListener(){
-				@Override
-				public void onClick (View v) {
-					dialog.dismiss();
-				}
-			});
-			dialog.show();
-		}
 		TapjoyConnect.getTapjoyConnectInstance().getTapPoints(this);
 
 		animateTransition(null);

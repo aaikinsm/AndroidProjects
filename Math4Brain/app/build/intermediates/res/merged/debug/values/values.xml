@@ -350,7 +350,7 @@
     <eat-comment/>
     <string name="all_bonus">All BONUS</string>
     <string name="amazon_link">"http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I"</string>
-    <string name="app_name">Kokotoa (Math For The Brain)</string>
+    <string name="app_name">Kokotoa</string>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values/auth_strings.xml -->
     <eat-comment/>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
@@ -440,6 +440,8 @@
     <string name="eqn_set_to_default">Equation type has been set to default</string>
     <string name="eqn_with_max_of">equations with a maximum of</string>
     <string name="eqn_with_no_inc_alwd">equations with no mistakes allowed</string>
+    <string name="evaluation">Evaluation</string>
+    <string name="evaluation_msg">Hey, we are going to create a customized profile for you. Lets get started</string>
     <string name="exit">Exit</string>
     <string name="feedback">Do you like this app so far? Please feel free to leave a comment or suggestion. Your feedback is appreciated thanks</string>
     <string name="file_is_corrupt">File is Corrupt: Re-install the application!</string>
@@ -520,8 +522,6 @@ More Brain Facts"</string>
     <string name="refresh">Reload</string>
     <string name="reminder_change_name">Reminder: Change default user name</string>
     <string name="reset">Reset</string>
-    <string name="reset_msg">"Resetting will erase all user data 
-Are you sure you want to Reset?"</string>
     <string name="restart">Restart</string>
     <string name="resume">Resume</string>
     <string name="resume_saved">Do you want to resume previous saved progress?</string>
@@ -553,10 +553,10 @@ Are you sure you want to Reset?"</string>
     <string name="total">Total</string>
     <string name="total_points">Total Points</string>
     <string name="try_again">Try Again</string>
+    <string name="try_challenge">Try Challenge Mode</string>
     <string name="two_devices">Two Devices</string>
     <string name="unable_to_connect">Unable to connect to the network</string>
     <string name="unable_to_get_pts">Unable to retrieve tap points from server.</string>
-    <string name="user_data_erased">User data has been erased</string>
     <string name="user_info">User Info.</string>
     <string name="user_name_changed">User name has been changed</string>
     <string name="user_profiles">User Profiles</string>

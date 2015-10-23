@@ -80,7 +80,7 @@ public class TrackProgressView extends View{
 			time = dataT[k][0];
 			time2 = dataT[k+1][0];
 			long elapsed = (time-time2)/days1;
-			if(elapsed>30)elapsed=0;
+			if(elapsed>length)elapsed=0;
 			dataPoints[length-j][0]=dataT[k][1];
 			dataPoints[length-j][1]=1;
 			if (dataPoints[length-j][0]<min) min = dataPoints[length-j][0];
@@ -88,12 +88,12 @@ public class TrackProgressView extends View{
 			for(int i=1; i<elapsed; i++) {
 				j++;
 				if (j >= length) break;
-				if(elapsed<length) dataPoints[length - j][0] = dataT[k][1]-((elapsed-i)*50);
+				if(elapsed<length) dataPoints[length - j][0] = dataT[k][1]-((elapsed-i)*60);
 				else dataPoints[length - j][0] = dataT[k][1];
 				dataPoints[length - j][1] = 0;
 				if (dataPoints[length-j][0]<min) min = dataPoints[length-j][0];
 			}
-
+			if(length-j>=0)dataPoints[length - j][1] = 1;
 			j++; k++;
 		}
 		if(max==min) max+=10;

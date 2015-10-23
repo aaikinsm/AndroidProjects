@@ -78,7 +78,7 @@
 		<item>"The brain is much more active during at night than during the day"</item>
 		<item>"The average person can fall asleep in 7 minutes"</item>
 		<item>"Regular exercise, Healthy diet, Mental stimulation, Quality Sleep, Stress management, and an active social life are great for your brain"</item>
-		<item>"Frequent mental stimulation will reduce the risk of Alzheimer's desease"</item>
+		<item>"Frequent mental stimulation will reduce the risk of Alzheimer's disease"</item>
 		<item>"There's a virus that attacks human DNA making people less intelligent, impairing brain activity, learning and memory."</item>
 		<item>"Alcohol doesn't make you forget anything. When you get blackout drunk, the brain temporarily loses the ability to create memories."</item>
 		<item>"You have Taste receptors in the stomach, intestines, pancreas, lungs, anus, testicles and the brain."</item>
@@ -131,7 +131,7 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.8.0/res/values/common_colors.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values/common_colors.xml -->
     <eat-comment/>
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_signin_btn_dark_text_default">@android:color/white</color>
@@ -178,7 +178,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/res/values/wallet_colors.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.1.0/res/values/wallet_colors.xml -->
     <eat-comment/>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
@@ -208,7 +208,7 @@
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
     <declare-styleable name="LoadingImageView"><attr format="enum" name="imageAspectRatioAdjust"><enum name="none" value="0"/><enum name="adjust_width" value="1"/><enum name="adjust_height" value="2"/></attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
-    <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="liteMode"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/><attr format="boolean" name="uiMapToolbar"/></declare-styleable>
+    <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="liteMode"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/><attr format="boolean" name="uiMapToolbar"/><attr format="boolean" name="ambientEnabled"/></declare-styleable>
     <declare-styleable name="MediaRouteButton"><attr format="reference" name="externalRouteEnabledDrawable"/><attr name="android:minWidth"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
@@ -306,7 +306,7 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.8.0/res/values/cast_ids.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.1.0/res/values/cast_ids.xml -->
     <eat-comment/>
     <item name="cast_notification_id" type="id"/>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
@@ -320,9 +320,9 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.8.0/res/values/version.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values/version.xml -->
     <eat-comment/>
-    <integer name="google_play_services_version">7895000</integer>
+    <integer name="google_play_services_version">8115000</integer>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
@@ -343,15 +343,15 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="accept">Accept</string>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="all_bonus">All BONUS</string>
     <string name="amazon_link">"http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I"</string>
-    <string name="app_name">Kokotoa (Math For The Brain)</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.8.0/res/values/auth_strings.xml -->
+    <string name="app_name">Kokotoa</string>
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values/auth_strings.xml -->
     <eat-comment/>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
@@ -362,7 +362,7 @@
     <string name="brain_fact">Brain Fact</string>
     <string name="breakMsg">Give your brain a break, come back later</string>
     <string name="browse">Browse</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.8.0/res/values/cast_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.1.0/res/values/cast_strings.xml -->
     <eat-comment/>
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
@@ -373,7 +373,7 @@
     <string name="close">Close</string>
     <string name="collected">Collected</string>
     <string name="combo">Combo!</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.8.0/res/values/common_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/values/common_strings.xml -->
     <eat-comment/>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
@@ -405,6 +405,8 @@
     <string name="common_google_play_services_updating_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run without Google Play services, which are currently updating.</string>
     <string name="common_google_play_services_updating_title">Google Play services are updating</string>
     <string name="common_open_on_phone">Open on phone</string>
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/values/base_strings.xml -->
+    <eat-comment/>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/src/main/res/values/strings.xml -->
@@ -414,7 +416,7 @@
     <string name="connected">Connected</string>
     <string name="correct">Correct</string>
     <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
@@ -422,7 +424,7 @@
     <eat-comment/>
     <string name="current">current</string>
     <string name="days">days</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="decline">Decline</string>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/src/main/res/values/strings.xml -->
@@ -438,9 +440,11 @@
     <string name="eqn_set_to_default">Equation type has been set to default</string>
     <string name="eqn_with_max_of">equations with a maximum of</string>
     <string name="eqn_with_no_inc_alwd">equations with no mistakes allowed</string>
+    <string name="evaluation">Evaluation</string>
+    <string name="evaluation_msg">Hey, we are going to create a customized profile for you. Lets get started</string>
     <string name="exit">Exit</string>
     <string name="feedback">Do you like this app so far? Please feel free to leave a comment or suggestion. Your feedback is appreciated thanks</string>
-    <string name="file_is_corrupt">File is Corrupt: Reset User Data!</string>
+    <string name="file_is_corrupt">File is Corrupt: Re-install the application!</string>
     <string name="filename">m4bfile</string>
     <string name="game_settings">Game Settings</string>
     <string name="games_avail">games available today</string>
@@ -518,8 +522,6 @@ More Brain Facts"</string>
     <string name="refresh">Reload</string>
     <string name="reminder_change_name">Reminder: Change default user name</string>
     <string name="reset">Reset</string>
-    <string name="reset_msg">"Resetting will erase all user data 
-Are you sure you want to Reset?"</string>
     <string name="restart">Restart</string>
     <string name="resume">Resume</string>
     <string name="resume_saved">Do you want to resume previous saved progress?</string>
@@ -537,7 +539,7 @@ Are you sure you want to Reset?"</string>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/res/values/admob_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
@@ -551,10 +553,10 @@ Are you sure you want to Reset?"</string>
     <string name="total">Total</string>
     <string name="total_points">Total Points</string>
     <string name="try_again">Try Again</string>
+    <string name="try_challenge">Try Challenge Mode</string>
     <string name="two_devices">Two Devices</string>
     <string name="unable_to_connect">Unable to connect to the network</string>
     <string name="unable_to_get_pts">Unable to retrieve tap points from server.</string>
-    <string name="user_data_erased">User data has been erased</string>
     <string name="user_info">User Info.</string>
     <string name="user_name_changed">User name has been changed</string>
     <string name="user_profiles">User Profiles</string>
@@ -568,7 +570,7 @@ Total Points:"</string>
     <string name="vs">Vs</string>
     <string name="waiting">waiting</string>
     <string name="waiting_for_opponent">waiting for opponent</string>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/res/values/wallet_strings.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.1.0/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
     <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/src/main/res/values/strings.xml -->
@@ -1741,7 +1743,7 @@ Total Points:"</string>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/res/values/admob_iap_style.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.1.0/res/values/admob_iap_style.xml -->
     <eat-comment/>
     <style name="Theme.IAPTheme" parent="android:Theme">
     <item name="android:windowIsTranslucent">true</item>
@@ -1780,7 +1782,7 @@ Total Points:"</string>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
-    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/res/values/wallet_styles.xml -->
+    <!-- From: file:/C:/Users/Asus/AndroidstudioProjects/AndroidProjects/Math4Brain/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.1.0/res/values/wallet_styles.xml -->
     <eat-comment/>
     <style name="WalletFragmentDefaultButtonTextAppearance">
         <item name="android:textColor">@color/wallet_primary_text_holo_light</item>

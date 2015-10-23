@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, MathMentorActivity!</string>
-    <string name="app_name">Kokotoa (Math For The Brain)</string>
+    <string name="app_name">Kokotoa</string>
     <string name="filename">m4bfile</string>
     <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
     <string name="feedback">Do you like this app so far? Please feel free to leave a comment or suggestion. Your feedback is appreciated thanks</string>
@@ -135,9 +135,6 @@ Total Points:"</string>
     <string name="your_rank">Your Rank: #</string>
     <string name="unable_to_connect">Unable to connect to the network</string>
     <string name="loading">Loading..</string>
-    <string name="reset_msg">"Resetting will erase all user data 
-Are you sure you want to Reset?"</string>
-    <string name="user_data_erased">User data has been erased</string>
     <string name="version_outdated">This version is outdated. Please upgrade to v</string>
     <string name="new_message">You have received a message</string>
     <string name="default_name">no name</string>
@@ -163,6 +160,9 @@ Are you sure you want to Reset?"</string>
     <string name="too_difficult">Lower difficulty recommended</string>
     <string name="days">days</string>
     <string name="prog_chart">Your Progress Chart</string>
+    <string name="try_challenge">Try Challenge Mode</string>
+    <string name="evaluation">Evaluation</string>
+    <string name="evaluation_msg">Hey, we are going to create a customized profile for you. Lets get started</string>
     
     <!--  Tips -->
     <string-array name="tips">

@@ -2193,7 +2193,6 @@ containing a value of this type.
         public static final int buy_with_google=0x7f0d0036;
         public static final int cancel_action=0x7f0d00ec;
         public static final int cast_notification_id=0x7f0d0004;
-        public static final int challenge=0x7f0d0131;
         public static final int checkBoxAS=0x7f0d0100;
         public static final int checkBoxAll=0x7f0d0108;
         public static final int checkBoxExponent=0x7f0d0104;
@@ -2252,11 +2251,14 @@ containing a value of this type.
         public static final int imageButtonBg3=0x7f0d0117;
         public static final int imageButtonBg4=0x7f0d0118;
         public static final int imageButtonBg5=0x7f0d011a;
+        public static final int imageView=0x7f0d012a;
         public static final int imageView1=0x7f0d0101;
         public static final int imageView2=0x7f0d0103;
         public static final int imageView3=0x7f0d0105;
         public static final int imageView4=0x7f0d0107;
         public static final int imageView5=0x7f0d0109;
+        public static final int imageView6=0x7f0d012b;
+        public static final int imageView7=0x7f0d012c;
         public static final int imageViewBlackstar=0x7f0d011c;
         public static final int imageViewBlock1=0x7f0d00dd;
         public static final int imageViewBlock2=0x7f0d00e5;
@@ -2289,10 +2291,8 @@ containing a value of this type.
         public static final int media_route_volume_slider=0x7f0d00d1;
         public static final int micIcon=0x7f0d010e;
         public static final int middle=0x7f0d0017;
-        public static final int minrun=0x7f0d0130;
         public static final int monochrome=0x7f0d003f;
         public static final int mscIcon=0x7f0d010b;
-        public static final int multi=0x7f0d0132;
         public static final int multiply=0x7f0d0025;
         public static final int never=0x7f0d0020;
         public static final int none=0x7f0d000f;
@@ -2307,7 +2307,6 @@ containing a value of this type.
         public static final int p2b4=0x7f0d00e4;
         public static final int parentPanel=0x7f0d004a;
         public static final int play_pause=0x7f0d00cd;
-        public static final int practice=0x7f0d012f;
         public static final int production=0x7f0d002c;
         public static final int progressBar1=0x7f0d00d9;
         public static final int progressBar2=0x7f0d00e0;
@@ -2371,7 +2370,7 @@ containing a value of this type.
         public static final int textView3=0x7f0d0087;
         public static final int textView4=0x7f0d0088;
         public static final int textView5=0x7f0d0083;
-        public static final int textViewAvg=0x7f0d012c;
+        public static final int textViewAvg=0x7f0d0130;
         public static final int textViewDays30=0x7f0d00f9;
         public static final int textViewDays7=0x7f0d00f8;
         public static final int textViewEquation=0x7f0d0093;
@@ -2381,9 +2380,9 @@ containing a value of this type.
         public static final int textViewInfo2=0x7f0d0081;
         public static final int textViewInform=0x7f0d0086;
         public static final int textViewInput=0x7f0d0094;
-        public static final int textViewLvl=0x7f0d012b;
+        public static final int textViewLvl=0x7f0d012f;
         public static final int textViewMsg=0x7f0d006d;
-        public static final int textViewNam=0x7f0d012a;
+        public static final int textViewNam=0x7f0d012e;
         public static final int textViewOut=0x7f0d0085;
         public static final int textViewP1Equation=0x7f0d00db;
         public static final int textViewP1Score=0x7f0d00dc;
@@ -2391,12 +2390,12 @@ containing a value of this type.
         public static final int textViewP2Score=0x7f0d00de;
         public static final int textViewResult=0x7f0d009a;
         public static final int textViewReview=0x7f0d0099;
-        public static final int textViewRnk=0x7f0d0129;
+        public static final int textViewRnk=0x7f0d012d;
         public static final int textViewTJ=0x7f0d0120;
         public static final int textViewTimer=0x7f0d00a6;
         public static final int textViewTip=0x7f0d00bb;
         public static final int textViewTitle=0x7f0d006c;
-        public static final int textViewTotal=0x7f0d012d;
+        public static final int textViewTotal=0x7f0d0131;
         public static final int textViewTotalPt=0x7f0d0122;
         public static final int text_wrapper=0x7f0d00ce;
         public static final int time=0x7f0d00f1;
@@ -2408,9 +2407,10 @@ containing a value of this type.
         public static final int trackProgressView2=0x7f0d00fa;
         public static final int up=0x7f0d0009;
         public static final int useLogo=0x7f0d0013;
-        public static final int user=0x7f0d012e;
+        public static final int user=0x7f0d0132;
         public static final int version=0x7f0d00c5;
         public static final int vibIcon=0x7f0d010d;
+        public static final int viewAnimator=0x7f0d0129;
         public static final int withText=0x7f0d0021;
         public static final int wrap_content=0x7f0d0024;
     }
@@ -2473,7 +2473,8 @@ containing a value of this type.
         public static final int splash=0x7f03002f;
         public static final int support_simple_spinner_dropdown_item=0x7f030030;
         public static final int tapjoy=0x7f030031;
-        public static final int users_row=0x7f030032;
+        public static final int tutorial=0x7f030032;
+        public static final int users_row=0x7f030033;
     }
     public static final class menu {
         public static final int menu_actions=0x7f0e0000;
@@ -2579,6 +2580,8 @@ containing a value of this type.
         public static final int eqn_set_to_default=0x7f06004d;
         public static final int eqn_with_max_of=0x7f06004e;
         public static final int eqn_with_no_inc_alwd=0x7f06004f;
+        public static final int evaluation=0x7f0600d3;
+        public static final int evaluation_msg=0x7f0600d4;
         public static final int exit=0x7f060050;
         public static final int feedback=0x7f060051;
         public static final int file_is_corrupt=0x7f060052;
@@ -2604,10 +2607,10 @@ containing a value of this type.
         public static final int mr_media_route_chooser_searching=0x7f06002c;
         public static final int mr_media_route_chooser_title=0x7f06002d;
         public static final int mr_media_route_controller_disconnect=0x7f06002e;
-        public static final int mr_media_route_controller_pause=0x7f0600d3;
-        public static final int mr_media_route_controller_play=0x7f0600d4;
-        public static final int mr_media_route_controller_settings_description=0x7f0600d5;
-        public static final int mr_media_route_controller_stop=0x7f0600d6;
+        public static final int mr_media_route_controller_pause=0x7f0600d5;
+        public static final int mr_media_route_controller_play=0x7f0600d6;
+        public static final int mr_media_route_controller_settings_description=0x7f0600d7;
+        public static final int mr_media_route_controller_stop=0x7f0600d8;
         public static final int mr_system_route_name=0x7f06002f;
         public static final int mr_user_route_category_name=0x7f060030;
         public static final int multiplayer=0x7f060065;
@@ -2665,9 +2668,9 @@ containing a value of this type.
         public static final int share_msg=0x7f060099;
         public static final int share_using=0x7f06009a;
         public static final int start=0x7f06009b;
-        public static final int status_bar_notification_info_overflow=0x7f0600d7;
-        public static final int store_picture_message=0x7f0600d8;
-        public static final int store_picture_title=0x7f0600d9;
+        public static final int status_bar_notification_info_overflow=0x7f0600d9;
+        public static final int store_picture_message=0x7f0600da;
+        public static final int store_picture_title=0x7f0600db;
         public static final int time_is_up=0x7f06009c;
         public static final int too_difficult=0x7f06009d;
         public static final int too_easy=0x7f06009e;
@@ -2676,6 +2679,7 @@ containing a value of this type.
         public static final int total=0x7f0600a1;
         public static final int total_points=0x7f0600a2;
         public static final int try_again=0x7f0600a3;
+        public static final int try_challenge=0x7f0600dc;
         public static final int two_devices=0x7f0600a4;
         public static final int unable_to_connect=0x7f0600a5;
         public static final int unable_to_get_pts=0x7f0600a6;

@@ -45,7 +45,8 @@ public class UserActivity extends Activity{
     String[] arry;
     List<String[]> uList = new ArrayList<>();
     UserListAdapter listAdapter;
-    boolean connected = false, newMsg = false, ready = false, amazon = false, blackberry = false, isVisible=false;
+    boolean connected = false, newMsg = false, ready = false, amazon = false, blackberry = false;
+	boolean initial=false, isVisible=false;
     Runnable rankTable;
     Handler mHandler = new Handler();
     
@@ -199,7 +200,9 @@ public class UserActivity extends Activity{
         				}
         				OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
     					out.write(st);
-    					out.close();    
+    					out.close();
+						if (initial)
+							Toast.makeText(getApplicationContext(), R.string.try_challenge,Toast.LENGTH_LONG).show();
         			} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -290,12 +293,20 @@ public class UserActivity extends Activity{
 
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			if (extras.getString("view_rank").equals("true")){
+			if (extras.containsKey("view_rank")){
 				viewRank.setText(R.string.loading);
 				loadBar.setVisibility(View.VISIBLE);
 				mHandler.postDelayed(rankTable, 10);
 				stats.setVisibility(View.GONE);
 				editName.setVisibility(View.GONE);
+			} else if (extras.containsKey("setName")){
+				stats.setVisibility(View.GONE);
+				viewRank.setVisibility(View.GONE);
+				nameInput.setVisibility(View.VISIBLE);
+				isVisible=true;
+				editName.setVisibility(View.GONE);
+				getPoints.setVisibility(View.GONE);
+				initial = true;
 			}
 		}
         
@@ -306,53 +317,7 @@ public class UserActivity extends Activity{
         		loadBar.setVisibility(View.VISIBLE);
         		mHandler.postDelayed(rankTable, 10);
         	}
-        });       
-        
-        //resetting
-        /*
-        final Dialog dialog = new Dialog(this);
-        reset.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-				dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-				dialog.setContentView(R.layout.dialogbox);
-				TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
-				title.setVisibility(View.VISIBLE);
-				title.setText(R.string.reset);
-				TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-				body.setText(R.string.reset_msg);
-				Button dialogButton = (Button) dialog.findViewById(R.id.button1);    		
-				dialogButton.setVisibility(View.VISIBLE);   		    		
-				dialogButton.setText(R.string.yes);
-				dialogButton.setOnClickListener (new View.OnClickListener(){
-		        	@Override
-					public void onClick (View v) {
-		        		try {
-        					String c1 = "Type: 12  Sound: 1  Difficulty: 2 ";
-        					String c2 = "Level: 1  Scores: 0 0 0 ";
-        					String c3 = arry[12]+" "+arry[13]+" music: 1  vibrate: 1";
-        					OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
-        					out.write(c1+c2+c3);
-        					out.close(); 
-        					Toast.makeText(getApplicationContext(), R.string.user_data_erased,Toast.LENGTH_SHORT).show();
-        					finish();
-        		    	} catch (IOException z) {
-        		    		z.printStackTrace(); 
-        		    	}
-					}
-				});
-				Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
-				dialogButton2.setVisibility(View.VISIBLE);
-				dialogButton2.setText(R.string.no);
-				dialogButton2.setOnClickListener (new View.OnClickListener(){
-		        	@Override
-					public void onClick (View v) {
-		        		dialog.dismiss();
-					}
-				});
-				dialog.show();
-        	}
-        });*/
+        });
 		
         //update database class
         new UpdateDatabase().execute();    
