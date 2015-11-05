@@ -70,7 +70,6 @@ public class EventHub extends Activity {
 
         more = (Button) findViewById(R.id.more_tab);
         Button logout = (Button) findViewById(R.id.logout);
-        Button create = (Button) findViewById(R.id.createEvent);
         final Button eventHub = (Button) findViewById(R.id.evt_tab);
         final Button calendar = (Button) findViewById(R.id.cal_tab);
         moreLayout = (LinearLayout) findViewById(R.id.moreLayout);
@@ -119,14 +118,6 @@ public class EventHub extends Activity {
                 file.delete();
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
-            }
-        });
-
-        create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), CreateEvent.class));
-                onBackPressed();
             }
         });
 

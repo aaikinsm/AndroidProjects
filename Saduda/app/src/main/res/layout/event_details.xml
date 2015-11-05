@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:id="@+id/linearLayout3"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@drawable/border"
+        android:layout_margin="5dp">
 
         <ImageView
             android:layout_width="100dp"
@@ -22,77 +25,93 @@
             android:layout_marginTop="0dp"
             android:scaleType="centerCrop" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="5th Anual Soca Fete"
-            android:id="@+id/eventTitle"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_alignTop="@+id/imageView2"
-            android:layout_alignBottom="@+id/ratingBar"
-            android:layout_toEndOf="@+id/imageView2"
-            android:layout_weight="1"
-            android:gravity="left|center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:layout_below="@+id/location"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/linearLayout4">
-
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="06/21 5:00PM"
-            android:id="@+id/eventTime"
-            android:textStyle="italic"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/eventFav"
-            android:src="@drawable/favourite0"
-            android:layout_below="@+id/switch1"
-            android:layout_alignStart="@+id/switch1"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="25dp"
-            android:id="@+id/eventJoin"
-            android:src="@drawable/switch_off"
-            android:layout_alignParentTop="true"
+            android:layout_weight="10"
+            android:layout_below="@+id/location"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center" />
-    </LinearLayout>
+            android:id="@+id/linearLayout4">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Location: 123 Bowtown Ave, Toronto ON"
-        android:id="@+id/location"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_centerHorizontal="true"
-        android:background="#ff9fdfdf"
-        android:gravity="center" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="5th Anual Soca Fete"
+                android:id="@+id/eventTitle"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_alignTop="@+id/imageView2"
+                android:layout_alignBottom="@+id/ratingBar"
+                android:layout_toEndOf="@+id/imageView2"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/imageView3"
+                    android:src="@drawable/clock"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="06/21 5:00PM"
+                    android:id="@+id/eventTime"
+                    android:textStyle="italic"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="5dp" />
+
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/eventJoin"
+                    android:src="@drawable/switch_off"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/imageView4"
+                    android:src="@drawable/location"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Location: 123 Bowtown Ave, Toronto ON"
+                    android:id="@+id/location"
+                    android:layout_below="@+id/linearLayout3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -135,12 +154,13 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="fill_parent"
+        android:layout_height="170dp"
         android:id="@+id/descriptionView"
-        android:layout_below="@+id/linearLayout4"
         android:layout_alignParentStart="true"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:layout_below="@+id/featuredLayout"
+        android:background="#229fdfdf">
 
         <TextView
             android:layout_width="wrap_content"
@@ -148,12 +168,58 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="This is just a description of an event that will be taking place at an undisclosed location. Please bring your own stuff. "
             android:id="@+id/eventDesc"
-            android:background="@drawable/shadow_banner"
             android:paddingRight="10dp"
             android:padding="10dp"
-            android:layout_below="@+id/linearLayout4"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/linearLayout3"
+            android:layout_toRightOf="@+id/fullImage"
+            android:layout_toEndOf="@+id/fullImage" />
     </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/featuredLayout"
+        android:layout_margin="10dp">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageButton2"
+            android:layout_weight="1"
+            android:src="@drawable/round_frame"
+            android:scaleType="fitXY"
+            android:background="#DDD" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageButton3"
+            android:layout_weight="1"
+            android:src="@drawable/round_frame"
+            android:scaleType="fitXY"
+            android:background="#DDD" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageButton4"
+            android:layout_weight="1"
+            android:src="@drawable/round_frame"
+            android:scaleType="fitXY"
+            android:background="#DDD" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageButton5"
+            android:layout_weight="1"
+            android:src="@drawable/round_frame"
+            android:scaleType="fitXY"
+            android:background="#DDD" />
+    </LinearLayout>
 
     <ImageView
         android:layout_width="fill_parent"

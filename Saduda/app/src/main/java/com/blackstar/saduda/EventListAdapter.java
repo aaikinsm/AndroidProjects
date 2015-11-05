@@ -70,7 +70,6 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
             TextView description = (TextView) v.findViewById(R.id.eventDesc);
             TextView time = (TextView) v.findViewById(R.id.eventTime);
             ImageView img = (ImageView) v.findViewById(R.id.eventImg);
-            ImageView fav = (ImageView) v.findViewById(R.id.eventFav);
             ImageView join = (ImageView) v.findViewById(R.id.eventJoin);
             img.setImageResource(R.drawable.calendar);
 
@@ -92,12 +91,6 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
                     join.setImageResource(R.drawable.switch_on);
                 else
                     join.setImageResource(R.drawable.switch_off);
-            }
-            if (fav != null){
-                if(i[15].equals("true"))
-                    fav.setImageResource(R.drawable.favourite1);
-                else
-                    fav.setImageResource(R.drawable.favourite0);
             }
 
             if(!i[17].equals("none")) {
@@ -132,7 +125,8 @@ public class EventListAdapter extends ArrayAdapter<String[]> {
         protected String doInBackground(String... args) {
             URL url = null;
             try {
-                url = new URL("http://saduda.com/uploads/events/small/" + path);
+                if(path.contains("://") || path.contains(".com")) url = new URL(path);
+                else url = new URL("http://saduda.com/uploads/events/small/" + path);
                 bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
                 map.put(path,bmp);
             } catch (MalformedURLException e) {

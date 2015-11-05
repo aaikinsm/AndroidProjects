@@ -8,7 +8,7 @@ ADDED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\sr
 		INJECTED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\src\main\AndroidManifest.xml:6:5-30
+		ADDED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\src\main\AndroidManifest.xml:6:5-32
 	android:versionCode
 		ADDED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\src\main\AndroidManifest.xml:5:5-29
 		INJECTED from C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\src\main\AndroidManifest.xml

@@ -911,6 +911,10 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 		if(!pro && rn==1 && Integer.parseInt(gFile[9])>2000 && mInterstitialAd.isLoaded()){
 			mInterstitialAd.show();
 		}
+		else if(!pro && rn==2 && Integer.parseInt(gFile[9])>2000){
+			TapjoyConnect.getTapjoyConnectInstance().getFullScreenAd(fullAdNotif);
+			FlurryAgent.logEvent("Video_Ad");
+		}
         finish();
     }
 }

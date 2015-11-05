@@ -67,7 +67,6 @@ public class EventScreen extends Activity {
         TextView location = (TextView) findViewById(R.id.location);
         final ImageView img = (ImageView) findViewById(R.id.eventImg);
         imgFull = (ImageView) findViewById(R.id.fullImage);
-        final ImageView fav = (ImageView) findViewById(R.id.eventFav);
         final ImageView join = (ImageView) findViewById(R.id.eventJoin);
         final LinearLayout chatLayout = (LinearLayout) findViewById(R.id.chatLayout);
         final ScrollView descView = (ScrollView) findViewById(R.id.descriptionView);
@@ -85,26 +84,6 @@ public class EventScreen extends Activity {
         location.setText(uList[5]);
         if (uList[13].equals("true")) join.setImageResource(R.drawable.switch_on);
         else join.setImageResource(R.drawable.switch_off);
-        if (uList[15].equals("true")) fav.setImageResource(R.drawable.favourite1);
-        else fav.setImageResource(R.drawable.favourite0);
-
-
-        fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UpdateEvent ue;
-                if (uList[15].equals("true")) {
-                    ue = new UpdateEvent(username,uList[0],"fav","false");
-                    uList[15] = "false";
-                    fav.setImageResource(R.drawable.favourite0);
-                } else {
-                    ue = new UpdateEvent(username,uList[0],"fav","true");
-                    uList[15] = "true";
-                    fav.setImageResource(R.drawable.favourite1);
-                }
-                ue.execute();
-            }
-        });
 
         join.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -219,7 +198,8 @@ public class EventScreen extends Activity {
         protected String doInBackground(String... args) {
             URL url = null;
             try {
-                if(full) url = new URL("http://saduda.com/uploads/events/" + path);
+                if(path.contains("://") || path.contains(".com")) url = new URL(path);
+                else if(full) url = new URL("http://saduda.com/uploads/events/" + path);
                 else url = new URL("http://saduda.com/uploads/events/small/" + path);
                 bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             } catch (MalformedURLException e) {

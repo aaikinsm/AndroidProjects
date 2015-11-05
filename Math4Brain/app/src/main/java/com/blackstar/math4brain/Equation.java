@@ -15,6 +15,7 @@ public class Equation {
 			eqType2 = type;
 			diff = difficult;
 			cntx = ct;
+			if(difficult<1) diff=1;
 		}
 		
 		public String getEquation (){
@@ -154,6 +155,7 @@ public class Equation {
 				int uBound = difficulty*3+3, lBound=difficulty;
 				while (search){
 					randCount = lBound + (int) ( Math.random()*(uBound - lBound) );
+					if(randCount==0) randCount=1;
 					ans = lBound + (int) ( Math.random()*(Math.pow(difficulty,2)*10 - lBound) );
 					if (ans%randCount == 0 && choice==0){
 						num1 = randCount; num2 = ans/randCount;

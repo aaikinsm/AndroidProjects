@@ -42,31 +42,36 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/rightPanel">
+            android:id="@+id/rightPanel"
+            android:layout_marginLeft="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="00:00"
-                android:id="@+id/eventTime"
-                android:gravity="right"
-                android:layout_gravity="right"
-                android:textStyle="italic" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/clock"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="00:00"
+                    android:id="@+id/eventTime"
+                    android:textStyle="italic"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp" />
+            </LinearLayout>
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/eventFav"
-                android:src="@drawable/favourite0"
-                android:layout_below="@+id/switch1"
-                android:layout_alignStart="@+id/switch1"
-                android:layout_gravity="right"
-                android:layout_margin="10dp" />
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_width="65dp"
+                android:layout_height="30dp"
                 android:src="@drawable/switch_off"
                 android:id="@+id/eventJoin"
                 android:layout_alignParentTop="true"

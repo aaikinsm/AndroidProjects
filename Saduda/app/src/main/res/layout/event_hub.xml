@@ -143,15 +143,6 @@
             android:singleLine="false"
             android:outlineProvider="bounds" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Create Event"
-            android:id="@+id/createEvent"
-            android:background="#fff"
-            android:singleLine="false"
-            android:outlineProvider="bounds" />
     </LinearLayout>
 
 </RelativeLayout>

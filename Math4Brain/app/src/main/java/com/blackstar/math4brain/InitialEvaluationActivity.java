@@ -426,6 +426,7 @@ public class InitialEvaluationActivity extends Activity{
 			}
 		}
 		gSettings.difficulty=diff/2;
+		if(gSettings.difficulty<5) gSettings.difficulty=5;
 		eq = new Equation(gSettings.equationType,gSettings.difficulty,this);
 		eq.createNew();
 	}

@@ -1,5 +1,7 @@
 package com.blackstar.saduda;
 
+import android.util.Log;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,13 +13,14 @@ import java.util.Date;
 public class ComputeDateTime {
     long diffDays, diffHours;
     Date endDate;
+    Calendar end;
 
     public ComputeDateTime(String givenDate){
         givenDate= givenDate.replace(" ",",").replace("-",",").replace(":", ",");
         String data[] = givenDate.split(",");
 
         Calendar start = Calendar.getInstance();
-        Calendar end = Calendar.getInstance();
+        end = Calendar.getInstance();
         end.set(Integer.parseInt(data[0]), Integer.parseInt(data[1])-1, Integer.parseInt(data[2]),
                 Integer.parseInt(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]));
         Date startDate = start.getTime();
@@ -69,11 +72,13 @@ public class ComputeDateTime {
     public String getDatePlusDuration(String dur){
         String[] duration = dur.split(":");
         int hr = Integer.parseInt(duration[0]);
-        int min =0;
-        if(duration.length>1) min = Integer.parseInt(duration[1]);
-        long newTime = (min*60000)+(hr*1200000);
-        endDate.setTime(endDate.getTime()+newTime);
-        return endDate.getYear()+"-"+endDate.getMonth()+"-"+endDate.getDay()+" "+
-                endDate.getHours()+":"+endDate.getMinutes()+":00";
+        end.add(Calendar.HOUR, hr);
+        if(duration.length>1) {
+            int min = Integer.parseInt(duration[1]);
+            end.add(Calendar.MINUTE, min);
+        }
+        endDate=end.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-M-d H:m:s");
+        return dateFormat.format(endDate).toString();
     }
 }

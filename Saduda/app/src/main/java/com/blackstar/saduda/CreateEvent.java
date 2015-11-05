@@ -137,6 +137,8 @@ public class CreateEvent extends Activity {
                         descriptionA = description.getText().toString();
                         viewAnimator.showNext();
                         screen++;
+
+                        Log.d("dateAB", dateA+"|"+dateB);
                         next.setText("Create");
                     }
                 }
@@ -149,7 +151,7 @@ public class CreateEvent extends Activity {
                         ud.execute();
                         try{Thread.sleep(1000);} catch (InterruptedException e){}
                         Intent intent = new Intent(getBaseContext(), CreateEvent.class);
-                        intent.putExtra("id", eventID);//:TODO
+                        intent.putExtra("id", eventID);
                         if(!eventID.equals("default")) startActivity(intent);
                         finish();
                     }
@@ -270,15 +272,13 @@ public class CreateEvent extends Activity {
         @Override
         protected String doInBackground(String... args) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("author", author));
+            params.add(new BasicNameValuePair("author", " "+author+" "));
             params.add(new BasicNameValuePair("title", titleA));
             params.add(new BasicNameValuePair("description", descriptionA));
             params.add(new BasicNameValuePair("location", locationA));
             params.add(new BasicNameValuePair("category", categoryA));
             params.add(new BasicNameValuePair("date", dateA));
             params.add(new BasicNameValuePair("end", dateB));
-            params.add(new BasicNameValuePair("image", "none"));
-
 
             //Encoding POST data
             try {
