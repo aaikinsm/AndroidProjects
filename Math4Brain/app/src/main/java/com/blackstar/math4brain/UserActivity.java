@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.UnknownFormatConversionException;
 
 public class UserActivity extends Activity{
 	
@@ -46,7 +47,7 @@ public class UserActivity extends Activity{
     List<String[]> uList = new ArrayList<>();
     UserListAdapter listAdapter;
     boolean connected = false, newMsg = false, ready = false, amazon = false, blackberry = false;
-	boolean initial=false, isVisible=false;
+	boolean initial=false, isVisible=false, nameUpdateOnly=false;
     Runnable rankTable;
     Handler mHandler = new Handler();
     
@@ -193,6 +194,10 @@ public class UserActivity extends Activity{
         					Toast.makeText(getApplicationContext(), R.string.no_name_entered,Toast.LENGTH_SHORT).show();
         				}else {
         					Toast.makeText(getApplicationContext(), R.string.user_name_changed,Toast.LENGTH_SHORT).show();
+							nameUpdateOnly = true;
+							UName = nam;
+							UpdateDatabase ud = new UpdateDatabase();
+							ud.execute();
         				}
         				arry[13]=nam;
         				for (int i=0; i<FILESIZE; i++){
@@ -370,100 +375,107 @@ public class UserActivity extends Activity{
 	            JSONObject json = jsonParser.makeHttpRequest(url_update_user,
 	                    "POST", params);
 	            
-	            
-	            /**
-	             * Getting user rank
-	             * */
-	            List<NameValuePair> params2 = new ArrayList<>();
-	            params2.add(new BasicNameValuePair(TAG_UID, id));
-	            JSONObject json2 = jsonParser.makeHttpRequest(url_get_rank,
-	                    "POST", params2);
-	            try {
-	                int success = json2.getInt(TAG_SUCCESS);
-	                if (success == 1) {
-	                    // successfully updated   
-	                	connected = true;
-	                	System.out.print("Database rank Successful");
-	                	rank = Integer.parseInt(json2.getString(TAG_MESSAGE));
-	                } else {
-	                    // failed to update product
-	                	System.out.print("Database rank NOT Successful");
-	                	connected = false;
-	                }
-	            } catch (JSONException e) {
-	                e.printStackTrace();
-	            }
-	            
-	            
-	            /**
-	             * Getting user list
-	             * */
-	            JSONArray users;
-	           // Building Parameters
-	            List<NameValuePair> params3 = new ArrayList<>();
-	            // getting JSON string from URL
-	            JSONObject json3 = jsonParser.makeHttpRequest(url_get_users, "GET", params3);
-	 
-	            // Check your log cat for JSON reponse
-	            try{ Log.d("All users: ", json3.toString()); } catch(OutOfMemoryError e){e.printStackTrace();}
-	 
-	            try {
-	                // Checking for SUCCESS TAG
-	                int success = json3.getInt(TAG_SUCCESS);
-	 
-	                if (success == 1) {
-	                    // users found
-	                    // Getting Array of Users
-	                    users = json3.getJSONArray(TAG_USERS);
-	 
-	                    // looping through All users
-	                    for (int i = 0; i < users.length(); i++) {
-	                        JSONObject c = users.getJSONObject(i);
 
-	                        if(rank<=DISPLAYMAX){
-	                        	if(i<DISPLAYMAX){
-				            		String[] myInf = new String[5];
-				            		myInf[0]=(c.getString(TAG_NAME)); 
-				            		myInf[1]=(c.getString(TAG_LEVEL)); 
-				            		myInf[2]=(c.getString(TAG_AVERAGE));
-				            		myInf[3]=(c.getString(TAG_POINTS));
-				            		myInf[4]= (i+1)+"";
-				            		uList.add(myInf);
-	                        	}
-	                    	}else{
-	                    		if(i<=rank+(DISPLAYMAX/2) && i>=rank-(DISPLAYMAX/2)){
-	                    			String[] myInf = new String[5];
-				            		myInf[0]=(c.getString(TAG_NAME)); 
-				            		myInf[1]=(c.getString(TAG_LEVEL)); 
-				            		myInf[2]=(c.getString(TAG_AVERAGE));
-				            		myInf[3]=(c.getString(TAG_POINTS));
-				            		myInf[4]= (i+1)+"";
-				            		uList.add(myInf);
-	                    		}
-	                    	}
-	                        if(i>rank+(DISPLAYMAX/2))break;
-	                        if(i+1 == rank) msgs=(c.getString(TAG_MSG));
-	                        connected = true;
-	                    }
-	                }else connected = false; 
-	            } catch (JSONException e) {
-	                e.printStackTrace();
-	            }
-	            
-	            /**
-	             * Getting current version
-	             * */
-	            JSONObject json4 = jsonParser.makeHttpRequest(url_get_version, "GET", params3);
-	            Log.d("Current Version: ", json4.toString());
-	            try{
-		            if (json4.getInt(TAG_SUCCESS)== 1){
-		            	String currVersion = (json4.getString(TAG_MESSAGE)); 
-		            	String ver = VERSION.replace("v","").replace("B","");
-		            	if (ver.compareTo(currVersion) < 0) msgs = getString(R.string.version_outdated)+currVersion;
-		            }
-	            }catch(JSONException e) {
-	                e.printStackTrace();
-	            }
+				if(!nameUpdateOnly) {
+					/**
+					 * Getting user rank
+					 * */
+					List<NameValuePair> params2 = new ArrayList<>();
+					params2.add(new BasicNameValuePair(TAG_UID, id));
+					JSONObject json2 = jsonParser.makeHttpRequest(url_get_rank,
+							"POST", params2);
+					try {
+						int success = json2.getInt(TAG_SUCCESS);
+						if (success == 1) {
+							// successfully updated
+							connected = true;
+							System.out.print("Database rank Successful");
+							rank = Integer.parseInt(json2.getString(TAG_MESSAGE));
+						} else {
+							// failed to update product
+							System.out.print("Database rank NOT Successful");
+							connected = false;
+						}
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+
+
+					/**
+					 * Getting user list
+					 * */
+					JSONArray users;
+					// Building Parameters
+					List<NameValuePair> params3 = new ArrayList<>();
+					// getting JSON string from URL
+					JSONObject json3 = jsonParser.makeHttpRequest(url_get_users, "GET", params3);
+
+					// Check your log cat for JSON reponse
+					try {
+						Log.d("All users: ", json3.toString());
+					} catch (OutOfMemoryError e) {
+						e.printStackTrace();
+					}
+
+					try {
+						// Checking for SUCCESS TAG
+						int success = json3.getInt(TAG_SUCCESS);
+
+						if (success == 1) {
+							// users found
+							// Getting Array of Users
+							users = json3.getJSONArray(TAG_USERS);
+
+							// looping through All users
+							for (int i = 0; i < users.length(); i++) {
+								JSONObject c = users.getJSONObject(i);
+
+								if (rank <= DISPLAYMAX) {
+									if (i < DISPLAYMAX) {
+										String[] myInf = new String[5];
+										myInf[0] = (c.getString(TAG_NAME));
+										myInf[1] = (c.getString(TAG_LEVEL));
+										myInf[2] = (c.getString(TAG_AVERAGE));
+										myInf[3] = (c.getString(TAG_POINTS));
+										myInf[4] = (i + 1) + "";
+										uList.add(myInf);
+									}
+								} else {
+									if (i <= rank + (DISPLAYMAX / 2) && i >= rank - (DISPLAYMAX / 2)) {
+										String[] myInf = new String[5];
+										myInf[0] = (c.getString(TAG_NAME));
+										myInf[1] = (c.getString(TAG_LEVEL));
+										myInf[2] = (c.getString(TAG_AVERAGE));
+										myInf[3] = (c.getString(TAG_POINTS));
+										myInf[4] = (i + 1) + "";
+										uList.add(myInf);
+									}
+								}
+								if (i > rank + (DISPLAYMAX / 2)) break;
+								if (i + 1 == rank) msgs = (c.getString(TAG_MSG));
+								connected = true;
+							}
+						} else connected = false;
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+
+					/**
+					 * Getting current version
+					 * */
+					JSONObject json4 = jsonParser.makeHttpRequest(url_get_version, "GET", params3);
+					Log.d("Current Version: ", json4.toString());
+					try {
+						if (json4.getInt(TAG_SUCCESS) == 1) {
+							String currVersion = (json4.getString(TAG_MESSAGE));
+							String ver = VERSION.replace("v", "").replace("B", "");
+							if (ver.compareTo(currVersion) < 0)
+								msgs = getString(R.string.version_outdated) + currVersion;
+						}
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
 	            
         	} catch (NullPointerException e) {
                 e.printStackTrace();
@@ -474,38 +486,6 @@ public class UserActivity extends Activity{
         }
         
     }
-
-	/*//submit Score
-	private void submitScore(String id, String nam, int lvl, int avg, int pnts, long scr) {
-        HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost("https://spreadsheets.google.com/spreadsheet/formResponse?hl=en_US&formkey=dGxUV0dpVGNDMHctektFbThiOGZoQlE6MQ");
-
-        List<BasicNameValuePair> results = new ArrayList<BasicNameValuePair>();
-        results.add(new BasicNameValuePair("entry.0.single", id));
-        results.add(new BasicNameValuePair("entry.1.single", nam));
-        results.add(new BasicNameValuePair("entry.2.single", lvl+""));
-        results.add(new BasicNameValuePair("entry.3.single", avg+""));
-        results.add(new BasicNameValuePair("entry.4.single", pnts+""));
-        results.add(new BasicNameValuePair("entry.5.single", scr+""));
-        results.add(new BasicNameValuePair("entry.6.single", VERSION));
-        results.add(new BasicNameValuePair("entry.7.single", locale));
-
-        try {
-            post.setEntity(new UrlEncodedFormEntity(results));
-        } catch (UnsupportedEncodingException e) {
-            // Auto-generated catch block
-            Log.e("YOUR_TAG", "An error has occurred", e);
-        }
-        try {
-            client.execute(post);
-        } catch (ClientProtocolException e) {
-            // Auto-generated catch block
-            Log.e("YOUR_TAG", "client protocol exception", e);
-        } catch (IOException e) {
-            // Auto-generated catch block
-            Log.e("YOUR_TAG", "io exception", e);
-        }
-    }*/
 	
 	private void displayMessage(String msg){
 		final Dialog dialog = new Dialog(this);

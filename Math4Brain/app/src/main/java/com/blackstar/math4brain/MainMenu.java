@@ -134,8 +134,8 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
     			out.close();       
     			mp3Bg.start();
 		        mp3Bg.setLooping(true);
-				if(getResources().getConfiguration().locale.toString().contains("en"))
-					startActivity(new Intent(getApplicationContext(),InitialEvaluationActivity.class));
+//				if(getResources().getConfiguration().locale.toString().contains("en"))
+//					startActivity(new Intent(getApplicationContext(),InitialEvaluationActivity.class));
         	} catch (IOException z) {
         		z.printStackTrace(); 
         	}

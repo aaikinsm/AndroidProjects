@@ -25,7 +25,7 @@ public class Menu extends Activity{
 
 		final Button challenge = (Button)  findViewById(R.id.buttonChallenge);
 		final Button timed = (Button)  findViewById(R.id.buttonTimed);
-		//final Button multiplayer = (Button)  findViewById(R.id.buttonMultiplayer);
+		final Button multiplayer = (Button)  findViewById(R.id.buttonMultiplayer);
 
 		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		if(cm.getActiveNetworkInfo() != null) connection = true;
@@ -35,13 +35,28 @@ public class Menu extends Activity{
 		// init Flurry
 		FlurryAgent.init(this, "FHXP5J7H49G6NHF4Q72M");
 		
-		challenge.setOnClickListener (new View.OnClickListener(){
-        	@Override
+		challenge.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getApplicationContext(), LevelSelectionActivity.class);
+				startActivity(i);
+				FlurryAgent.logEvent("Challenge");
+			}
+		});
+
+		multiplayer.setOnClickListener (new View.OnClickListener(){
+			@Override
 			public void onClick (View v){
-        		Intent i = new Intent(getApplicationContext(), LevelSelectionActivity.class);
-        		startActivity(i);
-        		FlurryAgent.logEvent("Challenge");
-        	}
+				level=1; highestLevel=1;
+				Intent i = new Intent(getApplicationContext(), MultiplayerActivity.class);
+				i.putExtra("level", level);
+				i.putExtra("highestLevel",highestLevel);
+				i.putExtra("time",200);
+				i.putExtra("p1Score",0);
+				i.putExtra("p2Score",0);
+				startActivity(i);
+				//FlurryAgent.logEvent("Multiplayer");
+			}
 		});
 		
 		timed.setOnClickListener (new View.OnClickListener(){
@@ -53,7 +68,7 @@ public class Menu extends Activity{
         		i.putExtra("time",200);
         		startActivity(i);
         		FlurryAgent.logEvent("Timed");
-        	}
+			}
 		});
 
 		int fb = (int) (Math.random()*(15)) ;

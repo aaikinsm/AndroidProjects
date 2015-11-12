@@ -24,33 +24,33 @@
 
     <Button
         android:id="@+id/buttonTimed"
-        android:layout_width="105dp"
-        android:layout_height="105dp"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
         android:background="@drawable/clear"
         android:text="Time Trial"
         android:layout_below="@+id/buttonChallenge"
         android:layout_alignLeft="@+id/buttonChallenge"
         android:layout_alignStart="@+id/buttonChallenge"
         android:padding="5dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/buttonMultiplayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonTimed"
-        android:layout_margin="15dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_menu"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        android:background="@drawable/clear"
         android:text="Multiplayer"
-        android:visibility="gone" />
+        android:visibility="visible"
+        android:layout_below="@+id/buttonTimed"
+        android:layout_alignLeft="@+id/buttonTimed"
+        android:layout_alignStart="@+id/buttonTimed"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonChallenge"
-        android:layout_width="105dp"
-        android:layout_height="105dp"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
         android:background="@drawable/clear"
         android:text="Challenge"
         android:padding="5dp"

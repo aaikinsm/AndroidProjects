@@ -19,28 +19,27 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MultiplayerActivity extends Activity{
 
-	int level =1, highestLevel=1, count;
-	boolean gameOver, isTimed;
+	int level =1, highestLevel=1, count, p1Score=0, p2Score =0;
+	boolean gameOver;
 	Handler mHandler;
 	Runnable gameClock;
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.slide);
-		final SlideView canvas = (SlideView)  findViewById(R.id.slideView1);
-		final TextView levelText = (TextView)  findViewById(R.id.textViewLevel);
-		final TextView moves = (TextView)  findViewById(R.id.textViewMoves);
-		final Button go = (Button)  findViewById(R.id.buttonGo);
-		final Button menu = (Button)  findViewById(R.id.buttonMenu);
-		final Button retry = (Button)  findViewById(R.id.buttonRetry);
+		setContentView(R.layout.multi_slide);
+		final SlideView canvas1 = (SlideView)  findViewById(R.id.slideView1);
+		final SlideView canvas2 = (SlideView)  findViewById(R.id.slideView2);
+		final TextView p1Output = (TextView)  findViewById(R.id.textViewP1);
+        final TextView p2Output = (TextView)  findViewById(R.id.textViewP2);
+        final SeekBar progress = (SeekBar)  findViewById(R.id.progressBar);
 		Context cntx = this;
 		mHandler = new Handler();
 		gameOver = false;
-		isTimed=true;
 		
 		//read file
 		Bundle extras = getIntent().getExtras();
@@ -48,10 +47,11 @@ public class MultiplayerActivity extends Activity{
 			level = extras.getInt("level");
 			highestLevel = extras.getInt("highestLevel");
 			count = extras.getInt("time",-1);
-			if (count!=-1){
-				isTimed=true;
-				level = (int) (level+(Math.random() * 5));
-			}
+            p1Score = extras.getInt("p1Score");
+            p2Score = extras.getInt("p2Score");
+            level = (int) (level+(Math.random() * 5));
+            p1Output.setText(""+p1Score);
+            p2Output.setText(""+p2Score);
 		}
 		else{
 			try {
@@ -75,116 +75,109 @@ public class MultiplayerActivity extends Activity{
 		
 		//Start Time Data for Flurry
 		final Map<String, String> flurryParam = new HashMap<String, String>();
-	    flurryParam.put("Level", level+""); 
+	    flurryParam.put("Level", level + "");
 		FlurryAgent.logEvent("Level_Time", flurryParam, true);
 		
-		if (level>96) level=1;
-		
-				
-		levelText.setText("Level "+level);
-		canvas.loadData(level);
-		canvas.setOnTouchListener(new OnSwipeTouchListener(cntx) {
-		    @Override
+		if (level>100) level=1;
+
+		canvas1.loadData(level);
+		canvas1.setOnTouchListener(new OnSwipeTouchListener(cntx) {
+            @Override
+            public void onSwipeTop() {
+                canvas1.setDirection("up");
+            }
+
+            @Override
+            public void onSwipeRight() {
+                canvas1.setDirection("right");
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                canvas1.setDirection("left");
+            }
+
+            @Override
+            public void onSwipeBottom() {
+                canvas1.setDirection("down");
+            }
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (!gameOver) canvas1.selectBlock(event.getX(), event.getY());
+                }
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
+
+		canvas2.invert = true;
+        canvas2.loadData(level);
+		canvas2.setOnTouchListener(new OnSwipeTouchListener(cntx) {
+			@Override
 			public void onSwipeTop() {
-		        canvas.setDirection("up");
-		    }
-		    @Override
+				canvas2.setDirection("up");
+			}
+			@Override
 			public void onSwipeRight() {
-		    	canvas.setDirection("right");
-		    }
-		    @Override
+				canvas2.setDirection("right");
+			}
+			@Override
 			public void onSwipeLeft() {
-		    	canvas.setDirection("left");
-		    }
-		    @Override
+				canvas2.setDirection("left");
+			}
+			@Override
 			public void onSwipeBottom() {
-		    	canvas.setDirection("down");
-		    }
+				canvas2.setDirection("down");
+			}
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				if(event.getAction() == MotionEvent.ACTION_DOWN){
-					if(!gameOver) canvas.selectBlock(event.getX(), event.getY());
+					if(!gameOver) canvas2.selectBlock(event.getX(), event.getY());
 				}
-				//Toast.makeText(SlideActivity.this, event.getX(0)+":"+event.getY(0), Toast.LENGTH_SHORT).show();
-			    return gestureDetector.onTouchEvent(event);
+				return gestureDetector.onTouchEvent(event);
 			}
 		});
-		
-		go.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-        		Intent i = new Intent(getApplicationContext(), SlideActivity.class);
-        		i.putExtra("level",level+1); i.putExtra("highestLevel",highestLevel);
-        		if(isTimed) i.putExtra("time",count);
-        		startActivity(i);
-        		finish();
-        	}
-		});
-		
-		retry.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-        		Intent i = new Intent(getApplicationContext(), SlideActivity.class);
-        		i.putExtra("level",level); i.putExtra("highestLevel",highestLevel);
-        		if(isTimed) i.putExtra("time",count);
-        		startActivity(i);
-        		finish();
-        	}
-		});
-		
-		menu.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-        		//Intent i = new Intent(getApplicationContext(), Menu.class);
-        		//startActivity(i);
-        		finish();
-        	}
-		});
+
 		
 		gameClock = new Runnable() {   
         	@Override
     		public void run() {
-        		int maxM = (canvas.maxMoves+((level-1)/24*5)-((level-1)/4));
-        		moves.setText("Moves: "+canvas.count+"/"+maxM);
-        		if (isTimed && count<0){
+        		if (count<0){
         			gameOver = true;
-        			moves.setText("SCORE:"+level/2*10);  
-        			levelText.setText("Time is up");
+                    if(p1Score>p2Score){
+                        p1Output.setText("You Win");
+                        p2Output.setText("You Lose");
+                    }else{
+                        p2Output.setText("You Win");
+                        p1Output.setText("You Lose");
+                    }
+                    
         		}
-        		else if(canvas.gameOver){ 
-        			moves.setText("LEVEL COMPLETE");
-        			if(!isTimed){
-	        			try{
-	    					OutputStreamWriter out = new OutputStreamWriter(openFileOutput("user_file",0)); 
-	    					String data;
-	    					if (level+1 > highestLevel) data = (level+1)+" "+(level+1);
-	    					else data = (level+1)+" "+highestLevel;
-	    					out.write(data);
-	    					out.close(); 
-	    				} catch (IOException z) {
-	    		    		z.printStackTrace(); 
-	    		    	}
-	        			
-	        			//user data to report to flurry analytics
-	        	        final Map<String, String> userParams = new HashMap<String, String>();
-	        	        userParams.put("Level", level+""); 
-	        	        userParams.put("Moves", canvas.count+""); 
-	        	        userParams.put("Max", maxM+"");
-	        			FlurryAgent.logEvent("Level_Data", userParams);
-        			}
-        			go.setVisibility(View.VISIBLE);
-        			gameOver=true;
+        		else if(canvas1.gameOver || canvas2.gameOver){
+                    gameOver=true;
+                    if(canvas1.gameOver){
+                        p1Score++;
+                        p1Output.setText(""+p1Score);
+                    }
+                    else {
+                        p2Score++;
+                        p2Output.setText(""+p2Score);
+                    }
+
+                    Intent i = new Intent(getApplicationContext(), MultiplayerActivity.class);
+                    i.putExtra("level",level+ 1);
+                    i.putExtra("highestLevel",highestLevel);
+                    i.putExtra("p1Score",p1Score);
+                    i.putExtra("p2Score",p2Score);
+                    i.putExtra("time",count);
+                    startActivity(i);
+                    finish();
         		}
-        		else if(canvas.count == maxM){
-        			gameOver = true;
-        			moves.setText("LEVEL FAILED (Too Many moves)");
-        		}
-        		else{  
-        			if(isTimed){
-        				levelText.setText("Time: "+count);
-        				count--;
-        			}
+        		else{
+                    count--;
+                    progress.setProgress(count/2);
         			mHandler.postDelayed(this, 500);          			
         		}       		
         	}

@@ -6,14 +6,14 @@
         jumboMode="false"
         revision="22.0.1"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\pre-dexed\release\support-v4-19.1.0-e3d7cd130215c1bc210c0ce4d1e85f496c56303a.jar" />
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-e3d7cd130215c1bc210c0ce4d1e85f496c56303a.jar" />
     </item>
     <item
         jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\libs\FlurryAnalytics-5.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="9143ea9b390b4f6eeee3673533402669de23ab7e">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\pre-dexed\release\FlurryAnalytics-5.0.0-6998b092e5469fd2b9ccec0f96ca67b4cdfadda6.jar" />
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\pre-dexed\debug\FlurryAnalytics-5.0.0-6998b092e5469fd2b9ccec0f96ca67b4cdfadda6.jar" />
     </item>
 
 </items>

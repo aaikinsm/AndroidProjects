@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blackstar.math4brain"
-    android:versionCode="57"
-    android:versionName="4.9.5" >
+    android:versionCode="58"
+    android:versionName="4.9.8" >
 
     <uses-sdk
         android:minSdkVersion="11"

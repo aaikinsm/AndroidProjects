@@ -262,19 +262,21 @@ public class ChallengeActivity extends Activity{
             		next.setVisibility(View.VISIBLE);
             		back.setVisibility(View.VISIBLE);
             		showIn.setVisibility(View.GONE);
-            		try {//save level to file
-            			String c ="";
-            			gFile[7]=((gSettings.level)-LVL_DOWNGRADE)+"";
-            			if ((gSettings.level)-LVL_DOWNGRADE <1) gFile[7]="1";
-            			for(int i = 0; i <FILESIZE; i++){
-            				c += gFile[i]+" ";
-            			}
-            			OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0));
-            			out.write(c);
-            			out.close();       			
-                	} catch (IOException e) {
-                		e.printStackTrace();
-                	}
+					if(gSettings.level%5!=0) {
+						try {//save level to file
+							String c = "";
+							gFile[7] = ((gSettings.level) - LVL_DOWNGRADE) + "";
+							if ((gSettings.level) - LVL_DOWNGRADE < 1) gFile[7] = "1";
+							for (int i = 0; i < FILESIZE; i++) {
+								c += gFile[i] + " ";
+							}
+							OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME, 0));
+							out.write(c);
+							out.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
             	}
         		//if goal achieved
         		else if(gSettings.numOfEquations==gSettings.score){ 

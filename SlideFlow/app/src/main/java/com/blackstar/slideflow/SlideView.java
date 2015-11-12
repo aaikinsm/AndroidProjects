@@ -17,10 +17,10 @@ import android.view.View;
 
 public class SlideView extends View{
 	Bitmap [] pic = new Bitmap[16], explosion = new Bitmap[13], electric = new Bitmap[13];
-	boolean moved = false, initial=true, gameOver, animate=false;
+	boolean moved = false, initial=true, gameOver, animate=false, invert=false;
 	int wDir=0, hDir=0, speed=15, count=0, block=0, MAX=100, numBlocks=0, base=7, maxMoves,
 			 width, gridSize=5, tileSize, padding=5;
-	int[][] blockData = new int[MAX][3], animData;
+	int[][] blockData = new int[MAX][4], animData;
 	public int [][] data = new int [10][2];
 	Paint square = new Paint();
 	Matrix matrix = new Matrix();
@@ -100,7 +100,7 @@ public class SlideView extends View{
 			pic[4] = BitmapFactory.decodeResource(getResources(), R.drawable.yellow);
 			pic[5] = BitmapFactory.decodeResource(getResources(), R.drawable.torquise);
 			pic[6] = BitmapFactory.decodeResource(getResources(), R.drawable.block);
-			pic[7] = BitmapFactory.decodeResource(getResources(), R.drawable.block);
+			pic[7] = pic[6];//extra block
 			pic[8] = BitmapFactory.decodeResource(getResources(), R.drawable.left_down);
 			pic[9] = BitmapFactory.decodeResource(getResources(), R.drawable.left_right);
 			pic[10] = BitmapFactory.decodeResource(getResources(), R.drawable.right_down);
@@ -164,6 +164,9 @@ public class SlideView extends View{
 		for(int i=1; i<gridSize; i++){
 			canvas.drawLine(tileSize*i, 0, tileSize*i, width, paint3);
 			canvas.drawLine(0,tileSize*i, width, tileSize*i, paint3);
+			canvas.drawRect(0, 0, tileSize, tileSize / 10, paint);
+			canvas.drawRect(tileSize*(gridSize-1),(tileSize*gridSize)-(tileSize / 10),
+					tileSize*gridSize,tileSize*gridSize,paint);
 		}
 		
 		
@@ -261,6 +264,14 @@ public class SlideView extends View{
 		for (int i =0; i <numBlocks; i++){
 			for (int j =0; j <3; j++){
 				blockData[i][j] = data.nextInt();
+			}
+			if(invert){
+				//blockData[i][0]=(blockData[i][0]*10)+blockData[i][1];
+				//blockData[i][1]=blockData[i][0]/100;
+				//blockData[i][0]=blockData[i][0]%100;
+				blockData[i][3]= blockData[i][0];
+				blockData[i][0]=blockData[i][1];
+				blockData[i][1]=blockData[i][3];
 			}
 		}
 		data.close();

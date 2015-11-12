@@ -22,38 +22,150 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb478a9-93f8-4529-b355-5a1473cca10d" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\.idea\libraries\FlurryAgent.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\.idea\libraries\acra_4_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\.idea\libraries\appcompat_v7_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\.idea\libraries\support_annotations_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\.idea\libraries\support_v4_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\.idea\libraries\tapjoyconnectlibrary.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\SlideFlow.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\app.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\classes\debug\com\blackstar\slideflow\MultiplayerActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\classes\debug\com\blackstar\slideflow\MultiplayerActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\classes\release\com\blackstar\slideflow\MultiplayerActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\SlideFlow\app\build\intermediates\classes\release\com\blackstar\slideflow\MultiplayerActivity$5.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/Equation.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/Equation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/BuildConfig.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$16.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$17.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$18.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$19.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$20.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$listener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity$listener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/ChallengeActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/debug/FlurryAnalytics-5.0.0-6998b092e5469fd2b9ccec0f96ca67b4cdfadda6.jar" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/debug/FlurryAnalytics-5.0.0-6998b092e5469fd2b9ccec0f96ca67b4cdfadda6.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/release/FlurryAnalytics-5.0.0-6998b092e5469fd2b9ccec0f96ca67b4cdfadda6.jar" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/release/FlurryAnalytics-5.0.0-6998b092e5469fd2b9ccec0f96ca67b4cdfadda6.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/MainMenu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/MainMenu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/Menu$2.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/Menu$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/Menu$2.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/Menu$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/Menu.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/Menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/Menu.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/Menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/MinuteRunActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/MinuteRunActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity$1.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity$1.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity$2.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity$2.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity$3.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity$3.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/MultiplayerActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/MultiplayerActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$id.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$id.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$layout.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$layout.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$menu.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$menu.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$raw.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$raw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$raw.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$raw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$string.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$string.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$style.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$style.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/SlideActivity.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/SlideActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/SlideActivity.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/SlideActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/SlideView$AnimThread.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/SlideView$AnimThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/SlideView$AnimThread.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/SlideView$AnimThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/SlideView.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/debug/com/blackstar/slideflow/SlideView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/SlideView.class" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/classes/release/com/blackstar/slideflow/SlideView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$UpdateDatabase.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity$UpdateDatabase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/blackstar/math4brain/UserActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/apk/app-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-release-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-release-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/apk/app-release-unaligned.apk" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/apk/app-release-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app-release.apk" afterPath="$PROJECT_DIR$/app/app-release.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/app-release.apk" afterPath="$PROJECT_DIR$/../SlideFlow/app/app-release.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/release/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/release/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/dex/release/classes.dex" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/dex/release/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/resources/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/resources/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/resources/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-release.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-release.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/resources/resources-release.ap_" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/resources/resources-release.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-e3d7cd130215c1bc210c0ce4d1e85f496c56303a.jar" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-e3d7cd130215c1bc210c0ce4d1e85f496c56303a.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/release/support-v4-19.1.0-e3d7cd130215c1bc210c0ce4d1e85f496c56303a.jar" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/pre-dexed/release/support-v4-19.1.0-e3d7cd130215c1bc210c0ce4d1e85f496c56303a.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/../SlideFlow/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/manifests/full/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/manifests/full/release/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/blackstar/math4brain/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/blackstar/math4brain/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/com/blackstar/math4brain/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/com/blackstar/math4brain/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Saduda/app/src/main/java/com/blackstar/saduda/ComputeDateTime.java" afterPath="$PROJECT_DIR$/../Saduda/app/src/main/java/com/blackstar/saduda/ComputeDateTime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Saduda/app/src/main/java/com/blackstar/saduda/CreateEvent.java" afterPath="$PROJECT_DIR$/../Saduda/app/src/main/java/com/blackstar/saduda/CreateEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/Equation.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/Equation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Saduda/app/src/main/java/com/blackstar/saduda/EventHub.java" afterPath="$PROJECT_DIR$/../Saduda/app/src/main/java/com/blackstar/saduda/EventHub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/InitialEvaluationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/InitialEvaluationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MinuteRunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MinuteRunActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Saduda/app/src/main/res/layout/event_hub.xml" afterPath="$PROJECT_DIR$/../Saduda/app/src/main/res/layout/event_hub.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/generated/source/buildConfig/release/com/blackstar/slideflow/BuildConfig.java" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/generated/source/buildConfig/release/com/blackstar/slideflow/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/ChallengeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/ChallengeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/src/main/java/com/blackstar/slideflow/Menu.java" afterPath="$PROJECT_DIR$/../SlideFlow/app/src/main/java/com/blackstar/slideflow/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/src/main/java/com/blackstar/slideflow/MultiplayerActivity.java" afterPath="$PROJECT_DIR$/../SlideFlow/app/src/main/java/com/blackstar/slideflow/MultiplayerActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/generated/source/r/debug/com/blackstar/slideflow/R.java" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/generated/source/r/debug/com/blackstar/slideflow/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/generated/source/r/release/com/blackstar/slideflow/R.java" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/generated/source/r/release/com/blackstar/slideflow/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/src/main/java/com/blackstar/slideflow/SlideView.java" afterPath="$PROJECT_DIR$/../SlideFlow/app/src/main/java/com/blackstar/slideflow/SlideView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/UserActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/UserActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/../SlideFlow/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.idea/compiler.xml" afterPath="$PROJECT_DIR$/../SlideFlow/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../SlideFlow/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/lint-results-release-fatal.html" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/lint-results-release-fatal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/lint-results-release-fatal.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/lint-results-release-fatal.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-release-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-release-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/local.properties" afterPath="$PROJECT_DIR$/../SlideFlow/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/debug/layout/main_screen.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/debug/layout/main_screen.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/release/layout/main_screen.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/release/layout/main_screen.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/src/main/res/layout/main_screen.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/src/main/res/layout/main_screen.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/logs/manifest-merger-release-report.txt" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/outputs/logs/manifest-merger-release-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.idea/misc.xml" afterPath="$PROJECT_DIR$/../SlideFlow/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/debug/layout/multi_slide.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/debug/layout/multi_slide.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/release/layout/multi_slide.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/build/intermediates/res/release/layout/multi_slide.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/app/src/main/res/layout/multi_slide.xml" afterPath="$PROJECT_DIR$/../SlideFlow/app/src/main/res/layout/multi_slide.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SlideFlow/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../SlideFlow/.idea/workspace.xml" />
     </list>
     <ignored path="Math4Brain.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,61 +212,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="InitialEvaluationActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/InitialEvaluationActivity.java">
+      <file leaf-file-name="ChallengeActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/ChallengeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5185184">
-              <caret line="428" column="8" selection-start-line="428" selection-start-column="8" selection-end-line="428" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Equation.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/Equation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35103244">
-              <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PracticeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/PracticeActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="323" column="28" selection-start-line="323" selection-start-column="28" selection-end-line="323" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinuteRunActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MinuteRunActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-370.81482">
-              <caret line="907" column="24" selection-start-line="907" selection-start-column="24" selection-end-line="907" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state vertical-scroll-proportion="-0.24329159">
+              <caret line="326" column="45" selection-start-line="326" selection-start-column="45" selection-end-line="326" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -1794,13 +1856,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/TrackProgressView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/tutorial.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/UserActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_actions.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/Equation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/InitialEvaluationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MinuteRunActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/UserActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/ChallengeActivity.java" />
       </list>
     </option>
   </component>
@@ -1846,10 +1909,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1865,7 +1926,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1875,15 +1936,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="math4brain" />
@@ -1897,34 +1954,33 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="cc21e906" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="10in_tablet" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Disk Files/Android Apps/Math4Brain/keystore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SlideFlow" />
     <property name="ExportApk.ApkPath" value="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
+    <property name="full.screen.before.presentation.mode" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2136,16 +2192,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32879046" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2155,16 +2210,17 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18305598" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1709531" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2173,13 +2229,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32879046" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18305598" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17700455" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2189,7 +2245,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2217,19 +2273,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/PracticeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="323" column="28" selection-start-line="323" selection-start-column="28" selection-end-line="323" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2237,7 +2284,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2260,7 +2306,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2285,7 +2330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2300,7 +2344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="317" column="28" selection-start-line="317" selection-start-column="28" selection-end-line="317" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2308,7 +2351,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2338,7 +2380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2363,7 +2404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2378,7 +2418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="317" column="28" selection-start-line="317" selection-start-column="28" selection-end-line="317" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2386,7 +2425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2433,7 +2471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="279" column="28" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2441,7 +2478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2546,7 +2582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2554,7 +2589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2569,56 +2603,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="164" column="108" selection-start-line="164" selection-start-column="108" selection-end-line="164" selection-end-column="108" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/UserActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/Equation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="204" column="108" selection-start-line="204" selection-start-column="108" selection-end-line="204" selection-end-column="108" />
-          <folding>
-            <element signature="e#8291#8313#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="323" column="28" selection-start-line="323" selection-start-column="28" selection-end-line="323" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MinuteRunActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-370.81482">
-          <caret line="907" column="24" selection-start-line="907" selection-start-column="24" selection-end-line="907" selection-end-column="24" />
+          <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/InitialEvaluationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5185184">
+        <state vertical-scroll-proportion="0.0">
           <caret line="428" column="8" selection-start-line="428" selection-start-column="8" selection-end-line="428" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/UserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="484" column="23" selection-start-line="484" selection-start-column="23" selection-end-line="484" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/Equation.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/MinuteRunActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35103244">
-          <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="328" column="58" selection-start-line="328" selection-start-column="58" selection-end-line="328" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/blackstar/math4brain/ChallengeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.24329159">
+          <caret line="326" column="45" selection-start-line="326" selection-start-column="45" selection-end-line="326" selection-end-column="45" />
           <folding />
         </state>
       </provider>
