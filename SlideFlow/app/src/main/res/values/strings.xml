@@ -15,4 +15,10 @@
 	    <item name="6a">1</item><item name="6b">1</item><item name="6a">2</item>
 	    <item name="7a">2</item><item name="7b">0</item><item name="7a">1</item>
 	</integer-array>
+	<string name="leave_feedback">Leave feedback</string>
+	<string name="feedback_msg">Do you have a comment or suggestion? Send me a message</string>
+	<string name="perhaps_later">Perhaps Later</string>
+	<string name="email_subject">SlideFlow feedback</string>
+	<string name="send_email_using">Send email using..</string>
+	<string name="no_email_client">There are no email clients installed.</string>
 </resources>

@@ -225,3 +225,4 @@ pip-log.txt
 /*/*/build
 /*/*.class
 *.class
+*.class

@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +31,11 @@ public class InitialEvaluationActivity extends Activity{
 	Runnable mUpdateTimer;
 	MediaPlayer mp3Tick;
 	GameSettings gSettings;
-	int displaySecs, FILESIZE =25, e1=0,e2=0,e3=0,e4=0,hintSleep, diff=2, count=0;
-	double startTime = 0, nextTime=0, time=0;
+	int displaySecs, FILESIZE =25, e1=0,e2=0,e3=0,e4=0,hintSleep, diff=2, numEqn=0;
+	double startTime = 0, nextTime=0, time=0, setTime=90;
 	Equation eq;
 	boolean e1a=true, e2a=true,e3a=true,e4a=true;
+    ProgressBar progress;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,26 +59,27 @@ public class InitialEvaluationActivity extends Activity{
         final ImageButton b8 = (ImageButton) findViewById(R.id.button8);
         final ImageButton b9 = (ImageButton) findViewById(R.id.button9);
         final ImageButton pass = (ImageButton) findViewById(R.id.buttonPass);
-        final ImageButton pass2 = (ImageButton) findViewById(R.id.buttonPass2);
         final ImageButton clear = (ImageButton) findViewById(R.id.buttonClr);
         final Button next = (Button) findViewById(R.id.buttonNext);
         final Button back = (Button) findViewById(R.id.buttonBack);
         final MediaPlayer mp3Correct = MediaPlayer.create(this, R.raw.correct);
         final MediaPlayer mp3Over = MediaPlayer.create(this, R.raw.gameover);
         final FrameLayout numPad = (FrameLayout) findViewById(R.id.frameLayoutNumPad);
+		progress = (ProgressBar) findViewById(R.id.progressBarBlue);
         mp3Tick = MediaPlayer.create(this, R.raw.ticktok);
         gSettings = new GameSettings();       
         final Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         final String FILENAME = "m4bfile1";
         mHandler = new Handler();
         final String[] gFile = new String[FILESIZE];
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "digital.ttf");
         Typeface myTypeface2 = Typeface.createFromAsset(getAssets(), "fawn.ttf");
         showEq.setTypeface(myTypeface2);
         showIn.setTypeface(myTypeface2);
         result.setTypeface(myTypeface2);
         info.setTypeface(myTypeface2);
-        clock.setTypeface(myTypeface);
+        progress.setProgress(0);
+		progress.setVisibility(View.VISIBLE);
+		clock.setVisibility(View.GONE);
 
 
 		gSettings.level=1;
@@ -85,7 +88,6 @@ public class InitialEvaluationActivity extends Activity{
 		gSettings.difficulty = 1;
 
         eq = new Equation(gSettings.equationType, gSettings.difficulty, this);
-        final double setTime = 90;
         
 
 	        //Initial level info Dialog box
@@ -132,7 +134,7 @@ public class InitialEvaluationActivity extends Activity{
         					try{
         						time = setTime - Double.parseDouble(sTim.substring(0,sTim.length()-5)+"."+sTim.substring(sTim.length()-5,sTim.length()-4));
         					}catch(NumberFormatException e){
-        						Toast.makeText(getApplicationContext(), "Sorry this language is not supported yet. Supported Langeages are; English, French, Spanish, and German",Toast.LENGTH_SHORT).show();
+        						Toast.makeText(getApplicationContext(), "Sorry this language is not supported yet. Supported Languages are; English, French, Spanish, and German",Toast.LENGTH_SHORT).show();
         						finish();
         					}
         				}
@@ -147,7 +149,6 @@ public class InitialEvaluationActivity extends Activity{
         			}
         			catch(Exception e){e.printStackTrace();}
         		}
-        		clock.setText(gSettings.getClock());
         		//if time is up
         		if(gSettings.clock==0){
         			try{
@@ -175,10 +176,10 @@ public class InitialEvaluationActivity extends Activity{
 
 					//modify
 					gFile[1]="1";
-					if(e2a)gFile[1]+="2";
-					if(e3a)gFile[1]+="3";
-					if(e4a)gFile[1]+="4";
-					gFile[5]=""+(gSettings.difficulty-1);
+					if(e2a&&diff>=3)gFile[1]+="2";
+					if(e3a&&diff>=5)gFile[1]+="3";
+					if(e4a&&diff>=5)gFile[1]+="4";
+					gFile[5]=""+(gSettings.difficulty);
 
 					//write
 					try {
@@ -226,12 +227,9 @@ public class InitialEvaluationActivity extends Activity{
 	        			try{
 	        			if(gSettings.sound==1) mp3Correct.start();
 	        			}catch(Exception E){E.printStackTrace();}
-						if(count>2)
-							getNextEquation(true);
-						else{
-							eq.createNew();
-							count++;
-						}
+
+						numEqn++;
+						getNextEquation(true);
 
 	        			gSettings.score +=1;
 	        			result.setText("");
@@ -355,6 +353,7 @@ public class InitialEvaluationActivity extends Activity{
         		if(gSettings.vibrate==1)vb.vibrate(15);
         		showIn.setText("");
         		gSettings.inputTimer=-1;
+				//info.setText(gSettings.difficulty + ":" + e1a + "," + e2a + "," + e3a + "," + e4a + ":" + numEqn);
         	}
         });
         pass.setOnClickListener (new View.OnClickListener(){
@@ -362,6 +361,7 @@ public class InitialEvaluationActivity extends Activity{
 			public void onClick (View v){
         		if (!gSettings.timeUp){
 	        		result.setText("");
+					numEqn++;
 	        		getNextEquation(false);
 	                showEq.setText(eq.getEquation());
 	                showIn.setText("");
@@ -398,37 +398,44 @@ public class InitialEvaluationActivity extends Activity{
 			else if(gSettings.equationType==3)e3--;
 			else if(gSettings.equationType==4)e4--;
 		}
+
+		if(numEqn %5==0){
+			if (gSettings.score < 2 && diff >= 4) {
+				diff -= 2;
+			}
+			else diff++;
+			gSettings.score = 0;
+			if (e2 < -1) e2a = false;
+			if (e3 < -1) e3a = false;
+			if (e4 < -1) e4a = false;
+		}
+
 		boolean proceed = false;
 		while(!proceed) {
 			if (gSettings.equationType == 4) {
 				gSettings.equationType = 1;
-				diff++;
-				if (diff % 2 == 0) {
-					if (gSettings.score < 2 && diff >= 5) {
-						diff -= 3;
-					}
-					gSettings.score = 0;
-				}
-				if (e2 < -1) e2a = false;
-				if (e3 < -1) e3a = false;
-				if (e4 < -1) e4a = false;
-
 				proceed = e1a;
 			} else if (gSettings.equationType == 1) {
 				gSettings.equationType++;
 				proceed = e2a;
+				if(diff<3) proceed=false;
 			} else if (gSettings.equationType == 2) {
 				gSettings.equationType++;
 				proceed = e3a;
+				if(diff<5) proceed=false;
 			} else if (gSettings.equationType == 3) {
 				gSettings.equationType++;
 				proceed = e4a;
+				if(diff<5) proceed=false;
 			}
 		}
 		gSettings.difficulty=diff/2;
-		if(gSettings.difficulty<5) gSettings.difficulty=5;
-		eq = new Equation(gSettings.equationType,gSettings.difficulty,this);
+		if(gSettings.difficulty>5) gSettings.difficulty=5;
+		eq.diff=gSettings.difficulty;
+		eq.eqType = gSettings.equationType;
+		eq.eqType2 = gSettings.equationType;
 		eq.createNew();
+        progress.setProgress(100- (int)(Double.parseDouble(gSettings.getClock()) * 100 / setTime));
 	}
 	
 	@Override

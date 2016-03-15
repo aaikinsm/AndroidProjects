@@ -2,221 +2,74 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.1.0\jars\classes.jar"
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="dcb5b75baf05d92e61d5706737200ee55949f97b">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-6389aaf5acdae9dd3d5958551b06cc0432fb9dd8.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\internal_impl-22.2.0-088d76d75bdd1fcc326755c5b870197d55709cd6.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\internal_impl-22.2.0-bb4788a00a7cb834d66582bb82d695c774e82fbc.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3c729e6d76a36c5dc27e6a4c4009296f49eaa88a">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-c4a62f3d0a9bff8c784dec38bbdbf257e6168f49.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-37bcd0425eb14519d98ed0ad30754c8c0ccfebfa.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-0c0cf1076b185feebbbdcaa25517d40ef1b0f735.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3aed37c38c56679602255dd72ef356da5d327cda">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-c39ce391414531210b31110bc5a4fd4ab7807e32.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="993834cb17d07d51b92db89d2c330243592ebf77">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-c1ed446c9b0865b045b92458d3b53bbf6c4992ae.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3178362320bcf51228835b60ff978efadfd1f783">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-6cd06cba11522e473f6f529be6a46d10bc4de722.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\libs\acra-4.2.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="83a53ff90fccbbf7a8e901fc05df3ceb6e0cef8d">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\acra-4.2.3-97444d8252a689186b2ea95a24b6c5ab16d683e0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-6847633713774bc5eb830c6b6cc269405295d95e.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-f21dd53bd76e2e4939eac4f76cce45d292d08bb9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-68bcd872d8aa3a380bd7fd217ff4f685a90e4a43.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\libs\FlurryAgent.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="944ea867d1235e084e86d2d2b8a4ddad44d0ee7f">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\FlurryAgent-52ba2782d55188b37670052b13e5fdcfa5a74068.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d93480da1d303122ee67dc3bc23e6297bdef9951">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-5b51ebb821426c55774b4d3f8224fe4ab25b0625.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d294caf562c4c678b2ef351662a0ca6f1a4d06c0">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-9124bb9876b7ef461bcf48fca432ed002743933b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b92002cb2f0e11a226ac5bac6dff1dc2a9d0b774">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-3f8d7a4ec787a189684233320fabca8921a539e1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="95758a2905669affbffc5ddd262921d375674fad">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-8c092f19f3ffa203c6f3914ef17f652841ad3542.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="97f3b099801a9ad9d70e835b9125273e986eb68d">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-e975a38d042a6c69409b7741f5e8711b43808850.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\support-annotations-22.2.0-772feddbdf9f52c87939ef050b0ab7d0fb656ddf.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9cf8c0ef60847621c7ad00b4f78dbfc9daba4af2">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-9be7512b4d5cdf634e7218569ec0ff52bc937ff7.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="041d93cf0533591c29d1d7263b2fa114dbfb20bd">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-0a8e6dbd71544af772f1392dc1e094e4f99f0f56.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="482de223655d06253cc6a4955d653f8994169500">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-c213fd8674656a255daf0fecace276be092e5100.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2a7e47da654546f9457deb6132364f1bf33a1857">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-982a25ba7d35c390808f57cc0239eaa866bde3c1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="325788a04b436a0bccbc5b4c54cf0f12ebdcbd2d">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-4504c289f7f300bd06cb3106e66dfd533e483700.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="82825756edeeb3b56b15e73b2edd56e93da5a444">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-38a7e0321f13416f6360fdbad38b7c9236ce7525.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3b05c18f60969ecc2ba49c0409c4b96be2d9cb0c">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-01cb28ecf8c84e0ad3304419c770ef5effe23e74.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="997773777cf3904c11d6764fe3b7668538220e49">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-d347b09f09dfefd9ce9f03270bcc3655dfe371ff.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d61920aba361832a9545a43fa8c9453eb02f18f7">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-66d669bde35ab70765f1f8f092ae629ccd2f2bdd.jar" />
-    </item>
-    <item
-        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="17449c47df35c754b257532052f1270c444f7993">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\classes-0f8833c09550008fdd2b61e5b13cff10b492ce17.jar" />
+        revision="23.0.1"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\classes-714c6189e377c4a54aa2c8f2e47ae9f177729dc7.jar" />
     </item>
     <item
         jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\libs\tapjoyconnectlibrary.jar"
         jumboMode="false"
-        revision="22.0.1"
+        revision="23.0.1"
         sha1="5e133e7d954e58a772961315414be9b46f89874e">
-        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\release\tapjoyconnectlibrary-07604a7bedad039f51042386387605a9e9b87bf7.jar" />
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\tapjoyconnectlibrary-07604a7bedad039f51042386387605a9e9b87bf7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-05d22bd54e9f9b6c1cb32d615497b837a329326c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\classes-2a2f0d2d94355147d85124f184ad9519c8a2d3c4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\libs\org.apache.http.legacy.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\org.apache.http.legacy-f0ccd8b2f9feef4f2d8d97ebd5c19170c1abfc3d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-78bc39a4bae2cb0d05d360f0e6508e806876983c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\classes-3035861624ef9e78e2b4cbf785ceb99003278d04.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\classes-7dda408ead21202581738f829e78a64cf00cdce2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\libs\acra-4.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="83a53ff90fccbbf7a8e901fc05df3ceb6e0cef8d">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\acra-4.2.3-97444d8252a689186b2ea95a24b6c5ab16d683e0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\libs\FlurryAgent.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="944ea867d1235e084e86d2d2b8a4ddad44d0ee7f">
+        <dex dex="C:\Users\Asus\AndroidstudioProjects\AndroidProjects\Math4Brain\app\build\intermediates\pre-dexed\debug\FlurryAgent-52ba2782d55188b37670052b13e5fdcfa5a74068.jar" />
     </item>
 
 </items>

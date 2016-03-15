@@ -124,7 +124,13 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f080000;
         public static final int app_name=0x7f080001;
-        public static final int hello_world=0x7f080002;
+        public static final int email_subject=0x7f080002;
+        public static final int feedback_msg=0x7f080003;
+        public static final int hello_world=0x7f080004;
+        public static final int leave_feedback=0x7f080005;
+        public static final int no_email_client=0x7f080006;
+        public static final int perhaps_later=0x7f080007;
+        public static final int send_email_using=0x7f080008;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 

@@ -160,6 +160,14 @@ Jumlah Poin:"</string>
     <string name="too_difficult">Kesulitan yang lebih rendah direkomendasikan</string>
     <string name="days">Hari</string>
     <string name="prog_chart">Grafik Kemajuan Anda</string>
+    <string name="try_challenge">Coba Tantangan</string>
+    <string name="evaluation">Evaluasi</string>
+    <string name="evaluation_msg">Kita akan membuat profil disesuaikan untuk Anda. Mari kita mulai</string>
+    <string name="enter_valid_email">silakan isi alamat email</string>
+    <string name="email">e-mail</string>
+    <string name="backup">Backup data Anda</string>
+    <string name="restore">Mengembalikan data</string>
+    <string name="backup_restore">Backup/Mengembalikan</string>
     
     <!--  Tips -->
     <string-array name="tips">

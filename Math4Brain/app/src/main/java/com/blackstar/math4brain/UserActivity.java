@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
@@ -39,7 +40,7 @@ import java.util.UnknownFormatConversionException;
 
 public class UserActivity extends Activity{
 	
-	int level=0, average =0, DISPLAYMAX=20, rank, minPointsPro= 6000, FILESIZE = 25;
+	int level=0, average =0, DISPLAYMAX=20, rank, minPointsPro= 5000, FILESIZE = 25;
 	int[] aScores;
     String UName = "", VERSION, IPADRS="blackstar.herobo.com", msgs=null, FILEMSG = "m4bfileMsg", 
     		FILETRACK = "m4bfileTrack", locale=Locale.getDefault().getLanguage();
@@ -63,8 +64,7 @@ public class UserActivity extends Activity{
         final TextView name = (TextView) findViewById(R.id.textViewTitle);
         final Button editName = (Button) findViewById(R.id.buttonEditName);
         final Button done = (Button) findViewById(R.id.buttonInfo);
-        final Button share = (Button) findViewById(R.id.buttonShare);
-        final Button getPoints = (Button) findViewById(R.id.buttonGetPoints);
+        final ImageButton share = (ImageButton) findViewById(R.id.buttonShare);
         final EditText nameInput = (EditText) findViewById(R.id.editTextName);
         final Button viewRank = (Button) findViewById(R.id.buttonViewRank);
         final TableLayout topUsers = (TableLayout) findViewById(R.id.tableLayoutTopUsers);
@@ -150,17 +150,6 @@ public class UserActivity extends Activity{
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-        
-        if(arry[10].equals("0") || blackberry) getPoints.setVisibility(View.GONE);
-        getPoints.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v){
-        		Intent i = new Intent(getApplicationContext(), TapJoyLauncher.class);
-        		i.putExtra("view_offers","true");
-        		startActivity(i);
-        		finish();
-        	}
-        });
         
         editName.setOnClickListener (new View.OnClickListener(){
         	@Override
@@ -254,7 +243,6 @@ public class UserActivity extends Activity{
 	        		if(rank!=0 && connected){
 	        			info2.setText(getResources().getString(R.string.your_rank)+rank+".");
 	        			listAdapter.notifyDataSetChanged();
-	        			//submitScore(arry[12], UName, level, average, aScores[0], myGameScore);
 	        			//Retrieve messages
 	    	            newMsg = false;
 	    	            String [] prevMsg = new String[2];
@@ -310,7 +298,6 @@ public class UserActivity extends Activity{
 				nameInput.setVisibility(View.VISIBLE);
 				isVisible=true;
 				editName.setVisibility(View.GONE);
-				getPoints.setVisibility(View.GONE);
 				initial = true;
 			}
 		}
@@ -372,8 +359,7 @@ public class UserActivity extends Activity{
 	            params.add(new BasicNameValuePair(TAG_VERSION, VERSION));
 	            params.add(new BasicNameValuePair(TAG_LOCALE, locale));
 
-	            JSONObject json = jsonParser.makeHttpRequest(url_update_user,
-	                    "POST", params);
+	            jsonParser.makeHttpRequest(url_update_user,"POST", params);
 	            
 
 				if(!nameUpdateOnly) {
@@ -382,15 +368,14 @@ public class UserActivity extends Activity{
 					 * */
 					List<NameValuePair> params2 = new ArrayList<>();
 					params2.add(new BasicNameValuePair(TAG_UID, id));
-					JSONObject json2 = jsonParser.makeHttpRequest(url_get_rank,
-							"POST", params2);
+					JSONObject json2 = jsonParser.makeHttpRequest(url_get_rank,"POST", params2);
 					try {
 						int success = json2.getInt(TAG_SUCCESS);
 						if (success == 1) {
 							// successfully updated
 							connected = true;
 							System.out.print("Database rank Successful");
-							rank = Integer.parseInt(json2.getString(TAG_MESSAGE));
+							rank = (int) Double.parseDouble(json2.getString(TAG_MESSAGE));
 						} else {
 							// failed to update product
 							System.out.print("Database rank NOT Successful");

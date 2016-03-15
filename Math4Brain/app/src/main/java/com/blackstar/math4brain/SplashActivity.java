@@ -38,27 +38,29 @@ public class SplashActivity extends Activity{
             		}
             		else{
             			logo.setVisibility(View.INVISIBLE);
-            			//start flurry analytics
-            	        FlurryAgent.onStartSession(getApplicationContext(), "JPXJY5V8RD5N4MQJ8SN3");
-	            		startActivity(new Intent("android.intent.action.MENU"));
-	            		finish();
+						startActivity(new Intent("android.intent.action.MENU"));
+						finish();
             		}
             	}
-            };                  
-    		mHandler.postDelayed(mStopSplash, 2500);
-    		
+            };
+
+			//start flurry analytics
+			FlurryAgent.onStartSession(getApplicationContext(), "JPXJY5V8RD5N4MQJ8SN3");
+
         	//if user clicks screen stop and proceed
         	FrameLayout fl = (FrameLayout ) findViewById(R.id.frameLayout1);
         	fl.setOnClickListener (new View.OnClickListener(){
             	@Override
 				public void onClick (View v){
             		//start flurry analytics
-                    FlurryAgent.onStartSession(getApplicationContext(), "JPXJY5V8RD5N4MQJ8SN3");
             		startActivity(new Intent("android.intent.action.MENU"));
             		mHandler.removeCallbacks(mStopSplash);
             		finish();
             	}
             });
+
+			//start closing animation
+			mHandler.postDelayed(mStopSplash, 2000);
         }
     }
 }

@@ -160,9 +160,15 @@ Total Points:"</string>
     <string name="too_difficult">Lower difficulty recommended</string>
     <string name="days">days</string>
     <string name="prog_chart">Your Progress Chart</string>
+    <!--  New -->
     <string name="try_challenge">Try Challenge Mode</string>
     <string name="evaluation">Evaluation</string>
     <string name="evaluation_msg">Hey, we are going to create a customized profile for you. Lets get started</string>
+    <string name="enter_valid_email">Please enter a valid email address</string>
+    <string name="email">email address</string>
+    <string name="backup">Backup data online</string>
+    <string name="restore">Restore data</string>
+    <string name="backup_restore">Backup/Restore</string>
     
     <!--  Tips -->
     <string-array name="tips">

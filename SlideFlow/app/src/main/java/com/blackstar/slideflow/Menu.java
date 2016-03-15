@@ -81,31 +81,31 @@ public class Menu extends Activity{
 			dialog.setCancelable(false);
 			TextView title = (TextView) dialog.findViewById(R.id.textViewTitle);
 			title.setVisibility(View.VISIBLE);
-			title.setText("Leave feedback");
+			title.setText(this.getString(R.string.leave_feedback));
 			TextView body = (TextView) dialog.findViewById(R.id.textViewMsg);
-			body.setText("Do you have a comment or suggestion? Send me a message");
+			body.setText(this.getString(R.string.feedback_msg));
 			Button dialogButton = (Button) dialog.findViewById(R.id.button1);
 			dialogButton.setVisibility(View.VISIBLE);
-			dialogButton.setText("Leave feedback");
+			dialogButton.setText(this.getString(R.string.leave_feedback));
 			dialogButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					Intent i = new Intent(Intent.ACTION_SEND);
 					i.setType("text/plain");
 					i.putExtra(Intent.EXTRA_EMAIL, new String[]{"blackstar.feedback@gmail.com"});
-					i.putExtra(Intent.EXTRA_SUBJECT, "SlideFlow Feedback");
+					i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.email_subject));
 					i.putExtra(Intent.EXTRA_TEXT, "");
 					try {
-						startActivity(Intent.createChooser(i, "send email using"));
+						startActivity(Intent.createChooser(i, getResources().getString(R.string.send_email_using)));
 					} catch (android.content.ActivityNotFoundException ex) {
-						Toast.makeText(Menu.this, "no email client", Toast.LENGTH_SHORT).show();
+						Toast.makeText(Menu.this, getResources().getString(R.string.no_email_client), Toast.LENGTH_SHORT).show();
 					}
 					dialog.dismiss();
 				}
 			});
 			Button dialogButton2 = (Button) dialog.findViewById(R.id.button2);
 			dialogButton2.setVisibility(View.VISIBLE);
-			dialogButton2.setText("perhaps later");
+			dialogButton2.setText(getResources().getString(R.string.perhaps_later));
 			dialogButton2.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {

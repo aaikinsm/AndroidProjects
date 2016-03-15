@@ -155,6 +155,15 @@ Puntos totales:"</string>
     <string name="too_difficult">Menor dificultad recomienda</string>
     <string name="days">días</string>
     <string name="prog_chart">Su gráfico de Progreso</string>
+    <string name="try_challenge">Pruebe el modo desafío</string>
+    <string name="evaluation">Evaluación</string>
+    <string name="evaluation_msg">Vamos a crear un perfil personalizado para usted. Empecemos</string>
+    <string name="enter_valid_email">Por favor, introduce una dirección de correo electrónico válida</string>
+    <string name="email">correo electrónico</string>
+    <string name="backup">Copia de seguridad de sus datos</string>
+    <string name="restore">Restaurar los datos</string>
+    <string name="backup_restore">Copia/Restaurar</string>
+
     
 	<string-array name = "tips">
 	    <item>"El cerebro de las mujeres y de los hombres es diferente biológica e intelectualmente."</item>

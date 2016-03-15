@@ -5,7 +5,6 @@
     android:background="@drawable/lines_bg_lr"
     android:orientation="vertical" >
 
-    <Button android:id="@+id/buttonPro" android:background="@drawable/button_small" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/get_pro_version" style="?android:attr/buttonStyleSmall" />
     <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
         <Button android:id="@+id/buttonSwitchPage" android:background="@drawable/button_menu" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/personalize" android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />
         <Button android:id="@+id/buttonSelectUser" android:background="@drawable/button_menu" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/user_profiles" android:layout_weight="1.0" style="?android:attr/buttonStyleSmall" />

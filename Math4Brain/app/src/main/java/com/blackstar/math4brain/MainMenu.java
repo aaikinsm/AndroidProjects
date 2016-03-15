@@ -13,7 +13,7 @@ import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -53,8 +53,8 @@ import java.util.Scanner;
 import java.util.UUID;
 
 
-public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
-	int minPointsPro = 6000, points, FILESIZE=25, tries=3;
+public class MainMenu extends AppCompatActivity implements TapjoyNotifier{
+	int minPointsPro = 5000, points, FILESIZE=25, tries=3;
 	MediaPlayer mp3Bg;
 	GameSettings gSettings;
 	String FILENAME = "m4bfile1", FILEPRO = "m4bfilePro1",  FILEMULT = "m4bfileMul", FILETRACK = "m4bfileTrack";
@@ -79,7 +79,9 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         final ImageButton minRun = (ImageButton) findViewById(R.id.button60SRun);
         final ImageButton challenge = (ImageButton) findViewById(R.id.buttonChallenge);
         final ImageButton faceOff = (ImageButton) findViewById(R.id.buttonFaceOff);
-        final ImageView logo = (ImageView) findViewById(R.id.imageViewLogo);
+		final ImageButton settings = (ImageButton) findViewById(R.id.buttonSettings);
+		final ImageButton userInfo = (ImageButton) findViewById(R.id.buttonUserInfo);
+		final ImageView logo = (ImageView) findViewById(R.id.imageViewLogo);
         final TextView version = (TextView) findViewById(R.id.version);
 
         menuSpace = (LinearLayout) findViewById(R.id.linearLayoutMenu);
@@ -128,14 +130,13 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 				Toast.makeText(getApplicationContext(), R.string.welcome_to_m4b,Toast.LENGTH_LONG).show();
 				String c1 = "Type: 12  Sound: 1  Difficulty: 2 ";
 				String c2 = "Level: 1  Scores: 0 0 0 ";
-				String c3 = " User:_no_name  music: 1  vibrate: 1 rate_popup: 0 mic: 0";
+				String c3 = " User:_no_name  music: 1  vibrate: 1 rate_popup: 0 mic: 0 email";
     			OutputStreamWriter out = new OutputStreamWriter(openFileOutput(FILENAME,0)); 
     			out.write(c1 + c2 + myUID + c3);
     			out.close();       
     			mp3Bg.start();
 		        mp3Bg.setLooping(true);
-//				if(getResources().getConfiguration().locale.toString().contains("en"))
-//					startActivity(new Intent(getApplicationContext(),InitialEvaluationActivity.class));
+				startActivity(new Intent(getApplicationContext(), InitialEvaluationActivity.class));
         	} catch (IOException z) {
         		z.printStackTrace(); 
         	}
@@ -260,6 +261,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         	@Override
 			public void onClick (View v){
         		animateTransition(PracticeActivity.class);
+				//animateTransition(InitialEvaluationActivity.class);
         		//check
                 /*try {
         			FileInputStream i = openFileInput(FILENAME);
@@ -278,7 +280,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         minRun.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-				FlurryAgent.logEvent("Minute_Run", userParams);
+				//FlurryAgent.logEvent("Minute_Run", userParams);
         		animateTransition(MinuteRunActivity.class);
         	}
         });
@@ -286,7 +288,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         challenge.setOnClickListener (new View.OnClickListener(){
         	@Override
 			public void onClick (View v){
-				FlurryAgent.logEvent("Challenge");
+				//FlurryAgent.logEvent("Challenge");
                 if (resumable)resumeDialog();
                 else animateTransition(ChallengeActivity.class);
         	}
@@ -296,10 +298,25 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         	@Override
 			public void onClick (View v){
         		multiplayerDialog();
-        		FlurryAgent.logEvent("Multiplayer");
+        		//FlurryAgent.logEvent("Multiplayer");
         	}
         });
 
+        settings.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                //FlurryAgent.logEvent("Settings");
+				startActivity(new Intent(getApplicationContext(),CreateSettingsActivity.class));
+            }
+        });
+
+        userInfo.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                //FlurryAgent.logEvent("User_info");
+				startActivity(new Intent(getApplicationContext(),UserActivity.class));
+            }
+        });
     }
 
 	@Override
@@ -314,18 +331,28 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle presses on the action bar items
 		switch (item.getItemId()) {
-			case R.id.settings:
-				FlurryAgent.logEvent("Settings");
-				animateTransition(CreateSettingsActivity.class);
-				return true;
-			case R.id.user:
-				FlurryAgent.logEvent("UserInfo");
-				animateTransition(UserActivity.class);
-				return true;
 			case R.id.rank:
-				Intent i = new Intent(getApplicationContext(), UserActivity.class);
-				i.putExtra("view_rank",true);
-				startActivity(i);
+                Intent i = new Intent(getApplicationContext(), UserActivity.class);
+                i.putExtra("view_rank",true);
+                startActivity(i);
+                return true;
+            case R.id.feedback:
+                leaveFeedback();
+                return true;
+            case R.id.rate:
+                rateApp();
+                return true;
+            case R.id.getPoints:
+                getPoints();
+                return true;
+            case R.id.getPro:
+                mHelper.launchPurchaseFlow(activity, sku, 10001, mPurchaseFinishedListener, gFile[13]);
+                return true;
+			case R.id.sync:
+				Intent s = new Intent(getApplicationContext(), SyncDataActivity.class);
+				s.putExtra("userData",gFile);
+				startActivity(s);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -368,7 +395,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		}
 
 		//set feedback frequency
-		int fb = (int) (Math.random()*(50)) ;
+		int fb = (int) (Math.random()*(80)) ;
 
 		if ((fb==4 || fb==5) && ratePopup==0  && Integer.parseInt(gFile[7])>2 && connection){
 			//Google Play rating dialog
@@ -386,15 +413,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			dialogButton.setOnClickListener (new View.OnClickListener(){
 				@Override
 				public void onClick (View v) {
-					try{
-						if(amazon)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I")));
-						else if(blackberry)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://appworld.blackberry.com/webstore/content/20484402/")));
-						else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.blackstar.math4brain")));
-					}catch(Exception E){
-						startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.blackstar.math4brain")));
-					}
-					gFile[19]="1";
-					write();
+					rateApp();
 					dialog.dismiss();
 				}
 			});
@@ -439,16 +458,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			dialogButton.setOnClickListener (new View.OnClickListener(){
 				@Override
 				public void onClick (View v) {
-					Intent i = new Intent(Intent.ACTION_SEND);
-					i.setType("text/plain");
-					i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"blackstar.feedback@gmail.com"});
-					i.putExtra(Intent.EXTRA_SUBJECT, R.string.email_subject);
-					i.putExtra(Intent.EXTRA_TEXT   , "");
-					try {
-						startActivity(Intent.createChooser(i, getString(R.string.send_email_using)));
-					} catch (android.content.ActivityNotFoundException ex) {
-						Toast.makeText(MainMenu.this, R.string.no_email_client, Toast.LENGTH_SHORT).show();
-					}
+					leaveFeedback();
 					dialog.dismiss();
 				}
 			});
@@ -477,9 +487,7 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 			dialogButton.setOnClickListener (new View.OnClickListener(){
 				@Override
 				public void onClick (View v) {
-					Intent i = new Intent(getApplicationContext(), TapJoyLauncher.class);
-					i.putExtra("view_offers","true");
-					startActivity(i);
+					getPoints();
 					dialog.dismiss();
 				}
 			});
@@ -566,8 +574,8 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	    //set reminder for 3 days
 	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(this,001000,intent,0);
 	    alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 259200000, pendingIntent2);
-	    //stop flurry
-        FlurryAgent.onEndSession(this);
+		//stop flurry
+		FlurryAgent.onEndSession(this);
         //unbind inApp billing service
         if(connection){
 	        if (mHelper != null) mHelper.dispose();
@@ -591,28 +599,28 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 		dialogButton.setVisibility(View.VISIBLE);
 		body.setText(R.string.resume_saved);
 		dialogButton.setText(R.string.resume);
-		dialogButton.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v) {
-				dialog.dismiss();
-				startActivity(new Intent(getApplicationContext(), ChallengeActivity.class));
-			}
-		});		
-		localDisplayLevels.setOnTouchListener(new View.OnTouchListener(){
-			@Override
-			public boolean onTouch(View arg0, MotionEvent event) {
-				if(event.getAction() == MotionEvent.ACTION_DOWN){
-					int out = (localDisplayLevels.getSelectedLevel(event.getX(),event.getY()))-1;
-					if(out>0 && out<=Integer.parseInt(gFile[7])){
-						gFile[7]=out+"";
-		        		write();
-						dialog.dismiss();
-						startActivity(new Intent(getApplicationContext(), ChallengeActivity.class));
-					}
-				}
-				return false;
-			}
-		});
+		dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                startActivity(new Intent(getApplicationContext(), ChallengeActivity.class));
+            }
+        });
+		localDisplayLevels.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int out = (localDisplayLevels.getSelectedLevel(event.getX(), event.getY())) - 1;
+                    if (out > 0 && out <= Integer.parseInt(gFile[7])) {
+                        gFile[7] = out + "";
+                        write();
+                        dialog.dismiss();
+                        startActivity(new Intent(getApplicationContext(), ChallengeActivity.class));
+                    }
+                }
+                return false;
+            }
+        });
 		dialog.show();
     }
     
@@ -637,16 +645,17 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
         		dialog.dismiss();
 			}
 		});
-		dialogButton2.setOnClickListener (new View.OnClickListener(){
-        	@Override
-			public void onClick (View v) {
-        		clickSound();
-        		FlurryAgent.logEvent("multiplayer2");
-        		if (pro) startActivity(new Intent(getApplicationContext(),Multiplayer2Activity.class));
-        		else m2Dialog(); 
-        		dialog.dismiss();
-			}
-		});
+		dialogButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickSound();
+                FlurryAgent.logEvent("multiplayer2");
+                if (pro)
+                    startActivity(new Intent(getApplicationContext(), Multiplayer2Activity.class));
+                else m2Dialog();
+                dialog.dismiss();
+            }
+        });
 		dialog.show();
 		
     }
@@ -835,6 +844,41 @@ public class MainMenu extends ActionBarActivity implements TapjoyNotifier{
 	        tv.startAnimation(aAnimation);
 		}
 	}
+
+    public void leaveFeedback(){
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"blackstar.feedback@gmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, R.string.email_subject);
+        i.putExtra(Intent.EXTRA_TEXT   , "");
+        try {
+            startActivity(Intent.createChooser(i, getString(R.string.send_email_using)));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainMenu.this, R.string.no_email_client, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void rateApp(){
+        try{
+            if(amazon)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.amazon.ca/Blackstar-Math-For-The-Brain/dp/B00DR7TK6I")));
+            else if(blackberry)startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://appworld.blackberry.com/webstore/content/20484402/")));
+            else startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.blackstar.math4brain")));
+        }catch(Exception E){
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.blackstar.math4brain")));
+        }
+        gFile[19]="1";
+        write();
+    }
+
+    public void getPoints(){
+        if(!gFile[10].equals("0") && !blackberry) {
+            Intent i = new Intent(getApplicationContext(), TapJoyLauncher.class);
+            i.putExtra("view_offers", "true");
+            startActivity(i);
+        }else{
+			Toast.makeText(getApplicationContext(), R.string.not_enough_points, Toast.LENGTH_SHORT).show();
+		}
+    }
 	
 	IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener 
 	   = new IabHelper.OnIabPurchaseFinishedListener() {

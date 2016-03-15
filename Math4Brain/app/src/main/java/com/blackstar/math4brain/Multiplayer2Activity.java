@@ -50,7 +50,7 @@ import java.util.Scanner;
 public class Multiplayer2Activity extends Activity{
 	String IPADRS = "blackstar.herobo.com", FILENAME = "m4bfile1", FILEMULT = "m4bfileMul", FILEPRO = "m4bfilePro1",
 			name = "", id = "", message="", equations="", output="";
-	int myScr = 0, displaySecs, numEqn =20, index=0, p1Scr=0, p2Scr=0, anim=0, waitTimer=0, FILESIZE=25;
+	int myScr = 0, displaySecs, numEqn =30, index=0, p1Scr=0, p2Scr=0, anim=0, waitTimer=0, FILESIZE=25;
 	boolean player1= true, connected=false, gameOver = false, win = false, pro = false;
 	TextView text, info;
 	Handler mHandler = new Handler();

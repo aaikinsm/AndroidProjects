@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linearLayoutMenu"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/lines_bg_lr"
         android:gravity="center_horizontal"
@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/buttonEditName"
@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:text="Medium Text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#000000" />
@@ -81,30 +81,21 @@
 
         </FrameLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonShare"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_small"
+            android:background="@color/dim_foreground_material_dark"
             android:text="@string/share"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
 
         <FrameLayout
             android:id="@+id/frameLayoutRR"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1.2" >
-
-            <Button
-                android:id="@+id/buttonGetPoints"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|center"
-                android:background="@drawable/button_small"
-                android:text="@string/get_more_points"
-                android:textColor="#0000FF" />
 
             <Button
                 android:id="@+id/buttonViewRank"
@@ -132,7 +123,7 @@
             android:text="your rank"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TableLayout
             android:id="@+id/tableLayoutTopUsers"
@@ -142,6 +133,7 @@
             android:background="@drawable/global"
             android:gravity="center"
             android:paddingLeft="5dp"
+            android:paddingStart="5dp"
             android:scrollbarAlwaysDrawVerticalTrack="true" >
 
             <LinearLayout
@@ -170,7 +162,7 @@
                         android:layout_weight=".75"
                         android:text="@string/name"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="14dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textViewInform"
@@ -179,7 +171,7 @@
                         android:layout_weight="1"
                         android:text="@string/level"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="14dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -188,7 +180,7 @@
                         android:layout_weight="1"
                         android:text="@string/average_score"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="14dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView4"
@@ -197,7 +189,7 @@
                         android:layout_weight="1"
                         android:text="@string/total_points"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="14dp" />
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <ListView

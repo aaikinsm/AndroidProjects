@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	Runnable mUpdateTimer;
 	MediaPlayer mp3Tick;
 	double startTime = 0, nextTime=0, time=0;
-	int count = 0, combo = 0, minPointsPro = 6000, displaySecs, hintSleep, FILESIZE=25;
+	int count = 0, combo = 0, minPointsPro = 5000, displaySecs, hintSleep, FILESIZE=25;
 	boolean update_display_ad=false, blackberry = false, amazon = false, pro = false, colorful=false, connection =true;
 	TapjoyFullScreenAdNotifier fullAdNotif = this;
 	String review = "", FILEEXTRA = "m4bfileExt";
@@ -63,6 +64,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 	ImageButton micButton;
 	AdView adView1;
 	InterstitialAd mInterstitialAd;
+	ProgressBar progress;
     
     /** Called when the activity is first created. */
     @Override
@@ -131,6 +133,9 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         if(cm.getActiveNetworkInfo() == null) connection = false;
         if(android.os.Build.BRAND.toLowerCase().contains("blackberry"))blackberry=true;
         else if(android.os.Build.MODEL.toLowerCase().contains("kindle"))amazon=true;
+		progress = (ProgressBar) findViewById(R.id.progressBarBlue);
+		progress.setVisibility(View.VISIBLE);
+		clock.setVisibility(View.GONE);
 
 
         //Locate the Banner Ad in activity_main.xml
@@ -294,6 +299,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
 					}
         		}
         		clock.setText(gSettings.getClock());
+				progress.setProgress((int) (Double.parseDouble(gSettings.getClock()) * 100 / setTime));
         		if(gSettings.clock==0){
         			//Display ad or banner if not pro version
         			if(!(aScores[0]>minPointsPro || pro)){
@@ -335,6 +341,7 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
             		next.setText(getString(R.string.try_again));
             		next.setVisibility(View.VISIBLE);
             		back.setVisibility(View.VISIBLE);
+                    progress.setVisibility(View.GONE);
             		
             		//set emoticons
             		if (gSettings.getPoints()>average+10){
@@ -901,20 +908,24 @@ public class MinuteRunActivity extends Activity implements TapjoyDisplayAdNotifi
         try{
         mp3Tick.stop();
         }catch(Exception E){E.printStackTrace();}
+
+		int rn = (int) (Math.random()*(20)) ;
+		if(!pro && rn==1 && Integer.parseInt(gFile[9])>1500 && mInterstitialAd.isLoaded()){
+			mInterstitialAd.show();
+		}
+		else if(!pro && rn==3 && Integer.parseInt(gFile[9])>2000){
+			TapjoyConnect.getTapjoyConnectInstance().getFullScreenAd(fullAdNotif);
+			FlurryAgent.logEvent("Video_Ad");
+		}
+		else if(rn==4 && Integer.parseInt(gFile[9])>10000){
+			mInterstitialAd.show();
+		}
     }
     
     @Override
     public void onPause() {
         super.onPause();
         mHandler.removeCallbacks(mUpdateTimer);
-		int rn = (int) (Math.random()*(15)) ;
-		if(!pro && rn==1 && Integer.parseInt(gFile[9])>2000 && mInterstitialAd.isLoaded()){
-			mInterstitialAd.show();
-		}
-		else if(!pro && rn==2 && Integer.parseInt(gFile[9])>2000){
-			TapjoyConnect.getTapjoyConnectInstance().getFullScreenAd(fullAdNotif);
-			FlurryAgent.logEvent("Video_Ad");
-		}
         finish();
     }
 }
